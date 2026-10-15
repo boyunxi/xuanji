@@ -1,0 +1,756 @@
+{
+  "games": [
+    {
+      "id": "all",
+      "name": "全部游戏",
+      "displayOrder": 0
+    },
+    {
+      "id": "shanhai",
+      "name": "山海长歌",
+      "displayOrder": 1
+    },
+    {
+      "id": "jiuzhou",
+      "name": "九州志",
+      "displayOrder": 2
+    },
+    {
+      "id": "yunjian",
+      "name": "云间录",
+      "displayOrder": 3
+    }
+  ],
+  "players": [
+    {
+      "id": "XJ100689",
+      "name": "拾光者",
+      "game": "山海长歌",
+      "level": 91,
+      "spend": 5680,
+      "lastActive": "昨天 22:13",
+      "status": "正常"
+    },
+    {
+      "id": "XJ100731",
+      "name": "长安旧梦",
+      "game": "九州志",
+      "level": 58,
+      "spend": 320,
+      "lastActive": "昨天 18:35",
+      "status": "已封禁"
+    },
+    {
+      "id": "XJ100845",
+      "name": "云深不知处",
+      "game": "云间录",
+      "level": 77,
+      "spend": 2580,
+      "lastActive": "昨天 16:09",
+      "status": "正常"
+    },
+    {
+      "id": "XJ100926",
+      "name": "一叶知秋",
+      "game": "山海长歌",
+      "level": 43,
+      "spend": 128,
+      "lastActive": "2天前",
+      "status": "正常"
+    },
+    {
+      "id": "XJ100248",
+      "name": "听风入梦",
+      "game": "山海长歌",
+      "level": 86,
+      "spend": 3280,
+      "lastActive": "今天 10:42",
+      "status": "已封禁"
+    },
+    {
+      "id": "XJ100367",
+      "name": "青山客",
+      "game": "九州志",
+      "level": 72,
+      "spend": 1680,
+      "lastActive": "今天 09:18",
+      "status": "已封禁"
+    },
+    {
+      "id": "XJ100512",
+      "name": "月照归舟",
+      "game": "云间录",
+      "level": 64,
+      "spend": 980,
+      "lastActive": "今天 08:56",
+      "status": "已封禁"
+    }
+  ],
+  "events": [
+    {
+      "id": "EV2401",
+      "title": "春山有信",
+      "game": "山海长歌",
+      "start": "2026-10-17",
+      "end": "2026-10-24",
+      "participants": 0,
+      "status": "未开始"
+    },
+    {
+      "id": "EV2402",
+      "title": "九州问剑",
+      "game": "九州志",
+      "start": "2026-10-13",
+      "end": "2026-10-20",
+      "participants": 12846,
+      "status": "进行中"
+    },
+    {
+      "id": "EV2403",
+      "title": "月下寻宝",
+      "game": "云间录",
+      "start": "2026-10-11",
+      "end": "2026-10-18",
+      "participants": 8620,
+      "status": "进行中"
+    },
+    {
+      "id": "EV2404",
+      "title": "山海奇遇",
+      "game": "山海长歌",
+      "start": "2026-09-27",
+      "end": "2026-10-11",
+      "participants": 24518,
+      "status": "已结束"
+    },
+    {
+      "id": "EV131481",
+      "title": "中秋灯会活动",
+      "game": "山海长歌",
+      "start": "2026-10-18",
+      "end": "2026-10-25",
+      "participants": 0,
+      "status": "未开始"
+    },
+    {
+      "id": "EV2405",
+      "title": "踏云之约",
+      "game": "云间录",
+      "start": "2026-10-22",
+      "end": "2026-10-29",
+      "participants": 0,
+      "status": "未开始"
+    },
+    {
+      "id": "EV993493",
+      "title": "测试秘境活动",
+      "game": "山海长歌",
+      "start": "2026-10-25",
+      "end": "2026-11-01",
+      "participants": 0,
+      "status": "进行中"
+    },
+    {
+      "id": "EV706873",
+      "title": "中秋灯会活动",
+      "game": "山海长歌",
+      "start": "2026-10-18",
+      "end": "2026-10-25",
+      "participants": 0,
+      "status": "未开始"
+    }
+  ],
+  "announcements": [
+    {
+      "id": "AN3101",
+      "title": "版本更新说明",
+      "game": "山海长歌",
+      "date": "2026-10-15",
+      "content": "新版本现已上线，优化了游戏体验并修复部分已知问题。",
+      "status": "已发布"
+    },
+    {
+      "id": "AN3102",
+      "title": "服务器维护通知",
+      "game": "九州志",
+      "date": "2026-10-14",
+      "content": "服务器将进行例行维护，具体时间请以游戏内通知为准。",
+      "status": "已发布"
+    },
+    {
+      "id": "AN3103",
+      "title": "春山有信活动预告",
+      "game": "山海长歌",
+      "date": "2026-10-14",
+      "content": "春山有信活动即将开启，参与活动可获得限定奖励。",
+      "status": "草稿"
+    },
+    {
+      "id": "AN3104",
+      "title": "月下寻宝开启公告",
+      "game": "云间录",
+      "date": "2026-10-12",
+      "content": "月下寻宝活动已开启，欢迎各位玩家参与。",
+      "status": "已发布"
+    }
+  ],
+  "orders": [
+    {
+      "id": "XC2610150419",
+      "player": "青山客",
+      "game": "九州志",
+      "amount": 68,
+      "method": "支付宝",
+      "time": "2026-10-15 10:18",
+      "status": "成功"
+    },
+    {
+      "id": "XC2610150416",
+      "player": "月照归舟",
+      "game": "云间录",
+      "amount": 198,
+      "method": "微信支付",
+      "time": "2026-10-15 09:56",
+      "status": "处理中"
+    },
+    {
+      "id": "XC2610150408",
+      "player": "拾光者",
+      "game": "山海长歌",
+      "amount": 648,
+      "method": "支付宝",
+      "time": "2026-10-15 09:24",
+      "status": "成功"
+    },
+    {
+      "id": "XC2610140398",
+      "player": "一叶知秋",
+      "game": "山海长歌",
+      "amount": 30,
+      "method": "微信支付",
+      "time": "2026-10-14 20:31",
+      "status": "已退款"
+    },
+    {
+      "id": "XC2610140392",
+      "player": "云深不知处",
+      "game": "云间录",
+      "amount": 128,
+      "method": "支付宝",
+      "time": "2026-10-14 18:07",
+      "status": "处理中"
+    },
+    {
+      "id": "XC2610150421",
+      "player": "听风入梦",
+      "game": "山海长歌",
+      "amount": 328,
+      "method": "微信支付",
+      "time": "2026-10-15 10:42",
+      "status": "已退款"
+    }
+  ],
+  "notices": [
+    {
+      "id": 3,
+      "title": "本周运营数据已更新",
+      "time": "今天 08:30",
+      "page": "reports",
+      "read": false
+    },
+    {
+      "id": 2,
+      "title": "有 2 笔订单待核对",
+      "time": "3小时前",
+      "page": "orders",
+      "read": false
+    },
+    {
+      "id": 1,
+      "title": "春山有信活动待开启",
+      "time": "2小时前",
+      "page": "events",
+      "read": false
+    }
+  ],
+  "settings": {
+    "daily": true,
+    "orders": true,
+    "events": false
+  },
+  "gmLogs": [
+    {
+      "id": "GM816879",
+      "operator": "林管理员",
+      "action": "发放定制礼盒",
+      "target": "山海长歌 · XJ100248",
+      "detail": "向玩家发放定制礼匣 [西王母瑶池盛宴礼匣] x3 (类型: 随机概率盲盒)，原因: 周年庆典首发福利",
+      "time": "2026-10-15 18:25:20",
+      "status": "成功"
+    },
+    {
+      "id": "GM567588",
+      "operator": "林管理员",
+      "action": "发放道具",
+      "target": "山海长歌 · XJ100248",
+      "detail": "发放 太虚灵石 x500 (原因: 单元测试发放)",
+      "time": "2026-10-15 18:11:42",
+      "status": "成功"
+    }
+  ],
+  "items": [
+    {
+      "id": "ITEM_101",
+      "name": "元宝",
+      "category": "通用货币",
+      "description": "最高价值通货，用于商城直购与抽奖",
+      "rarity": "传说",
+      "isCustom": false
+    },
+    {
+      "id": "ITEM_102",
+      "name": "灵石",
+      "category": "通用货币",
+      "description": "修炼基础资源，用于洞府与功法升级",
+      "rarity": "稀有",
+      "isCustom": false
+    },
+    {
+      "id": "ITEM_103",
+      "name": "仙玉",
+      "category": "通用货币",
+      "description": "跨服战役特殊代币，兑换限定外观",
+      "rarity": "史诗",
+      "isCustom": false
+    },
+    {
+      "id": "ITEM_104",
+      "name": "银两",
+      "category": "通用货币",
+      "description": "日常主线流通货币，NPC交易使用",
+      "rarity": "普通",
+      "isCustom": false
+    },
+    {
+      "id": "ITEM_105",
+      "name": "宗门贡献",
+      "category": "通用货币",
+      "description": "宗门活动产出，兑换宗门藏经阁秘籍",
+      "rarity": "普通",
+      "isCustom": false
+    },
+    {
+      "id": "ITEM_15895",
+      "name": "瑶池蟠桃",
+      "category": "修炼丹药",
+      "description": "增加三千年修为",
+      "rarity": "传说",
+      "isCustom": true
+    },
+    {
+      "id": "ITEM_201",
+      "name": "九转金丹",
+      "category": "修炼丹药",
+      "description": "渡劫破境神丹，提升突破成功率100%",
+      "rarity": "传说",
+      "isCustom": false
+    },
+    {
+      "id": "ITEM_202",
+      "name": "凝气丹",
+      "category": "修炼丹药",
+      "description": "炼气化神基础灵药，快速提升角色经验",
+      "rarity": "普通",
+      "isCustom": false
+    },
+    {
+      "id": "ITEM_203",
+      "name": "洗髓丹",
+      "category": "修炼丹药",
+      "description": "洗练经脉资质，重置所有自由潜能点",
+      "rarity": "稀有",
+      "isCustom": false
+    },
+    {
+      "id": "ITEM_204",
+      "name": "大还丹",
+      "category": "修炼丹药",
+      "description": "瞬时恢复全部生命气血与法力真气",
+      "rarity": "稀有",
+      "isCustom": false
+    },
+    {
+      "id": "ITEM_205",
+      "name": "渡劫保命符",
+      "category": "修炼丹药",
+      "description": "天劫雷罚失败时免受修为倒退惩罚",
+      "rarity": "史诗",
+      "isCustom": false
+    },
+    {
+      "id": "ITEM_301",
+      "name": "强化神石",
+      "category": "锻造材料",
+      "description": "神兵精炼必备石材，提高强化成功概率",
+      "rarity": "史诗",
+      "isCustom": false
+    },
+    {
+      "id": "ITEM_302",
+      "name": "天外陨铁",
+      "category": "锻造材料",
+      "description": "重铸装备附加极品词条的核心材料",
+      "rarity": "史诗",
+      "isCustom": false
+    },
+    {
+      "id": "ITEM_303",
+      "name": "寒铁精魄",
+      "category": "锻造材料",
+      "description": "千年极寒玄铁提炼，兵刃升阶材料",
+      "rarity": "稀有",
+      "isCustom": false
+    },
+    {
+      "id": "ITEM_304",
+      "name": "凤羽流金",
+      "category": "锻造材料",
+      "description": "神鸟凤凰遗留赤羽，防具附魔顶级材料",
+      "rarity": "传说",
+      "isCustom": false
+    },
+    {
+      "id": "ITEM_305",
+      "name": "乾坤石",
+      "category": "锻造材料",
+      "description": "用于拓展角色背包与宗门乾坤仓库空间",
+      "rarity": "普通",
+      "isCustom": false
+    },
+    {
+      "id": "ITEM_401",
+      "name": "太虚飞剑",
+      "category": "极品装备",
+      "description": "纯阳无极神兵，御剑飞行时提升移速80%",
+      "rarity": "传说",
+      "isCustom": false
+    },
+    {
+      "id": "ITEM_402",
+      "name": "斩龙古剑",
+      "category": "极品装备",
+      "description": "附带高额真伤与暴击伤害的太古名剑",
+      "rarity": "史诗",
+      "isCustom": false
+    },
+    {
+      "id": "ITEM_403",
+      "name": "诛仙阵图",
+      "category": "极品装备",
+      "description": "绝世杀伐阵法法宝，对全屏敌对目标造成重创",
+      "rarity": "传说",
+      "isCustom": false
+    },
+    {
+      "id": "ITEM_404",
+      "name": "混元金斗",
+      "category": "极品装备",
+      "description": "上古封神仙器，战斗时禁锢敌方主动战法",
+      "rarity": "史诗",
+      "isCustom": false
+    },
+    {
+      "id": "ITEM_405",
+      "name": "伏魔宝镜",
+      "category": "极品装备",
+      "description": "破除一切隐身与虚妄状态的灵宝",
+      "rarity": "稀有",
+      "isCustom": false
+    },
+    {
+      "id": "ITEM_501",
+      "name": "限定坐骑·墨麒麟",
+      "category": "外观坐骑",
+      "description": "开服全区首发极品神兽坐骑，自带祥瑞云雾",
+      "rarity": "传说",
+      "isCustom": false
+    },
+    {
+      "id": "ITEM_502",
+      "name": "踏雪白鹿",
+      "category": "外观坐骑",
+      "description": "仙风道骨灵兽外观，提升移动速度60%",
+      "rarity": "史诗",
+      "isCustom": false
+    },
+    {
+      "id": "ITEM_503",
+      "name": "九霄云雀",
+      "category": "外观坐骑",
+      "description": "华丽飞行坐骑，免疫沼泽与水面减速地形",
+      "rarity": "史诗",
+      "isCustom": false
+    },
+    {
+      "id": "ITEM_504",
+      "name": "苍龙出海·神尊战袍",
+      "category": "外观坐骑",
+      "description": "至尊限定时装，出场伴随金龙环绕特效",
+      "rarity": "传说",
+      "isCustom": false
+    }
+  ],
+  "giftBoxes": [
+    {
+      "id": "BOX_438470",
+      "name": "玄天灵宝自选匣",
+      "game": "山海长歌",
+      "boxType": "single_choice",
+      "maxChoices": 1,
+      "rarity": "传说",
+      "icon": "box",
+      "description": "太虚灵机幻化而成，少侠可从中任选一件神物收入囊中。",
+      "status": "已启用",
+      "items": [
+        {
+          "itemName": "太虚飞剑",
+          "category": "极品装备",
+          "amount": 1,
+          "probability": 0,
+          "rarity": "传说"
+        },
+        {
+          "itemName": "限定坐骑·墨麒麟",
+          "category": "外观道具",
+          "amount": 1,
+          "probability": 0,
+          "rarity": "传说"
+        }
+      ],
+      "createdAt": "2026-10-15 19:32:10",
+      "updatedAt": "2026-10-15 19:32:10"
+    },
+    {
+      "id": "BOX_715469",
+      "name": "西王母瑶池盛宴礼匣",
+      "game": "山海长歌",
+      "boxType": "random_prob",
+      "maxChoices": 1,
+      "rarity": "传说",
+      "icon": "box",
+      "description": "天降祥瑞！开启后按概率随机获得极品神物瑶池蟠桃或海量元宝。",
+      "status": "已启用",
+      "items": [
+        {
+          "itemName": "瑶池蟠桃",
+          "category": "修炼丹药",
+          "amount": 1,
+          "probability": 10,
+          "rarity": "传说"
+        },
+        {
+          "itemName": "元宝",
+          "category": "通用货币",
+          "amount": 8888,
+          "probability": 30,
+          "rarity": "传说"
+        },
+        {
+          "itemName": "九转金丹",
+          "category": "修炼丹药",
+          "amount": 5,
+          "probability": 60,
+          "rarity": "稀有"
+        }
+      ],
+      "createdAt": "2026-10-15 18:24:47",
+      "updatedAt": "2026-10-15 18:24:47"
+    },
+    {
+      "id": "BOX_2404",
+      "name": "宗门飞升突破多选自选箱",
+      "game": "九州志",
+      "boxType": "multi_choice",
+      "maxChoices": 2,
+      "rarity": "史诗",
+      "icon": "box",
+      "description": "多选自选礼盒（6选2）：从6种宗门高阶稀缺材料中任选2样，满足不同阶段修炼诉求。",
+      "status": "已启用",
+      "items": [
+        {
+          "itemName": "天外陨铁",
+          "category": "锻造材料",
+          "amount": 10,
+          "probability": 0,
+          "rarity": "史诗"
+        },
+        {
+          "itemName": "凤羽流金",
+          "category": "锻造材料",
+          "amount": 10,
+          "probability": 0,
+          "rarity": "传说"
+        },
+        {
+          "itemName": "寒铁精魄",
+          "category": "锻造材料",
+          "amount": 30,
+          "probability": 0,
+          "rarity": "稀有"
+        },
+        {
+          "itemName": "渡劫保命符",
+          "category": "修炼丹药",
+          "amount": 5,
+          "probability": 0,
+          "rarity": "史诗"
+        },
+        {
+          "itemName": "洗髓丹",
+          "category": "修炼丹药",
+          "amount": 20,
+          "probability": 0,
+          "rarity": "稀有"
+        },
+        {
+          "itemName": "仙玉",
+          "category": "通用货币",
+          "amount": 1000,
+          "probability": 0,
+          "rarity": "史诗"
+        }
+      ],
+      "createdAt": "2026-10-15 15:20:00",
+      "updatedAt": "2026-10-15 15:20:00"
+    },
+    {
+      "id": "BOX_2403",
+      "name": "绝世神兵传世自选礼盒",
+      "game": "山海长歌",
+      "boxType": "single_choice",
+      "maxChoices": 1,
+      "rarity": "传说",
+      "icon": "sword",
+      "description": "单选自选礼盒（5选1）：打开后可从五柄无上古神兵中任选其一，专属定制成长路线。",
+      "status": "已启用",
+      "items": [
+        {
+          "itemName": "太虚飞剑",
+          "category": "极品装备",
+          "amount": 1,
+          "probability": 0,
+          "rarity": "传说"
+        },
+        {
+          "itemName": "斩龙古剑",
+          "category": "极品装备",
+          "amount": 1,
+          "probability": 0,
+          "rarity": "史诗"
+        },
+        {
+          "itemName": "诛仙阵图",
+          "category": "极品装备",
+          "amount": 1,
+          "probability": 0,
+          "rarity": "传说"
+        },
+        {
+          "itemName": "混元金斗",
+          "category": "极品装备",
+          "amount": 1,
+          "probability": 0,
+          "rarity": "史诗"
+        },
+        {
+          "itemName": "伏魔宝镜",
+          "category": "极品装备",
+          "amount": 1,
+          "probability": 0,
+          "rarity": "稀有"
+        }
+      ],
+      "createdAt": "2026-10-15 14:00:00",
+      "updatedAt": "2026-10-15 14:00:00"
+    },
+    {
+      "id": "BOX_2402",
+      "name": "太古鸿蒙神兽天降盲盒",
+      "game": "全部游戏",
+      "boxType": "random_prob",
+      "maxChoices": 1,
+      "rarity": "传说",
+      "icon": "sparkles",
+      "description": "开启后按概率权重随机开出神兽或珍稀修行资源，极小概率直接开出限定墨麒麟！",
+      "status": "已启用",
+      "items": [
+        {
+          "itemName": "限定坐骑·墨麒麟",
+          "category": "外观坐骑",
+          "amount": 1,
+          "probability": 3.5,
+          "rarity": "传说"
+        },
+        {
+          "itemName": "踏雪白鹿",
+          "category": "外观坐骑",
+          "amount": 1,
+          "probability": 11.5,
+          "rarity": "史诗"
+        },
+        {
+          "itemName": "九霄云雀",
+          "category": "外观坐骑",
+          "amount": 1,
+          "probability": 25,
+          "rarity": "史诗"
+        },
+        {
+          "itemName": "灵石",
+          "category": "通用货币",
+          "amount": 10000,
+          "probability": 60,
+          "rarity": "稀有"
+        }
+      ],
+      "createdAt": "2026-10-15 11:30:00",
+      "updatedAt": "2026-10-15 11:30:00"
+    },
+    {
+      "id": "BOX_2401",
+      "name": "开服至尊必得大礼包",
+      "game": "山海长歌",
+      "boxType": "fixed",
+      "maxChoices": 1,
+      "rarity": "传说",
+      "icon": "crown",
+      "description": "直接开箱获得全额物资：元宝x10000、九转金丹x10、强化神石x50，开荒无忧。",
+      "status": "已启用",
+      "items": [
+        {
+          "itemName": "元宝",
+          "category": "通用货币",
+          "amount": 10000,
+          "probability": 100,
+          "rarity": "传说"
+        },
+        {
+          "itemName": "九转金丹",
+          "category": "修炼丹药",
+          "amount": 10,
+          "probability": 100,
+          "rarity": "传说"
+        },
+        {
+          "itemName": "强化神石",
+          "category": "锻造材料",
+          "amount": 50,
+          "probability": 100,
+          "rarity": "史诗"
+        }
+      ],
+      "createdAt": "2026-10-15 10:00:00",
+      "updatedAt": "2026-10-15 10:00:00"
+    }
+  ]
+}
