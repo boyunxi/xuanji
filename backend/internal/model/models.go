@@ -4,11 +4,17 @@ package model
 type Game = string
 
 const (
-	GameAll      Game = "全部游戏"
-	GameShanhai  Game = "山海长歌"
-	GameJiuzhou  Game = "九州志"
-	GameYunjian  Game = "云间录"
+	GameAll       Game = "全部区服"
+	GameAllLegacy Game = "全部游戏"
+	GameShanhai   Game = "山海长歌"
+	GameJiuzhou   Game = "九州志"
+	GameYunjian   Game = "云间录"
 )
+
+// IsAllGames checks if game filter represents all games/servers
+func IsAllGames(g string) bool {
+	return g == "" || g == "全部区服" || g == "全部游戏" || g == "all"
+}
 
 // RangeKey represents time range
 type RangeKey = string
@@ -21,13 +27,15 @@ const (
 
 // Player represents a game player
 type Player struct {
-	ID         string  `json:"id"`
-	Name       string  `json:"name"`
-	Game       string  `json:"game"`
-	Level      int     `json:"level"`
-	Spend      float64 `json:"spend"`
-	LastActive string  `json:"lastActive"`
-	Status     string  `json:"status"` // "正常" | "已封禁"
+	ID         string   `json:"id"`
+	Name       string   `json:"name"`
+	Game       string   `json:"game"`
+	Level      int      `json:"level"`
+	Spend      float64  `json:"spend"`
+	LastActive string   `json:"lastActive"`
+	Status     string   `json:"status"` // "正常" | "已封禁"
+	Tags       []string `json:"tags"`   // 标签列表，带有标签的玩家自动置顶排在最上面
+	Remark     string   `json:"remark"` // 运营人员填写的玩家备注备忘录
 }
 
 // Event represents an in-game event
@@ -38,7 +46,27 @@ type Event struct {
 	Start        string `json:"start"`
 	End          string `json:"end"`
 	Participants int    `json:"participants"`
-	Status       string `json:"status"` // "进行中" | "未开始" | "已结束"
+	Status       string `json:"status"` // "进行中" | "未开始" | "已暂停" | "已结束"
+}
+
+// ShopItem represents a commodity in the in-game mall
+type ShopItem struct {
+	ID            string  `json:"id"`
+	Name          string  `json:"name"`
+	Game          string  `json:"game"`          // "全部游戏" | "山海长歌" | "九州志" | "云间录"
+	Category      string  `json:"category"`      // "超值礼包" | "极品法宝" | "灵丹妙药" | "外观时装" | "货币直购"
+	Currency      string  `json:"currency"`      // "仙玉" | "元宝" | "灵石" | "CNY"
+	Price         float64 `json:"price"`         // 当前售价
+	OriginalPrice float64 `json:"originalPrice"` // 原价 (划线价)
+	Stock         int     `json:"stock"`         // -1 为不限库存
+	BuyLimit      string  `json:"buyLimit"`      // "不限购" | "永久限购1次" | "每日限购3次" | "每周限购1次"
+	Tag           string  `json:"tag"`           // "首充双倍" | "热销" | "限时特惠" | "爆款" | "新品"
+	Description   string  `json:"description"`
+	Items         string  `json:"items"`         // 包含道具说明
+	Status        string  `json:"status"`        // "上架中" | "已下架"
+	SortOrder     int     `json:"sortOrder"`
+	CreatedAt     string  `json:"createdAt"`
+	UpdatedAt     string  `json:"updatedAt"`
 }
 
 // Announcement represents a game announcement
@@ -169,11 +197,28 @@ type GMLog struct {
 	Status    string `json:"status"`    // "成功" | "失败"
 }
 
+// GameLog represents an in-game behavior and server runtime event log
+type GameLog struct {
+	ID         string `json:"id"`
+	Game       string `json:"game"`        // "山海长歌" | "九州志" | "云间录"
+	ServerID   string `json:"serverId"`    // "沧海流云-1服" | "九州巅峰-2服" | "全区服"
+	PlayerID   string `json:"playerId"`    // "XJ100248"
+	PlayerName string `json:"playerName"`  // "听风入梦"
+	Category   string `json:"category"`    // "经济流水" | "玩法战斗" | "角色成长" | "道具获取" | "安全风控" | "登录登出"
+	Action     string `json:"action"`      // "通关副本" | "商城消费" | "十连抽卡" | "境界突破" | "世界Boss"
+	Detail     string `json:"detail"`      // 详细流水或行为载荷
+	Delta      string `json:"delta"`       // 属性/数值流动: "+500 仙玉", "-1280 灵石", "+1 极品装备"
+	IP         string `json:"ip"`          // 玩家IP
+	Level      string `json:"level"`       // "INFO" | "WARN" | "CRITICAL"
+	Time       string `json:"time"`        // "2026-10-21 21:30:15"
+}
+
 // GMItemRequest request body for sending items/currencies
 type GMItemRequest struct {
 	Game     string `json:"game"`
 	PlayerID string `json:"playerId"`
 	ItemName string `json:"itemName"`
+	ItemID   string `json:"itemId,omitempty"`
 	Amount   int    `json:"amount"`
 	Reason   string `json:"reason"`
 }
@@ -289,4 +334,136 @@ type DispatchBoxRequest struct {
 	Amount   int    `json:"amount"`
 	Reason   string `json:"reason"`
 }
+
+// MailAttachment represents an attached resource in a mail
+type MailAttachment struct {
+	ItemID   string `json:"itemId"`
+	ItemName string `json:"itemName"`
+	Category string `json:"category"`
+	Amount   int    `json:"amount"`
+	Rarity   string `json:"rarity"` // "普通" | "稀有" | "史诗" | "传说"
+	IsBox    bool   `json:"isBox"`
+}
+
+// Mail represents an operational in-game compensation or announcement mail
+type Mail struct {
+	ID           string           `json:"id"`
+	Title        string           `json:"title"`
+	Content      string           `json:"content"`
+	Sender       string           `json:"sender"`
+	Game         string           `json:"game"`
+	TargetType   string           `json:"targetType"` // "all" (全服) | "player" (指定玩家)
+	TargetID     string           `json:"targetId"`   // "ALL" 或 玩家ID/名称
+	MinLevel     int              `json:"minLevel"`
+	Status       string           `json:"status"` // "已发送" | "草稿" | "已撤回"
+	Attachments  []MailAttachment `json:"attachments"`
+	SentAt       string           `json:"sentAt"`
+	ExpiresAt    string           `json:"expiresAt"`
+	ClaimedCount int              `json:"claimedCount"`
+	TotalTarget  int              `json:"totalTarget"`
+}
+
+// CreateMailRequest is payload for drafting or dispatching a mail
+type CreateMailRequest struct {
+	Title       string           `json:"title"`
+	Content     string           `json:"content"`
+	Sender      string           `json:"sender"`
+	Game        string           `json:"game"`
+	TargetType  string           `json:"targetType"`
+	TargetID    string           `json:"targetId"`
+	MinLevel    int              `json:"minLevel"`
+	ExpireDays  int              `json:"expireDays"`
+	Attachments []MailAttachment `json:"attachments"`
+	IsDraft     bool             `json:"isDraft"`
+}
+
+// CDKeyType represents universal or unique batch
+type CDKeyType = string
+
+const (
+	CDKeyTypeUniversal CDKeyType = "universal" // 通用兑换码 (一码多兑, 限制单人1次)
+	CDKeyTypeUnique    CDKeyType = "unique"    // 独占兑换码 (一码一兑, 批量发卡密)
+)
+
+// CDKeyReward represents an item or gift box rewarded by a CDKey
+type CDKeyReward struct {
+	ItemID   string `json:"itemId"`
+	ItemName string `json:"itemName"`
+	Category string `json:"category"`
+	Amount   int    `json:"amount"`
+	Rarity   string `json:"rarity"`
+	IsBox    bool   `json:"isBox"`
+}
+
+// CDKeyBatch represents a CDKey configuration batch
+type CDKeyBatch struct {
+	ID          string        `json:"id"`
+	Name        string        `json:"name"`
+	Type        CDKeyType     `json:"type"`
+	Code        string        `json:"code"`
+	Game        string        `json:"game"`
+	MinLevel    int           `json:"minLevel"`
+	TotalCount  int           `json:"totalCount"`
+	UsedCount   int           `json:"usedCount"`
+	Status      string        `json:"status"` // "已启用" | "已停用" | "已过期"
+	Rewards     []CDKeyReward `json:"rewards"`
+	CreatedAt   string        `json:"createdAt"`
+	ExpiresAt   string        `json:"expiresAt"`
+	Description string        `json:"description"`
+}
+
+// CDKeyItem represents an individual card key in a unique batch
+type CDKeyItem struct {
+	Code      string `json:"code"`
+	BatchID   string `json:"batchId"`
+	Status    string `json:"status"` // "待兑换" | "已兑换" | "已作废"
+	PlayerID  string `json:"playerId,omitempty"`
+	UsedAt    string `json:"usedAt,omitempty"`
+	ExpiresAt string `json:"expiresAt"`
+}
+
+// CDKeyRedemption represents a verified redemption transaction log
+type CDKeyRedemption struct {
+	ID         int64         `json:"id"`
+	Code       string        `json:"code"`
+	BatchID    string        `json:"batchId"`
+	BatchName  string        `json:"batchName"`
+	PlayerID   string        `json:"playerId"`
+	PlayerName string        `json:"playerName"`
+	Game       string        `json:"game"`
+	Time       string        `json:"time"`
+	Rewards    []CDKeyReward `json:"rewards"`
+}
+
+// CreateCDKeyBatchRequest request body to create a CDKey batch
+type CreateCDKeyBatchRequest struct {
+	Name        string        `json:"name"`
+	Type        CDKeyType     `json:"type"`
+	Code        string        `json:"code"`
+	Prefix      string        `json:"prefix"`
+	Quantity    int           `json:"quantity"`
+	Game        string        `json:"game"`
+	MinLevel    int           `json:"minLevel"`
+	ExpireDays  int           `json:"expireDays"`
+	Rewards     []CDKeyReward `json:"rewards"`
+	Description string        `json:"description"`
+}
+
+// RedeemCDKeyRequest request body for player or GM to redeem a CDKey
+type RedeemCDKeyRequest struct {
+	Code     string `json:"code"`
+	PlayerID string `json:"playerId"`
+	Game     string `json:"game"`
+}
+
+// RedeemCDKeyResponse result of a successful redemption
+type RedeemCDKeyResponse struct {
+	Success   bool          `json:"success"`
+	Message   string        `json:"message"`
+	BatchName string        `json:"batchName"`
+	PlayerID  string        `json:"playerId"`
+	Rewards   []CDKeyReward `json:"rewards"`
+	Time      string        `json:"time"`
+}
+
 

@@ -8,6 +8,7 @@ import (
 	"strconv"
 	"strings"
 
+	"xuanji-backend/internal/gameserver"
 	"xuanji-backend/internal/model"
 	"xuanji-backend/internal/store"
 )
@@ -51,12 +52,27 @@ func (h *APIHandler) RegisterRoutes(mux *http.ServeMux) {
 	mux.HandleFunc("GET /api/players", h.handleGetPlayers)
 	mux.HandleFunc("GET /api/players/{id}", h.handleGetPlayerByID)
 	mux.HandleFunc("PATCH /api/players/{id}/status", h.handleUpdatePlayerStatus)
+	mux.HandleFunc("PATCH /api/players/{id}/tag", h.handleUpdatePlayerTag)
+	mux.HandleFunc("PUT /api/players/{id}/tag", h.handleUpdatePlayerTag)
 
-	// Events
+	// Events (精细化活动管理)
 	mux.HandleFunc("GET /api/events", h.handleGetEvents)
 	mux.HandleFunc("GET /api/events/{id}", h.handleGetEventByID)
 	mux.HandleFunc("POST /api/events", h.handleCreateEvent)
+	mux.HandleFunc("PUT /api/events/{id}", h.handleUpdateEvent)
 	mux.HandleFunc("PATCH /api/events/{id}/status", h.handleUpdateEventStatus)
+	mux.HandleFunc("POST /api/events/{id}/toggle", h.handleToggleEventStatus)
+	mux.HandleFunc("POST /api/events/{id}/reset-data", h.handleResetEventData)
+	mux.HandleFunc("POST /api/events/{id}/reset", h.handleResetEvent)
+	mux.HandleFunc("DELETE /api/events/{id}", h.handleDeleteEvent)
+
+	// Shop / Mall (商城道具与商品管理)
+	mux.HandleFunc("GET /api/shop/items", h.handleGetShopItems)
+	mux.HandleFunc("GET /api/shop/items/{id}", h.handleGetShopItemByID)
+	mux.HandleFunc("POST /api/shop/items", h.handleCreateShopItem)
+	mux.HandleFunc("PUT /api/shop/items/{id}", h.handleUpdateShopItem)
+	mux.HandleFunc("PATCH /api/shop/items/{id}/status", h.handleToggleShopItemStatus)
+	mux.HandleFunc("DELETE /api/shop/items/{id}", h.handleDeleteShopItem)
 
 	// Announcements
 	mux.HandleFunc("GET /api/announcements", h.handleGetAnnouncements)
@@ -64,6 +80,23 @@ func (h *APIHandler) RegisterRoutes(mux *http.ServeMux) {
 	mux.HandleFunc("POST /api/announcements", h.handleCreateAnnouncement)
 	mux.HandleFunc("PATCH /api/announcements/{id}/status", h.handleUpdateAnnouncementStatus)
 	mux.HandleFunc("DELETE /api/announcements/{id}", h.handleDeleteAnnouncement)
+
+	// Mails (全服/定向邮件补偿系统)
+	mux.HandleFunc("GET /api/mails", h.handleGetMails)
+	mux.HandleFunc("GET /api/mails/{id}", h.handleGetMailByID)
+	mux.HandleFunc("POST /api/mails", h.handleCreateMail)
+	mux.HandleFunc("PATCH /api/mails/{id}/recall", h.handleRecallMail)
+	mux.HandleFunc("DELETE /api/mails/{id}", h.handleDeleteMail)
+
+	// CDKeys (礼包兑换码系统)
+	mux.HandleFunc("GET /api/cdkeys", h.handleGetCDKeyBatches)
+	mux.HandleFunc("GET /api/cdkeys/redemptions", h.handleGetCDKeyRedemptions)
+	mux.HandleFunc("POST /api/cdkeys/redeem", h.handleRedeemCDKey)
+	mux.HandleFunc("GET /api/cdkeys/{id}", h.handleGetCDKeyBatchByID)
+	mux.HandleFunc("POST /api/cdkeys", h.handleCreateCDKeyBatch)
+	mux.HandleFunc("PATCH /api/cdkeys/{id}/status", h.handleToggleCDKeyBatchStatus)
+	mux.HandleFunc("GET /api/cdkeys/{id}/items", h.handleGetCDKeyItems)
+	mux.HandleFunc("GET /api/cdkeys/{id}/export", h.handleExportCDKeyItems)
 
 	// Orders
 	mux.HandleFunc("GET /api/orders", h.handleGetOrders)
@@ -93,6 +126,10 @@ func (h *APIHandler) RegisterRoutes(mux *http.ServeMux) {
 
 	// GM Tools
 	mux.HandleFunc("GET /api/gm/logs", h.handleGetGMLogs)
+	mux.HandleFunc("GET /api/logs", h.handleGetLogs)
+	mux.HandleFunc("GET /api/logs/operation", h.handleGetLogs)
+	mux.HandleFunc("GET /api/game-logs", h.handleGetGameLogs)
+	mux.HandleFunc("GET /api/logs/game", h.handleGetGameLogs)
 	mux.HandleFunc("POST /api/gm/item", h.handleSendGMItem)
 	mux.HandleFunc("POST /api/gm/broadcast", h.handleSendGMBroadcast)
 	mux.HandleFunc("POST /api/gm/command", h.handleExecuteGMCommand)
@@ -109,6 +146,10 @@ func (h *APIHandler) RegisterRoutes(mux *http.ServeMux) {
 
 	// Global Search
 	mux.HandleFunc("GET /api/search", h.handleGlobalSearch)
+
+	// Game Server Gateway & Cluster Connectivity
+	mux.HandleFunc("GET /api/gameserver/status", h.handleGetGameServerStatus)
+	mux.HandleFunc("POST /api/gameserver/ping", h.handlePingGameServer)
 }
 
 // Overview
@@ -146,6 +187,24 @@ func (h *APIHandler) handleUpdatePlayerStatus(w http.ResponseWriter, r *http.Req
 		return
 	}
 	p, err := h.store.UpdatePlayerStatus(id, req.Status)
+	if err != nil {
+		writeError(w, http.StatusBadRequest, err.Error())
+		return
+	}
+	writeJSON(w, http.StatusOK, p)
+}
+
+func (h *APIHandler) handleUpdatePlayerTag(w http.ResponseWriter, r *http.Request) {
+	id := r.PathValue("id")
+	var req struct {
+		Tags   []string `json:"tags"`
+		Remark string   `json:"remark"`
+	}
+	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+		writeError(w, http.StatusBadRequest, "无效请求体")
+		return
+	}
+	p, err := h.store.UpdatePlayerTagsAndRemark(id, req.Tags, req.Remark)
 	if err != nil {
 		writeError(w, http.StatusBadRequest, err.Error())
 		return
@@ -199,6 +258,136 @@ func (h *APIHandler) handleUpdateEventStatus(w http.ResponseWriter, r *http.Requ
 		return
 	}
 	writeJSON(w, http.StatusOK, event)
+}
+
+func (h *APIHandler) handleUpdateEvent(w http.ResponseWriter, r *http.Request) {
+	id := r.PathValue("id")
+	var req struct {
+		Title  string `json:"title"`
+		Game   string `json:"game"`
+		Start  string `json:"start"`
+		End    string `json:"end"`
+		Status string `json:"status"`
+	}
+	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+		writeError(w, http.StatusBadRequest, "无效请求体")
+		return
+	}
+	event, err := h.store.UpdateEvent(id, req.Title, req.Game, req.Start, req.End, req.Status)
+	if err != nil {
+		writeError(w, http.StatusBadRequest, err.Error())
+		return
+	}
+	writeJSON(w, http.StatusOK, event)
+}
+
+func (h *APIHandler) handleToggleEventStatus(w http.ResponseWriter, r *http.Request) {
+	id := r.PathValue("id")
+	event, err := h.store.ToggleEventStatus(id)
+	if err != nil {
+		writeError(w, http.StatusBadRequest, err.Error())
+		return
+	}
+	writeJSON(w, http.StatusOK, event)
+}
+
+func (h *APIHandler) handleResetEventData(w http.ResponseWriter, r *http.Request) {
+	id := r.PathValue("id")
+	event, err := h.store.ResetEventData(id)
+	if err != nil {
+		writeError(w, http.StatusBadRequest, err.Error())
+		return
+	}
+	writeJSON(w, http.StatusOK, event)
+}
+
+func (h *APIHandler) handleResetEvent(w http.ResponseWriter, r *http.Request) {
+	id := r.PathValue("id")
+	event, err := h.store.ResetEvent(id)
+	if err != nil {
+		writeError(w, http.StatusBadRequest, err.Error())
+		return
+	}
+	writeJSON(w, http.StatusOK, event)
+}
+
+func (h *APIHandler) handleDeleteEvent(w http.ResponseWriter, r *http.Request) {
+	id := r.PathValue("id")
+	if err := h.store.DeleteEvent(id); err != nil {
+		writeError(w, http.StatusBadRequest, err.Error())
+		return
+	}
+	writeJSON(w, http.StatusOK, map[string]string{"message": "活动已删除"})
+}
+
+// --- Shop / Mall Handlers ---
+
+func (h *APIHandler) handleGetShopItems(w http.ResponseWriter, r *http.Request) {
+	game := r.URL.Query().Get("game")
+	category := r.URL.Query().Get("category")
+	status := r.URL.Query().Get("status")
+	query := r.URL.Query().Get("query")
+
+	items := h.store.GetShopItems(game, category, status, query)
+	writeJSON(w, http.StatusOK, items)
+}
+
+func (h *APIHandler) handleGetShopItemByID(w http.ResponseWriter, r *http.Request) {
+	id := r.PathValue("id")
+	item, ok := h.store.GetShopItemByID(id)
+	if !ok {
+		writeError(w, http.StatusNotFound, "商品未找到")
+		return
+	}
+	writeJSON(w, http.StatusOK, item)
+}
+
+func (h *APIHandler) handleCreateShopItem(w http.ResponseWriter, r *http.Request) {
+	var item model.ShopItem
+	if err := json.NewDecoder(r.Body).Decode(&item); err != nil {
+		writeError(w, http.StatusBadRequest, "无效商品数据")
+		return
+	}
+	created, err := h.store.CreateShopItem(item)
+	if err != nil {
+		writeError(w, http.StatusBadRequest, err.Error())
+		return
+	}
+	writeJSON(w, http.StatusCreated, created)
+}
+
+func (h *APIHandler) handleUpdateShopItem(w http.ResponseWriter, r *http.Request) {
+	id := r.PathValue("id")
+	var update model.ShopItem
+	if err := json.NewDecoder(r.Body).Decode(&update); err != nil {
+		writeError(w, http.StatusBadRequest, "无效商品数据")
+		return
+	}
+	updated, err := h.store.UpdateShopItem(id, update)
+	if err != nil {
+		writeError(w, http.StatusBadRequest, err.Error())
+		return
+	}
+	writeJSON(w, http.StatusOK, updated)
+}
+
+func (h *APIHandler) handleToggleShopItemStatus(w http.ResponseWriter, r *http.Request) {
+	id := r.PathValue("id")
+	item, err := h.store.ToggleShopItemStatus(id)
+	if err != nil {
+		writeError(w, http.StatusBadRequest, err.Error())
+		return
+	}
+	writeJSON(w, http.StatusOK, item)
+}
+
+func (h *APIHandler) handleDeleteShopItem(w http.ResponseWriter, r *http.Request) {
+	id := r.PathValue("id")
+	if err := h.store.DeleteShopItem(id); err != nil {
+		writeError(w, http.StatusBadRequest, err.Error())
+		return
+	}
+	writeJSON(w, http.StatusOK, map[string]string{"message": "商品已删除"})
 }
 
 // Announcements
@@ -404,9 +593,26 @@ func (h *APIHandler) handleGlobalSearch(w http.ResponseWriter, r *http.Request) 
 	writeJSON(w, http.StatusOK, results)
 }
 
-// GM Tools
+// GM & Audit Logs
+func (h *APIHandler) handleGetLogs(w http.ResponseWriter, r *http.Request) {
+	logs := h.store.GetGMLogs()
+	writeJSON(w, http.StatusOK, logs)
+}
+
 func (h *APIHandler) handleGetGMLogs(w http.ResponseWriter, r *http.Request) {
 	logs := h.store.GetGMLogs()
+	writeJSON(w, http.StatusOK, logs)
+}
+
+// Game Server Runtime Logs (玩家行为与游戏流水)
+func (h *APIHandler) handleGetGameLogs(w http.ResponseWriter, r *http.Request) {
+	game := r.URL.Query().Get("game")
+	category := r.URL.Query().Get("category")
+	playerID := r.URL.Query().Get("playerId")
+	level := r.URL.Query().Get("level")
+	keyword := r.URL.Query().Get("keyword")
+
+	logs := h.store.GetGameLogs(game, category, playerID, level, keyword)
 	writeJSON(w, http.StatusOK, logs)
 }
 
@@ -577,4 +783,191 @@ func (h *APIHandler) handleDispatchGiftBox(w http.ResponseWriter, r *http.Reques
 	}
 	writeJSON(w, http.StatusOK, logEntry)
 }
+
+// -----------------------------------------------------------------------------
+// Mails Handlers (全服/定向邮件补偿系统)
+// -----------------------------------------------------------------------------
+
+func (h *APIHandler) handleGetMails(w http.ResponseWriter, r *http.Request) {
+	game := r.URL.Query().Get("game")
+	status := r.URL.Query().Get("status")
+	query := r.URL.Query().Get("query")
+	mails := h.store.GetMails(game, status, query)
+	writeJSON(w, http.StatusOK, mails)
+}
+
+func (h *APIHandler) handleGetMailByID(w http.ResponseWriter, r *http.Request) {
+	id := r.PathValue("id")
+	mail, err := h.store.GetMailByID(id)
+	if err != nil {
+		writeError(w, http.StatusNotFound, err.Error())
+		return
+	}
+	writeJSON(w, http.StatusOK, mail)
+}
+
+func (h *APIHandler) handleCreateMail(w http.ResponseWriter, r *http.Request) {
+	var req model.CreateMailRequest
+	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+		writeError(w, http.StatusBadRequest, "无效的邮件请求数据")
+		return
+	}
+	mail, err := h.store.CreateMail(req)
+	if err != nil {
+		writeError(w, http.StatusBadRequest, err.Error())
+		return
+	}
+	writeJSON(w, http.StatusCreated, mail)
+}
+
+func (h *APIHandler) handleRecallMail(w http.ResponseWriter, r *http.Request) {
+	id := r.PathValue("id")
+	mail, err := h.store.RecallMail(id)
+	if err != nil {
+		writeError(w, http.StatusBadRequest, err.Error())
+		return
+	}
+	writeJSON(w, http.StatusOK, mail)
+}
+
+func (h *APIHandler) handleDeleteMail(w http.ResponseWriter, r *http.Request) {
+	id := r.PathValue("id")
+	if err := h.store.DeleteMail(id); err != nil {
+		writeError(w, http.StatusBadRequest, err.Error())
+		return
+	}
+	writeJSON(w, http.StatusOK, map[string]string{"message": "邮件已成功删除"})
+}
+
+// -----------------------------------------------------------------------------
+// CDKeys (礼包兑换码系统)
+// -----------------------------------------------------------------------------
+
+func (h *APIHandler) handleGetCDKeyBatches(w http.ResponseWriter, r *http.Request) {
+	game := r.URL.Query().Get("game")
+	cdkType := r.URL.Query().Get("type")
+	status := r.URL.Query().Get("status")
+	query := r.URL.Query().Get("query")
+	batches := h.store.GetCDKeyBatches(game, cdkType, status, query)
+	writeJSON(w, http.StatusOK, batches)
+}
+
+func (h *APIHandler) handleGetCDKeyBatchByID(w http.ResponseWriter, r *http.Request) {
+	id := r.PathValue("id")
+	batch, err := h.store.GetCDKeyBatchByID(id)
+	if err != nil {
+		writeError(w, http.StatusNotFound, err.Error())
+		return
+	}
+	writeJSON(w, http.StatusOK, batch)
+}
+
+func (h *APIHandler) handleCreateCDKeyBatch(w http.ResponseWriter, r *http.Request) {
+	var req model.CreateCDKeyBatchRequest
+	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+		writeError(w, http.StatusBadRequest, "无效的兑换码配置数据")
+		return
+	}
+	batch, err := h.store.CreateCDKeyBatch(req)
+	if err != nil {
+		writeError(w, http.StatusBadRequest, err.Error())
+		return
+	}
+	writeJSON(w, http.StatusCreated, batch)
+}
+
+func (h *APIHandler) handleToggleCDKeyBatchStatus(w http.ResponseWriter, r *http.Request) {
+	id := r.PathValue("id")
+	batch, err := h.store.ToggleCDKeyBatchStatus(id)
+	if err != nil {
+		writeError(w, http.StatusBadRequest, err.Error())
+		return
+	}
+	writeJSON(w, http.StatusOK, batch)
+}
+
+func (h *APIHandler) handleGetCDKeyItems(w http.ResponseWriter, r *http.Request) {
+	id := r.PathValue("id")
+	status := r.URL.Query().Get("status")
+	query := r.URL.Query().Get("query")
+	items := h.store.GetCDKeyItems(id, status, query)
+	writeJSON(w, http.StatusOK, items)
+}
+
+func (h *APIHandler) handleExportCDKeyItems(w http.ResponseWriter, r *http.Request) {
+	id := r.PathValue("id")
+	csvData, err := h.store.ExportCDKeyItemsCSV(id)
+	if err != nil {
+		writeError(w, http.StatusBadRequest, err.Error())
+		return
+	}
+	w.Header().Set("Content-Type", "text/csv; charset=utf-8")
+	w.Header().Set("Content-Disposition", fmt.Sprintf(`attachment; filename="cdkeys_%s.csv"`, id))
+	w.WriteHeader(http.StatusOK)
+	_, _ = w.Write([]byte(csvData))
+}
+
+func (h *APIHandler) handleGetCDKeyRedemptions(w http.ResponseWriter, r *http.Request) {
+	game := r.URL.Query().Get("game")
+	batchID := r.URL.Query().Get("batchId")
+	query := r.URL.Query().Get("query")
+	redemptions := h.store.GetCDKeyRedemptions(game, batchID, query)
+	writeJSON(w, http.StatusOK, redemptions)
+}
+
+func (h *APIHandler) handleRedeemCDKey(w http.ResponseWriter, r *http.Request) {
+	var req model.RedeemCDKeyRequest
+	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+		writeError(w, http.StatusBadRequest, "无效的兑换请求数据")
+		return
+	}
+	res, err := h.store.RedeemCDKey(req)
+	if err != nil {
+		writeError(w, http.StatusBadRequest, err.Error())
+		return
+	}
+	writeJSON(w, http.StatusOK, res)
+}
+
+func (h *APIHandler) handleGetGameServerStatus(w http.ResponseWriter, r *http.Request) {
+	cfg := gameserver.LoadConfigFromEnv()
+	driver := h.store.Driver()
+	driverName := "unknown"
+	if driver != nil {
+		driverName = driver.Name()
+	}
+
+	writeJSON(w, http.StatusOK, map[string]interface{}{
+		"driver":         driverName,
+		"authType":       cfg.AuthType,
+		"defaultUrl":     cfg.DefaultURL,
+		"serverNodes":    cfg.ServerNodes,
+		"timeoutSec":     cfg.TimeoutSec,
+		"redisConnected": h.store.Redis() != nil,
+	})
+}
+
+func (h *APIHandler) handlePingGameServer(w http.ResponseWriter, r *http.Request) {
+	driver := h.store.Driver()
+	if driver == nil {
+		writeError(w, http.StatusServiceUnavailable, "游戏服务器驱动未初始化")
+		return
+	}
+
+	var req struct {
+		Game string `json:"game"`
+	}
+	if r.Body != nil {
+		_ = json.NewDecoder(r.Body).Decode(&req)
+	}
+
+	result, err := driver.Ping(r.Context(), req.Game)
+	if err != nil && result == nil {
+		writeError(w, http.StatusBadGateway, fmt.Sprintf("Ping失败: %v", err))
+		return
+	}
+	writeJSON(w, http.StatusOK, result)
+}
+
+
 

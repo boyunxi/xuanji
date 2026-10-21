@@ -1,0 +1,251 @@
+/**
+ * 璇玑 · 操作与审计日志视图 (Operations & Audit Logs View)
+ * 包含操作审计指标条、指令类型胶囊、执行详情与溯源调用链
+ */
+
+.action-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.action-pill.item {
+  background: #edf6f1;
+  color: #1e5a3f;
+  border: 1px solid #c7e5d5;
+}
+
+.action-pill.broadcast {
+  background: #fbf6ec;
+  color: #885b19;
+  border: 1px solid #f7dfb5;
+}
+
+.action-pill.command {
+  background: #f0f4f2;
+  color: #274337;
+  border: 1px solid #d4ded8;
+}
+
+.action-pill.mail {
+  background: #fdf5eb;
+  color: #9c5c24;
+  border: 1px solid #edd7c1;
+}
+
+.action-pill.security {
+  background: #fdf2f0;
+  color: #a43725;
+  border: 1px solid #f5cfca;
+}
+
+.log-target-tag {
+  display: inline-block;
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: #f2eee4;
+  color: #2b4537;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.log-detail-snippet {
+  max-width: 380px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #3b5347;
+  font-size: 11.5px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.log-drawer-kv {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  background: #faf9f6;
+  border: 1px solid #ede8dc;
+  border-radius: 8px;
+  margin-top: 14px;
+}
+
+.log-kv-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 12px;
+}
+
+.log-kv-row > span {
+  color: #7b8e82;
+  white-space: nowrap;
+}
+
+.log-kv-row > strong {
+  color: #19362a;
+  text-align: right;
+  word-break: break-all;
+}
+
+/* 顶部主级双 Tab 切换 (游戏日志 vs 操作日志) */
+.log-module-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e5ded2;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+}
+
+.log-main-tabs {
+  display: inline-flex;
+  gap: 8px;
+  background: #f1ede3;
+  padding: 4px;
+  border-radius: 8px;
+  border: 1px solid #e0d8cb;
+}
+
+.log-main-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #556c60;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.log-main-tab:hover {
+  color: #1c352f;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.log-main-tab.active {
+  background: #ffffff;
+  color: #17382c;
+  box-shadow: 0 2px 6px rgba(27, 49, 41, 0.08);
+}
+
+.log-main-tab .tab-badge {
+  font-size: 10px;
+  padding: 1px 6px;
+  border-radius: 10px;
+  background: #e2ddd3;
+  color: #4b6255;
+  font-weight: 500;
+}
+
+.log-main-tab.active .tab-badge {
+  background: #1c352f;
+  color: #f7eedc;
+}
+
+/* 游戏日志专属级别徽章 */
+.level-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 1px 7px;
+  border-radius: 4px;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.level-pill.info {
+  background: #e9f2ee;
+  color: #1b533b;
+  border: 1px solid #c8ded4;
+}
+
+.level-pill.warn {
+  background: #fbf5e6;
+  color: #8c5b16;
+  border: 1px solid #fae1b4;
+}
+
+.level-pill.critical {
+  background: #fcf0ee;
+  color: #b42b1b;
+  border: 1px solid #f9cac4;
+}
+
+/* 游戏日志属性/数值变动徽章 */
+.delta-pill {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.delta-pill.positive {
+  color: #1f6b47;
+  background: #eef7f2;
+}
+
+.delta-pill.negative {
+  color: #c03623;
+  background: #fdf3f1;
+}
+
+.delta-pill.neutral {
+  color: #617369;
+  background: #f1ede3;
+}
+
+/* 游戏分类徽章 */
+.game-category-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-size: 11px;
+  background: #f4ede1;
+  color: #384e42;
+  border: 1px solid #e5dbca;
+}
+
+.server-tag {
+  display: inline-block;
+  font-size: 11px;
+  color: #63766c;
+  background: #f0ebe0;
+  padding: 1px 6px;
+  border-radius: 3px;
+}
+
+.log-code-box {
+  margin-top: 12px;
+  padding: 12px;
+  background: #192c25;
+  color: #d6e2da;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 11.5px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-all;
+  max-height: 240px;
+  overflow-y: auto;
+}

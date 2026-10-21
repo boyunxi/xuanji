@@ -1,0 +1,158 @@
+/**
+ * 璇玑 · 报表统计与系统设置视图 (Reports & System Settings Views)
+ * 包含汇总指标卡片组、大图表趋势分析面板与系统设置开关
+ */
+
+.reports-content {
+  margin-top: 24px;
+}
+
+.report-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid var(--border-color, #e5dfd2);
+  border-radius: var(--radius-md, 10px);
+  background: #ffffff;
+  box-shadow: var(--shadow-card, 0 4px 20px -3px rgba(24, 44, 35, 0.04));
+  overflow: hidden;
+}
+
+.report-summary > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 22px 28px 23px;
+}
+
+.report-summary > div:not(:last-child) {
+  border-right: 1px solid #ede8dc;
+}
+
+.report-summary span {
+  color: #6b8073;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.report-summary strong {
+  color: var(--color-ink, #162e26);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -.02em;
+}
+
+.report-summary small {
+  color: #1e5a3f;
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+.reports-content .large-chart {
+  min-height: 390px;
+  margin-top: 22px;
+  padding: 24px 28px;
+}
+
+.large-chart .trend-canvas {
+  height: 285px;
+  margin-top: 17px;
+}
+
+.report-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  color: #829488;
+  font-size: 11.5px;
+}
+
+.report-note svg {
+  color: #3d7961;
+}
+
+/* ========================================================
+   系统设置面板与切换开关 (Settings Panel & Toggle Switch)
+   ======================================================== */
+.settings-panel {
+  max-width: 840px;
+  margin-top: 24px;
+  padding: 26px 32px 24px;
+}
+
+.settings-section-head {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee8dc;
+}
+
+.settings-section-head p {
+  margin: 6px 0 0 13px;
+  color: #899c90;
+  font-size: 11.5px;
+}
+
+.setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 84px;
+  border-bottom: 1px solid #f2eee6;
+}
+
+.setting-row strong {
+  color: var(--color-ink, #1c362b);
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.setting-row p {
+  margin: 5px 0 0;
+  color: #86998d;
+  font-size: 11.5px;
+}
+
+.switch {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  width: 40px;
+  height: 22px;
+  padding: 3px;
+  border: 0;
+  border-radius: 20px;
+  background: #d4ddd5;
+  cursor: pointer;
+  transition: background .22s ease;
+}
+
+.switch span {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 1px 4px rgba(18, 36, 26, .18);
+  transition: transform .22s ease;
+}
+
+.switch.on {
+  background: var(--color-bamboo, #2b5d4c);
+}
+
+.switch.on span {
+  transform: translateX(18px);
+}
+
+.settings-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 24px;
+}
+
+.settings-bottom > span {
+  color: #8fa093;
+  font-size: 11.5px;
+}

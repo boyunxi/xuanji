@@ -30,6 +30,9 @@ func TestDataStoreCRUD(t *testing.T) {
 	if origStatus == "已封禁" {
 		newStatus = "正常"
 	}
+	defer func() {
+		_, _ = ds.UpdatePlayerStatus(playerID, origStatus)
+	}()
 	updatedPlayer, err := ds.UpdatePlayerStatus(playerID, newStatus)
 	if err != nil {
 		t.Fatalf("failed to update player status: %v", err)

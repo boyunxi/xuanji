@@ -1,38 +1,35 @@
 # 璇玑 · 游戏运营后台 (Xuanji Operations)
 
-以东方古风美学为底色、采用 **React 19 + Go 1.26** 全栈架构打造的游戏精细化运营管理平台。
+以东方古风美学为底色、采用 **React 19 + Go 1.26** 全栈架构打造的游戏精细化运营管理平台。支持通过可插拔驱动网关无缝接入 **Cocos2d-x (C++/JS)、Cocos Creator、Unity** 等客户端引擎配合 **纯 Go 高并发逻辑服集群**。
 
 ---
 
-## 🎨 美学设计与功能特性
+## 🎨 美学设计与核心功能特性
 
 - **东方传统美学设计**：
   - **宣纸底色与竹青深黛**：主色调采用沉稳的竹青色（`#1c352f` / `#2d5d4c`）与柔和的仿宣纸背景（`#f6f5f0`）。
   - **朱砂篆刻印章**：侧边栏与标题采用朱红印章 Logo（"璇" 字）点缀。
   - **水墨山峦剪影**：侧边栏底部绘制层峦叠嶂的矢量水墨山水。
-  - **宋体 / 楷体雅致排版**：辅以古风楹联词句（*“知微见著 · 运筹有度”*）。
+  - **宋体 / 楷体雅致排版**：辅以古风楹联词句（*“知微见著 · 运筹有度”*），严控全局表格单元格单行防换行。
 - **全栈前后端解耦与统一托管**：
   - **前端**：React 19 + TypeScript + Vite + Tailwind CSS + Lucide Icons。
-  - **后端**：Go 1.26 原生高性能 HTTP 服务，采用线程安全文件持久化存储（`data/xuanji_data.json`），无外部重量级依赖，秒级冷启动。
-- **八大核心运营模块**：
-  1. **运营总览**：多游戏（山海长歌、九州志、云间录）与多周期（今日、近7日、近30日）关键 KPI 指标（活跃玩家、新增玩家、营收总额、次留）、分时/每日平滑贝塞尔活跃趋势折线图、环形营收构成、待办事项与实时日志。
-  2. **玩家管理**：玩家检索、游戏筛选、等级与累计充值展示、侧边抽屉详情、账号一键封禁与解封（状态实时入库）。
-  3. **活动管理**：活动周期展示、参与人数统计、新建活动弹窗（支持开始与结束日期计算）、活动状态一键开启/结束。
-  4. **公告管理**：多服公告起草、富文本摘要、正式发布与撤回为草稿、公告删除。
-  5. **GM 工具（新增）**：
-     - **道具/货币补发**：定向向指定玩家发放元宝、灵石、突破丹等资源，记录发放原因。
-     - **全服即时跑马灯**：向在线玩家下发金字/红字紧急与系统广播。
-     - **快捷运维指令**：一键配表热重载、踢异常玩家下线、清空 Redis 跨服缓存、维护白名单模式切换。
-     - **审计日志**：严格的 GM 操作流水，记录时间、操作人、目标与执行状态。
-  6. **充值订单**：多支付渠道（微信/支付宝）交易追踪、订单状态流转（处理中/成功/已退款）、订单详情与核对确认、CSV 导出。
-  7. **数据报表**：关键指标汇总与大屏活跃趋势分析，支持一键导出 UTF-8 CSV 报表。
-  8. **系统设置**：每日简报、异常订单提醒、活动上线提醒开关持久化。
-- **双重折叠侧边栏交互（新增）**：
-  - **整栏折叠/展开**：点击侧栏顶端「收起侧栏」按钮，侧栏可平滑在完整模式（246px）与精简图标模式（70px）间切换，主内容区自适应平滑跟随。
-  - **分组子菜单折叠/展开**：各分组标题（如「运营管理」、「数据中心」等）自带旋转折叠箭头，点击可独立折叠收起其下属子菜单（例如折叠收起玩家管理、GM工具等）。
-- **全局 Command Palette 搜索**：快捷键 `Ctrl + K` 随时唤出，直通模块、玩家与活动。
-- **消息通知中心**：未读消息气泡、标记已读、直达关联运营页面。
-- **弹窗背景滚动锁定**：侧栏抽屉或任何弹窗打开时锁定主页面背景滚动，避免滚动穿透。
+  - **后端**：Go 1.26 原生高性能 HTTP 服务，支持 PostgreSQL 16 持久化与 Redis 8 缓存加速，兼备零依赖本地秒级冷启动。
+- **十全精细化运营模块**：
+  1. **运营总览**：多区服（山海长歌、九州志、云间录）与多周期（今日、近7日、近30日）关键 KPI 指标（活跃玩家、新增玩家、营收总额、次留）、平滑贝塞尔活跃趋势折线图、环形营收构成、待办与实时流水。
+  2. **玩家管理**：
+     - **标签与运营备注**：支持「修仙榜首」、「大R道友」、「活跃帮主」、「重点监控」等印泥色标与自由备注。
+     - **智能置顶算法**：拥有标签的玩家实时自动置顶到表格最上一行，金色 Pin 标识与高光饰边。
+     - **状态与抽屉**：玩家快捷封禁/解封、侧边抽屉明细追踪。
+  3. **活动管理**：活动周期展示、精细化起止日期配置、活动实时开关、活动进度重置与全服活动数据清空。
+  4. **商城管理**：游戏道具上下架、元宝/灵石定价维护、限购类型、热销标签管理与实时状态切换。
+  5. **双重日志模块**：
+     - **操作日志**：追踪运营执事后台 GM、封禁、发信等操作审计。
+     - **游戏日志**：按区服、事件分类（升级/掉落/消耗/充值）、玩家 ID、关卡深度检索。
+  6. **补偿信函（邮件系统）**：支持全服通告与定向补偿邮件，可批量打包道具/元宝附件，支持紧急撤回与领取统计。
+  7. **卡密与礼包码 (CDKey)**：通用兑换码与唯一独占卡密批量生成、一键导出 CSV、严格核销防刷与兑换流水审计。
+  8. **GM 控制台**：定向资源补发、全服紧急金/红字跑马灯、控制台指令执行。
+  9. **充值订单**：多支付渠道交易追踪、订单状态流转与导出。
+  10. **报表与系统设置**：大屏分析报表 CSV 导出、全局 `Ctrl + K` 搜索、消息通知中心。
 
 ---
 
@@ -43,85 +40,149 @@ xuanji/
 ├── backend/                  # Go 后端工程
 │   ├── cmd/server/main.go    # HTTP 启动入口、CORS 中间件、SPA 托管
 │   ├── internal/
+│   │   ├── auth/             # 基于 Token 的运营执事鉴权模块
+│   │   ├── gameserver/       # 游戏服网关驱动 (HTTP, Redis, Hybrid, Mock)
 │   │   ├── handler/          # RESTful API 路由与处理器
 │   │   ├── model/            # 核心业务数据实体模型
-│   │   └── store/            # 线程安全文件持久化数据存储与统计引擎
-│   ├── data/                 # 持久化数据目录 (xuanji_data.json)
-│   ├── bin/server            # 编译后的 Go 可执行文件
+│   │   └── store/            # 数据库持久化、缓存与统计引擎
+│   ├── data/                 # 本地持久化数据目录
 │   └── go.mod
 ├── frontend/                 # React 前端工程 (模块化架构)
 │   ├── src/
 │   │   ├── types/            # 领域数据模型与通用类型定义
 │   │   ├── constants/        # 导航菜单、游戏列表与选项常量
-│   │   ├── utils/            # 格式化函数 (数值、金额、日期、CSV导出)
-│   │   ├── api/              # Go 后端 RESTful API 强类型客户端
-│   │   ├── components/
-│   │   │   ├── common/       # 通用组件 (TableToolbar, Drawer, GameSelect 等)
-│   │   │   ├── charts/       # 数据可视化组件 (MetricStrip, TrendChart 等)
-│   │   │   ├── layout/       # 框架布局组件 (Sidebar, Topbar, 水墨背景)
-│   │   │   └── modals/       # 模态与浮层组件 (Ctrl+K 搜索, 抽屉详情, 新建弹窗)
-│   │   ├── views/            # 业务视图页面 (Overview, Players, Events 等)
-│   │   ├── App.tsx           # 顶层状态编排控制器
-│   │   ├── index.css         # 古风设计系统与 Tailwind 样式
-│   │   └── main.tsx          # React 挂载入口
-│   ├── dist/                 # 前端打包产物 (供 Go 直接托管)
+│   │   ├── styles/           # 模块化古风样式系统
+│   │   ├── components/       # 抽屉、弹窗、图表、布局组件
+│   │   ├── views/            # 各业务视图页面 (Overview, Players, Shop, Logs 等)
+│   │   └── App.tsx           # 顶层状态编排控制器
 │   ├── vite.config.ts        # Vite 配置 (内置 /api 反向代理)
 │   └── package.json
-├── start.sh                  # 一键启动脚本 (支持统一托管与开发联调两种模式)
-└── README.md                 # 项目文档
+├── docs/
+│   └── GAME_SERVER_INTEGRATION.md # 真实游戏服接入与 Cocos2d-x + Go 全套技术指南
+└── README.md                 # 项目总览文档
 ```
 
 ---
 
-## 🚀 快速启动
+## 🚀 跨平台快速启动指南
 
-在 WSL 环境或 Linux 终端中运行：
+> **关于脚本的说明**：为保障 Windows 开发环境的整洁与跨平台兼容性，**本仓库不跟踪上传 `.sh` 文件**。无论您使用的是 **Windows (CMD / PowerShell)** 还是 **Linux / macOS / WSL**，均可直接运行以下命令或直接复制代码创建脚本。
 
-### 模式一：统一全栈模式（推荐直接查看效果）
+### 方式 A：无脚本快速运行（Windows / Linux / macOS 通用）
 
-只需启动一个端口（`8080`），Go 后端同时托管前端页面与所有 API：
-
+#### 1. 构建前端静态资源
 ```bash
-./start.sh
+cd frontend
+pnpm install
+pnpm build
+cd ..
 ```
 
-打开浏览器访问：**`http://localhost:8080`**
-
-### 模式二：前端开发联调模式（支持热重载）
-
-同时启动 Go 后端（`8080`）与 Vite 前端热更新服务器（`5173`，自动代理 API）：
-
+#### 2. 启动 Go 全栈后端（直接托管前端与全部 API）
 ```bash
-./start.sh dev
+cd backend
+go run cmd/server/main.go
 ```
 
-打开浏览器访问：**`http://localhost:5173`**
+打开浏览器访问：**`http://localhost:8080`**  
+默认管理员账号：**`admin`**，密码：**`xuanji2026`**
 
 ---
 
-## 📡 RESTful API 接口速览
+### 方式 B：Windows 原生批处理 (`start.bat`)
 
-| 请求方法 | 接口路径 | 说明 |
-| :--- | :--- | :--- |
-| `GET` | `/api/health` | 服务健康检查 |
-| `GET` | `/api/overview` | 运营总览数据（KPI 指标、趋势图、营收构成、待办与动态） |
-| `GET` | `/api/players` | 玩家列表（支持 `game`, `status`, `query` 检索） |
-| `PATCH` | `/api/players/{id}/status` | 封禁或解封玩家账号 |
-| `GET` | `/api/events` | 活动列表 |
-| `POST` | `/api/events` | 创建新活动 |
-| `PATCH` | `/api/events/{id}/status` | 开启或结束活动 |
-| `GET` | `/api/announcements` | 公告列表 |
-| `POST` | `/api/announcements` | 起草新公告 |
-| `PATCH` | `/api/announcements/{id}/status` | 发布或撤回公告 |
-| `DELETE` | `/api/announcements/{id}` | 删除公告 |
-| `GET` | `/api/orders` | 充值订单列表 |
-| `PATCH` | `/api/orders/{id}/status` | 确认订单支付成功 |
-| `GET` | `/api/orders/export` | 导出订单 CSV |
-| `GET` | `/api/reports` | 运营报表分析数据 |
-| `GET` | `/api/reports/export` | 导出报表 CSV |
-| `GET` | `/api/notices` | 获取系统通知列表 |
-| `PATCH` | `/api/notices/read-all` | 全部通知标记已读 |
-| `PATCH` | `/api/notices/{id}/read` | 单条通知标记已读 |
-| `GET` | `/api/settings` | 获取系统设置 |
-| `POST` | `/api/settings` | 保存系统设置 |
-| `GET` | `/api/search?q={query}` | 全局 Command Palette 聚合检索 |
+在项目根目录新建文本文件 `start.bat`，粘贴以下内容并保存，之后双击即可一键拉起：
+
+```bat
+@echo off
+chcp 65001 >nul
+echo =====================================================
+echo    璇 玑 · 游 戏 运 营 后 台 (Xuanji Operations)
+echo    Windows 统一全栈启动中...
+echo =====================================================
+
+:: 1. 检查前端产物
+if not exist "frontend\dist\index.html" (
+    echo ▶ 首次运行，正在构建前端静态页面...
+    cd frontend
+    call pnpm build
+    cd ..
+)
+
+:: 2. 编译并启动后端
+cd backend
+go build -o bin\server.exe ./cmd/server
+echo.
+echo ✔ 服务启动成功，请访问: http://localhost:8080
+echo ✔ 默认账号: admin   密码: xuanji2026
+echo.
+bin\server.exe
+pause
+```
+
+---
+
+### 方式 C：Windows PowerShell (`start.ps1`)
+
+在 PowerShell 中执行以下命令可直接启动（支持端口防冲突与开发模式）：
+
+```powershell
+# 普通全栈模式 (端口 8080)
+cd backend; go run cmd/server/main.go
+
+# 或者前后端联调模式 (前端 5173 + 后端 8080)
+# 终端 1 启动后端:
+cd backend; go run cmd/server/main.go
+
+# 终端 2 启动前端热重载:
+cd frontend; pnpm dev
+```
+
+---
+
+### 方式 D：Linux / macOS / WSL 命令行一键拉起
+
+在 Linux / WSL 终端执行：
+
+```bash
+# 释放 8080 端口（若有残留）
+lsof -ti :8080 | xargs kill -9 2>/dev/null || true
+
+# 编译并启动
+cd frontend && pnpm build && cd ../backend
+go run cmd/server/main.go
+```
+
+---
+
+## 🔐 默认管理员凭据与配置
+
+| 配置项 | 环境变量键名 | 默认值 | 说明 |
+| :--- | :--- | :--- | :--- |
+| **管理员令号** | `AUTH_USERNAME` | `admin` | 运营后台登录账号 |
+| **鉴权密钥** | `AUTH_PASSWORD` | `xuanji2026` | 运营后台登录密码 |
+| **监听端口** | `PORT` | `8080` | 统一全栈服务端口 |
+| **PostgreSQL** | `PG_HOST` / `PG_USER` | `127.0.0.1` / `xuanji` | 本地数据库服务（可选） |
+| **Redis** | `REDIS_ADDR` | `127.0.0.1:6379` | 缓存与广播总线（可选） |
+
+> 配置可在根目录 [`.env`](file:///home/boyunxi/code/xuanji/.env)（参考模板 [`.env.example`](file:///home/boyunxi/code/xuanji/.env.example)）中进行自定义。
+
+---
+
+## 🎮 真实游戏服务器 (Go) 与 Cocos2d-x 客户端接入
+
+璇玑运营平台支持无缝对接外部真实的商业级网络游戏服，特别是 **Cocos2d-x (C++ / JS) / Cocos Creator 客户端 + 纯 Go 游戏逻辑服** 架构。
+
+详细技术指南请查阅：
+📖 **[真实游戏服务器与 Cocos2d-x + 纯 Go 服务端接入技术指南 (docs/GAME_SERVER_INTEGRATION.md)](file:///home/boyunxi/code/xuanji/docs/GAME_SERVER_INTEGRATION.md)**
+
+该文档全面包含：
+1. **零侵入解耦架构**：Cocos2d-x 客户端无需嵌入运营 SDK，正常监听游戏协议；Go 游戏服作为中枢中转璇玑指令。
+2. **7 大 GM 接口规范**：踢人下线、发道具/元宝、账号封禁/解封、跑马灯广播、全服邮件派发、自定义控制台指令。
+3. **安全机制**：HMAC-SHA256 签名计算、时间戳防重放、`requestId` 幂等防刷锁。
+4. **代码范例**：
+   - 纯 Go 游戏服端完整可运行的 GM 网关实现；
+   - Cocos2d-x (C++) 客户端协议监听与飘字动效；
+   - Cocos Creator (TypeScript) 客户端监听与弹窗分发。
+5. **多区服分流路由**：通过 `GAME_SERVER_SERVERS_JSON` 环境变量实现多节点物理机路由分发。
+6. **自检 Ping 探针**：一键端到端探测真实物理机节点的连通性与网络延迟。

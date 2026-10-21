@@ -8,13 +8,21 @@ import { Sidebar } from "./components/layout/Sidebar";
 import { Topbar } from "./components/layout/Topbar";
 import { CommandSearchModal } from "./components/modals/CommandSearchModal";
 import { ComposeModal } from "./components/modals/ComposeModal";
+import { ComposeMailModal } from "./components/modals/ComposeMailModal";
 import { RecordDrawer } from "./components/modals/RecordDrawer";
 import { pageInfo } from "./constants/navigation";
 import type {
   Announcement,
+  CDKeyBatch,
+  CDKeyRedemption,
+  CreateCDKeyBatchRequest,
+  CreateMailRequest,
   Detail,
   Event,
   Game,
+  GameItem,
+  GiftBox,
+  Mail,
   Notice,
   Order,
   OverviewData,
@@ -24,21 +32,31 @@ import type {
   SearchResultItem,
   Settings,
   SpecificGame,
+  UserSession,
 } from "./types";
 import { exportCsv } from "./utils/format";
 import { AnnouncementsView } from "./views/AnnouncementsView";
+import { CDKeysView } from "./views/CDKeysView";
 import { EventsView } from "./views/EventsView";
 import { GMView } from "./views/GMView";
+import { LoginView } from "./views/LoginView";
+import { MailsView } from "./views/MailsView";
 import { OrdersView } from "./views/OrdersView";
 import { OverviewView } from "./views/OverviewView";
 import { PlayersView } from "./views/PlayersView";
 import { ReportsView } from "./views/ReportsView";
+import { LogsView } from "./views/LogsView";
+import { ShopView } from "./views/ShopView";
 import { SettingsView } from "./views/SettingsView";
 
 export default function App() {
+  // Authentication state
+  const [currentUser, setCurrentUser] = useState<UserSession | null>(null);
+  const [authChecked, setAuthChecked] = useState<boolean>(false);
+
   // Navigation & global filters
   const [page, setPage] = useState<PageId>("overview");
-  const [game, setGame] = useState<Game>("全部游戏");
+  const [game, setGame] = useState<Game>("全部区服");
   const [range, setRange] = useState<RangeKey>("week");
   const [sidebarCollapsed, setSidebarCollapsed] = useState<boolean>(false);
 
@@ -46,10 +64,21 @@ export default function App() {
   const [players, setPlayers] = useState<Player[]>([]);
   const [events, setEvents] = useState<Event[]>([]);
   const [announcements, setAnnouncements] = useState<Announcement[]>([]);
+  const [mails, setMails] = useState<Mail[]>([]);
   const [orders, setOrders] = useState<Order[]>([]);
   const [notices, setNotices] = useState<Notice[]>([]);
   const [settings, setSettings] = useState<Settings>({ daily: true, orders: true, events: false });
   const [overview, setOverview] = useState<OverviewData | null>(null);
+
+  // Dynamic items and gift boxes for mail attachments
+  const [availableItems, setAvailableItems] = useState<GameItem[]>([]);
+  const [giftBoxes, setGiftBoxes] = useState<GiftBox[]>([]);
+  const [isComposeMailOpen, setIsComposeMailOpen] = useState(false);
+
+  // CDKey state
+  const [cdkeyBatches, setCdkeyBatches] = useState<CDKeyBatch[]>([]);
+  const [cdkeyRedemptions, setCdkeyRedemptions] = useState<CDKeyRedemption[]>([]);
+
 
   // Connection & loading state
   const [backendConnected, setBackendConnected] = useState<boolean>(false);
@@ -73,17 +102,24 @@ export default function App() {
 
   // Refresh all state from Go backend
   const refreshAllData = async () => {
+    if (!api.getToken()) return;
     try {
       setLoading(true);
-      const [ovData, plData, evData, anData, orData, noData, stData] = await Promise.all([
-        api.getOverview(game, range),
-        api.getPlayers(game),
-        api.getEvents(game),
-        api.getAnnouncements(game),
-        api.getOrders(game),
-        api.getNotices(),
-        api.getSettings(),
-      ]);
+      const [ovData, plData, evData, anData, orData, noData, stData, mlData, itData, bxData, cdkBatches, cdkReds] =
+        await Promise.all([
+          api.getOverview(game, range),
+          api.getPlayers(game),
+          api.getEvents(game),
+          api.getAnnouncements(game),
+          api.getOrders(game),
+          api.getNotices(),
+          api.getSettings(),
+          api.getMails(game),
+          api.getItems().catch(() => []),
+          api.getGiftBoxes().catch(() => []),
+          api.getCDKeyBatches({ game }).catch(() => []),
+          api.getCDKeyRedemptions({ game }).catch(() => []),
+        ]);
       setOverview(ovData);
       setPlayers(plData);
       setEvents(evData);
@@ -91,6 +127,11 @@ export default function App() {
       setOrders(orData);
       setNotices(noData);
       setSettings(stData);
+      setMails(mlData);
+      if (itData && itData.length > 0) setAvailableItems(itData);
+      if (bxData && bxData.length > 0) setGiftBoxes(bxData);
+      setCdkeyBatches(cdkBatches);
+      setCdkeyRedemptions(cdkReds);
       setBackendConnected(true);
     } catch (err: any) {
       console.error("Failed to load data from Go backend:", err);
@@ -101,9 +142,125 @@ export default function App() {
     }
   };
 
+  const handleCreateMail = async (req: CreateMailRequest) => {
+    try {
+      const created = await api.createMail(req);
+      setMails((prev) => [created, ...prev]);
+      setToast(req.isDraft ? "信函草稿已妥善保存" : "补偿信函已成功签印下发全服");
+    } catch (err: any) {
+      setToast(`下发信函失败: ${err.message}`);
+      throw err;
+    }
+  };
+
+  const handleRecallMail = async (id: string) => {
+    try {
+      const recalled = await api.recallMail(id);
+      setMails((prev) => prev.map((m) => (m.id === id ? recalled : m)));
+      setToast("信函已紧急撤回，未领取的玩家无法再领取物资");
+    } catch (err: any) {
+      setToast(`撤回失败: ${err.message}`);
+    }
+  };
+
+  const handleDeleteMail = async (id: string) => {
+    try {
+      await api.deleteMail(id);
+      setMails((prev) => prev.filter((m) => m.id !== id));
+      setToast("信函记录已彻底删除");
+    } catch (err: any) {
+      setToast(`删除失败: ${err.message}`);
+    }
+  };
+
+  const handleCreateCDKeyBatch = async (req: CreateCDKeyBatchRequest) => {
+    try {
+      const created = await api.createCDKeyBatch(req);
+      setCdkeyBatches((prev) => [created, ...prev]);
+      setToast(
+        req.type === "universal"
+          ? `通用福利码 [${created.code}] 创建成功`
+          : `批量独占卡密已成功生成 ${created.totalCount} 张`
+      );
+    } catch (err: any) {
+      setToast(`创建CDKey批次失败: ${err.message}`);
+      throw err;
+    }
+  };
+
+  const handleToggleCDKeyBatchStatus = async (id: string) => {
+    try {
+      const updated = await api.toggleCDKeyBatchStatus(id);
+      setCdkeyBatches((prev) => prev.map((b) => (b.id === id ? updated : b)));
+      setToast(`兑换码批次已切换为 [${updated.status}]`);
+    } catch (err: any) {
+      setToast(`状态切换失败: ${err.message}`);
+    }
+  };
+
+  const handleRedeemCDKey = async (code: string, playerId: string) => {
+    try {
+      const res = await api.redeemCDKey({
+        code,
+        playerId,
+        game: game !== "全部游戏" ? game : undefined,
+      });
+      setToast(res.message);
+      // Refresh batches & redemptions to update counts
+      const [bList, rList] = await Promise.all([
+        api.getCDKeyBatches({ game }),
+        api.getCDKeyRedemptions({ game }),
+      ]);
+      setCdkeyBatches(bList);
+      setCdkeyRedemptions(rList);
+      return res;
+    } catch (err: any) {
+      throw err;
+    }
+  };
+
+
+  // 1. Initial auth verification
   useEffect(() => {
-    refreshAllData();
-  }, [game, range]);
+    api.onUnauthorized(() => {
+      setCurrentUser(null);
+      setToast("鉴印已失效或未授权，请重新登录");
+    });
+
+    const verifySession = async () => {
+      const token = api.getToken();
+      if (!token) {
+        setAuthChecked(true);
+        setLoading(false);
+        return;
+      }
+
+      try {
+        const user = await api.getMe();
+        setCurrentUser(user);
+      } catch {
+        api.clearToken();
+        setCurrentUser(null);
+      } finally {
+        setAuthChecked(true);
+      }
+    };
+
+    verifySession();
+  }, []);
+
+  // 2. Fetch data when user is authenticated or filters change
+  useEffect(() => {
+    if (currentUser) {
+      refreshAllData();
+    }
+  }, [currentUser, game, range]);
+
+  const handleLogout = async () => {
+    await api.logout();
+    setCurrentUser(null);
+    setToast("已安全退出璇玑运营司");
+  };
 
   // Global search trigger
   useEffect(() => {
@@ -160,7 +317,8 @@ export default function App() {
   }, [toast]);
 
   // Filtered lists
-  const matchesGame = (itemGame: Game) => game === "全部游戏" || itemGame === game;
+  const matchesGame = (itemGame: Game | string) =>
+    game === "全部区服" || game === "全部游戏" || itemGame === game;
   const matchesQuery = (...values: string[]) =>
     values.some((val) => val.toLowerCase().includes(tableQuery.trim().toLowerCase()));
 
@@ -333,6 +491,30 @@ export default function App() {
     </button>
   );
 
+  // Loading state while checking authentication token
+  if (!authChecked) {
+    return (
+      <div className="login-wrapper">
+        <div className="login-seal-container" style={{ flexDirection: "column", gap: 16 }}>
+          <span className="login-seal animate-pulse" style={{ width: 56, height: 56, fontSize: 28 }}>璇</span>
+          <span style={{ color: "#5a6f64", fontSize: 13.5 }}>正在鉴印核验中...</span>
+        </div>
+      </div>
+    );
+  }
+
+  // Not logged in: show Ancient Aesthetic Login View
+  if (!currentUser) {
+    return (
+      <LoginView
+        onLoginSuccess={(user) => {
+          setCurrentUser(user);
+          setToast(`恭迎 ${user.name} 执事入座`);
+        }}
+      />
+    );
+  }
+
   return (
     <div className="app-shell">
       <Sidebar
@@ -363,14 +545,13 @@ export default function App() {
           setNotificationsOpen={setNotificationsOpen}
           profileOpen={profileOpen}
           setProfileOpen={setProfileOpen}
+          currentUser={currentUser}
+          onLogout={handleLogout}
         />
 
         <main className="main-content">
           <div className="page-heading">
             <div className="page-heading-copy">
-              <div className="heading-kicker">
-                <span /> 璇玑运营台 <b>/</b> {selectedInfo.group}
-              </div>
               <h1>{selectedInfo.title}</h1>
               <p>{selectedInfo.description}</p>
             </div>
@@ -379,6 +560,7 @@ export default function App() {
               {(page === "overview" || page === "reports") && (
                 <RangeToggle value={range} onChange={setRange} />
               )}
+              {page === "mails" && actionButton("起草信函", () => setIsComposeMailOpen(true))}
               {page === "events" && actionButton("新建活动", () => setCompose("event"))}
               {page === "announcements" && actionButton("新建公告", () => setCompose("announcement"))}
               {page === "orders" && actionButton("导出订单", exportOrders, Download)}
@@ -393,7 +575,7 @@ export default function App() {
               game={game}
               onNavigate={navigate}
               onResetGameAndNavigate={(target) => {
-                setGame("全部游戏");
+                setGame("全部区服");
                 navigate(target);
               }}
             />
@@ -407,16 +589,50 @@ export default function App() {
               status={tableStatus}
               onStatusChange={setTableStatus}
               onSelectPlayer={(id) => setDetail({ type: "player", id })}
+              onPlayersChange={setPlayers}
+              onShowToast={setToast}
             />
+          )}
+
+          {page === "mails" && (
+            <MailsView
+              mails={mails}
+              game={game}
+              onCompose={() => setIsComposeMailOpen(true)}
+              onRecall={handleRecallMail}
+              onDelete={handleDeleteMail}
+              onSelectDetail={(id) => setDetail({ type: "mail", id })}
+              loading={loading}
+            />
+          )}
+
+          {page === "cdkeys" && (
+            <CDKeysView
+              batches={cdkeyBatches}
+              redemptions={cdkeyRedemptions}
+              game={game}
+              players={players}
+              giftBoxes={giftBoxes}
+              availableItems={availableItems}
+              onCreateBatch={handleCreateCDKeyBatch}
+              onToggleStatus={handleToggleCDKeyBatchStatus}
+              onRedeem={handleRedeemCDKey}
+              onRefresh={refreshAllData}
+              loading={loading}
+            />
+          )}
+
+
+          {page === "shop" && (
+            <ShopView onShowToast={setToast} game={game} />
           )}
 
           {page === "events" && (
             <EventsView
-              events={filteredEvents}
-              query={tableQuery}
-              onQueryChange={setTableQuery}
-              status={tableStatus}
-              onStatusChange={setTableStatus}
+              events={events}
+              onEventsChange={setEvents}
+              onShowToast={setToast}
+              game={game}
               onSelectEvent={(id) => setDetail({ type: "event", id })}
             />
           )}
@@ -449,6 +665,10 @@ export default function App() {
 
           {page === "reports" && <ReportsView overview={overview} range={range} />}
 
+          {page === "logs" && (
+            <LogsView onShowToast={setToast} game={game} />
+          )}
+
           {page === "settings" && (
             <SettingsView
               settings={settings}
@@ -476,6 +696,10 @@ export default function App() {
             setDetail({ type: "player", id: result.id });
           } else if (result.type === "event" && result.id) {
             setDetail({ type: "event", id: result.id });
+          } else if (result.type === "mail" && result.id) {
+            setDetail({ type: "mail", id: result.id });
+          } else if (result.type === "cdkey" && result.id) {
+            setDetail({ type: "cdkey", id: result.id });
           }
         }}
       />
@@ -494,13 +718,28 @@ export default function App() {
         events={events}
         announcements={announcements}
         orders={orders}
+        mails={mails}
+        cdkeyBatches={cdkeyBatches}
         backendConnected={backendConnected}
         onTogglePlayerBan={handleTogglePlayerBan}
         onToggleEventStatus={handleToggleEventStatus}
         onToggleAnnouncementStatus={handleToggleAnnouncementStatus}
         onDeleteAnnouncement={handleDeleteAnnouncement}
         onConfirmOrder={handleConfirmOrder}
+        onRecallMail={handleRecallMail}
+        onDeleteMail={handleDeleteMail}
       />
+
+      <ComposeMailModal
+        isOpen={isComposeMailOpen}
+        onClose={() => setIsComposeMailOpen(false)}
+        onSubmit={handleCreateMail}
+        currentGame={game}
+        players={players}
+        giftBoxes={giftBoxes}
+        availableItems={availableItems}
+      />
+
 
       <ConfirmModal
         open={Boolean(deletingAnnouncementId)}

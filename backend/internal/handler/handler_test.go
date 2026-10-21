@@ -161,5 +161,30 @@ func TestAPIEndpoints(t *testing.T) {
 		t.Errorf("expected at least 1 GM log, got none")
 	}
 	resp.Body.Close()
+
+	// 10. Game Server Status
+	resp, err = client.Get(ts.URL + "/api/gameserver/status")
+	if err != nil || resp.StatusCode != http.StatusOK {
+		t.Fatalf("gameserver status failed: %v, code: %d", err, resp.StatusCode)
+	}
+	var gsStatus map[string]interface{}
+	_ = json.NewDecoder(resp.Body).Decode(&gsStatus)
+	if gsStatus["driver"] == "" {
+		t.Errorf("expected driver name in gameserver status, got empty")
+	}
+	resp.Body.Close()
+
+	// 11. Game Server Ping
+	pingBody, _ := json.Marshal(map[string]string{"game": "山海长歌"})
+	resp, err = client.Post(ts.URL+"/api/gameserver/ping", "application/json", bytes.NewReader(pingBody))
+	if err != nil || resp.StatusCode != http.StatusOK {
+		t.Fatalf("gameserver ping failed: %v, code: %d", err, resp.StatusCode)
+	}
+	var pingResult map[string]interface{}
+	_ = json.NewDecoder(resp.Body).Decode(&pingResult)
+	if pingResult["success"] != true {
+		t.Errorf("expected ping success=true, got %+v", pingResult)
+	}
+	resp.Body.Close()
 }
 

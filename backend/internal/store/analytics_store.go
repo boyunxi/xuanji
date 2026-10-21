@@ -360,6 +360,8 @@ func (s *DataStore) GlobalSearch(query string) []model.SearchResultItem {
 	}{
 		{"运营总览", "工作台", "overview"},
 		{"玩家名册", "运营管理", "players"},
+		{"邮件补偿", "运营管理", "mails"},
+		{"兑换码", "运营管理", "cdkeys"},
 		{"运营活动", "运营管理", "events"},
 		{"全服公告", "运营管理", "announcements"},
 		{"GM运维工具", "运营管理", "gm"},
@@ -405,6 +407,36 @@ func (s *DataStore) GlobalSearch(query string) []model.SearchResultItem {
 				Type:     "event",
 				ID:       e.ID,
 				Detail:   e,
+			})
+		}
+	}
+
+	for _, ml := range s.Mails {
+		if strings.Contains(strings.ToLower(ml.Title+ml.ID+ml.Content), query) {
+			results = append(results, model.SearchResultItem{
+				Title:    ml.Title,
+				Subtitle: fmt.Sprintf("邮件 · %s", ml.Game),
+				Page:     "mails",
+				Type:     "mail",
+				ID:       ml.ID,
+				Detail:   ml,
+			})
+		}
+	}
+
+	for _, cdk := range s.CDKeyBatches {
+		if strings.Contains(strings.ToLower(cdk.Name+cdk.Code+cdk.ID+cdk.Description), query) {
+			sub := fmt.Sprintf("兑换码 · %s", cdk.Game)
+			if cdk.Type == model.CDKeyTypeUniversal {
+				sub = fmt.Sprintf("通用码 [%s] · %s", cdk.Code, cdk.Game)
+			}
+			results = append(results, model.SearchResultItem{
+				Title:    cdk.Name,
+				Subtitle: sub,
+				Page:     "cdkeys",
+				Type:     "cdkey",
+				ID:       cdk.ID,
+				Detail:   cdk,
 			})
 		}
 	}

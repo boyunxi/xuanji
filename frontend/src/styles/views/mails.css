@@ -1,0 +1,276 @@
+/**
+ * 璇玑 · 游戏邮件与兑换码补偿系统 (Mail & CDKey Compensation Views)
+ * 包含发放邮件抽屉/弹窗、目标受众切换器、附件物资药丸标签与领取进度条
+ */
+
+.compose-mail-modal {
+  background: #ffffff;
+  border-radius: var(--radius-lg, 12px);
+  border: 1px solid var(--border-color, #ded7ca);
+  box-shadow: 0 20px 60px rgba(28, 53, 47, 0.22);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: dialog-in 0.22s cubic-bezier(0.2, 0.8, 0.3, 1) both;
+}
+
+.target-type-toggle {
+  display: flex;
+  gap: 8px;
+}
+
+.target-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 7px 12px;
+  border: 1px solid var(--border-color, #ded7ca);
+  border-radius: var(--radius-sm, 6px);
+  background: #faf9f6;
+  color: #556c5e;
+  font-size: 12.5px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.target-btn.active {
+  border-color: var(--color-bamboo, #2b5d4c);
+  background: #edf6f1;
+  color: #1e5a3f;
+  font-weight: 600;
+  box-shadow: 0 1px 4px rgba(43, 93, 76, 0.12);
+}
+
+.mail-attachments-section {
+  border: 1px solid var(--border-color, #ded7ca);
+  border-radius: var(--radius-md, 8px);
+  padding: 14px;
+  background: #faf9f6;
+}
+
+.attachments-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.add-attachment-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  background: #edf6f1;
+  border: 1px dashed var(--color-bamboo, #2b5d4c);
+  color: #1e5a3f;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.add-attachment-trigger:hover {
+  background: #deefe5;
+}
+
+.attachments-empty-tip {
+  padding: 18px;
+  text-align: center;
+  color: #8fa093;
+  font-size: 12px;
+  border: 1px dashed #ded7ca;
+  border-radius: 6px;
+  background: #ffffff;
+}
+
+.attachments-pill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.attachment-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ffffff;
+  border: 1px solid var(--border-color, #ded7ca);
+  padding: 5px 8px 5px 10px;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.pill-rarity-badge {
+  font-size: 10.5px;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.pill-rarity-badge.传说 { background: #fdf5e6; color: #b87a28; border: 1px solid #edd1a1; }
+.pill-rarity-badge.史诗 { background: #f9f2fb; color: #874696; border: 1px solid #e1c0eb; }
+.pill-rarity-badge.稀有 { background: #eef6f9; color: #2c6f87; border: 1px solid #b7dae8; }
+.pill-rarity-badge.普通 { background: #f3f4f3; color: #69786c; border: 1px solid #d4ded6; }
+
+.pill-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-ink, #162e26);
+}
+
+.pill-amount {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #1e5a3f;
+}
+
+.pill-remove-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border: none;
+  background: transparent;
+  color: #8fa093;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.pill-remove-btn:hover {
+  background: #fae8e6;
+  color: #a43725;
+}
+
+.attachment-add-card {
+  margin-top: 12px;
+  padding: 12px;
+  background: #ffffff;
+  border: 1px solid var(--border-color, #ded7ca);
+  border-radius: var(--radius-md, 8px);
+}
+
+.sub-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border: 1px solid var(--border-color, #ded7ca);
+  border-radius: 6px;
+  background: #faf9f6;
+  color: #556c5e;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.sub-tab-btn.active {
+  background: var(--color-bamboo, #2b5d4c);
+  color: #ffffff;
+  border-color: var(--color-bamboo, #2b5d4c);
+}
+
+/* ========================================================
+   表格内状态行与物资标签增强 (Table Detail Cell Badges)
+   ======================================================== */
+.mail-sub-sender {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11.5px;
+  color: #728578;
+  margin-top: 3px;
+}
+
+.level-badge {
+  background: #f2eee4;
+  color: #2b4537;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.target-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11.5px;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+.target-pill.all {
+  background: #edf6f1;
+  color: #1e5a3f;
+  border: 1px solid #c7e5d5;
+}
+
+.target-pill.player {
+  background: #fbf5ee;
+  color: #945d25;
+  border: 1px solid #ecd8c2;
+}
+
+.mail-attachments-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  align-items: center;
+}
+
+.att-tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11px;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.att-tag.传说 { background: #fdf5e6; color: #a46d23; border: 1px solid #edd1a1; }
+.att-tag.史诗 { background: #f9f2fb; color: #7f3d8f; border: 1px solid #e1c0eb; }
+.att-tag.稀有 { background: #eef6f9; color: #286b82; border: 1px solid #b7dae8; }
+.att-tag.普通 { background: #f3f4f3; color: #5a695d; border: 1px solid #d4ded6; }
+.att-tag.more { background: #ede8dc; color: #63776b; font-weight: 700; }
+
+.claim-progress-box {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.claim-counts {
+  display: flex;
+  gap: 4px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--color-ink, #1e392d);
+}
+
+.ancient-progress-bar {
+  width: 100%;
+  height: 6px;
+  background: #ede8dc;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #2b6a55, #3d8f73);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.time-cell {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  color: #2b4537;
+}

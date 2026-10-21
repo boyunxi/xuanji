@@ -4,12 +4,13 @@ import {
   CheckCheck,
   ChevronDown,
   ChevronRight,
+  LogOut,
   Menu,
   RefreshCw,
   Search,
 } from "lucide-react";
 import { pageInfo } from "../../constants/navigation";
-import type { Notice, PageId } from "../../types";
+import type { Notice, PageId, UserSession } from "../../types";
 
 interface TopbarProps {
   currentPage: PageId;
@@ -26,6 +27,8 @@ interface TopbarProps {
   setNotificationsOpen: (open: boolean) => void;
   profileOpen: boolean;
   setProfileOpen: (open: boolean) => void;
+  currentUser?: UserSession | null;
+  onLogout?: () => void;
 }
 
 export function Topbar({
@@ -43,6 +46,8 @@ export function Topbar({
   setNotificationsOpen,
   profileOpen,
   setProfileOpen,
+  currentUser,
+  onLogout,
 }: TopbarProps) {
   const selectedInfo = pageInfo[currentPage];
   const unreadCount = notices.filter((n) => !n.read).length;
@@ -103,8 +108,8 @@ export function Topbar({
           }}
           aria-label="打开账号菜单"
         >
-          <span className="profile-avatar">林</span>
-          <span className="profile-name">林管理员</span>
+          <span className="profile-avatar">{currentUser?.avatar || "璇"}</span>
+          <span className="profile-name">{currentUser?.name || "璇玑掌印官"}</span>
           <ChevronDown size={14} strokeWidth={1.8} />
         </button>
       </div>
@@ -146,10 +151,10 @@ export function Topbar({
       {profileOpen && (
         <div className="top-popover profile-popover">
           <div className="profile-popover-head">
-            <span className="profile-avatar">林</span>
+            <span className="profile-avatar">{currentUser?.avatar || "璇"}</span>
             <span>
-              <strong>林管理员</strong>
-              <small>运营管理员 · Go 全栈</small>
+              <strong>{currentUser?.name || "璇玑掌印官"}</strong>
+              <small>{currentUser?.title || "总运营执事 · 环境变量鉴权"}</small>
             </span>
           </div>
           <button
@@ -160,7 +165,22 @@ export function Topbar({
           >
             查看服务状态 <ArrowRight size={15} />
           </button>
-          <span className="profile-popover-foot">璇玑运营平台 · Go+React</span>
+          {onLogout && (
+            <button
+              onClick={() => {
+                setProfileOpen(false);
+                onLogout();
+              }}
+              style={{ color: "#c45a4a", marginTop: 4, display: "flex", alignItems: "center", justifyContent: "space-between" }}
+            >
+              <span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
+                <LogOut size={14} />
+                <span>退出登录</span>
+              </span>
+              <ArrowRight size={14} />
+            </button>
+          )}
+          <span className="profile-popover-foot">璇玑运营平台 · 账号环境变量保护</span>
         </div>
       )}
     </header>

@@ -8,6 +8,7 @@ import (
 	"path/filepath"
 	"strings"
 
+	"xuanji-backend/internal/auth"
 	"xuanji-backend/internal/handler"
 	"xuanji-backend/internal/store"
 )
@@ -57,6 +58,9 @@ func spaHandler(staticDir string) http.Handler {
 }
 
 func main() {
+	// 0. 加载 .env 环境变量文件
+	auth.LoadDotEnv(".env", "../.env")
+
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8080"
@@ -73,6 +77,12 @@ func main() {
 	}
 
 	mux := http.NewServeMux()
+
+	// 1. 初始化鉴权管理模块并注册鉴权路由 (/api/auth/login, /api/auth/me, /api/auth/logout)
+	authMgr := auth.NewAuthManager(ds.Redis())
+	authMgr.RegisterRoutes(mux)
+
+	// 2. 注册业务 API 路由
 	apiHandler := handler.NewAPIHandler(ds)
 	apiHandler.RegisterRoutes(mux)
 
@@ -106,12 +116,15 @@ func main() {
 		})
 	}
 
-	handlerWithCORS := corsMiddleware(rootHandler)
+	// 3. 中间件链: CORS -> 登录鉴权拦截 -> 业务/静态资源路由
+	handlerWithAuth := authMgr.Middleware(rootHandler)
+	handlerWithCORS := corsMiddleware(handlerWithAuth)
 
 	fmt.Println("=====================================================")
 	fmt.Println("      璇 玑 · 游 戏 运 营 后 台 (Xuanji Operations)       ")
 	fmt.Println("=====================================================")
 	fmt.Printf(" [Go 后端服务] 启动成功，监听端口: http://127.0.0.1:%s\n", port)
+	fmt.Println(" - 登录认证接口: http://127.0.0.1:8080/api/auth/login")
 	fmt.Println(" - API 健康检查: http://127.0.0.1:8080/api/health")
 	fmt.Println(" - 运营总览接口: http://127.0.0.1:8080/api/overview")
 	fmt.Println(" - 玩家管理接口: http://127.0.0.1:8080/api/players")

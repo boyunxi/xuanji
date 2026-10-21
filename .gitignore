@@ -40,5 +40,8 @@ Thumbs.db
 *.swp
 *.swo
 
+# Scripts (avoid uploading .sh for Windows compatibility)
+*.sh
+
 # Vite cache
 .vite/

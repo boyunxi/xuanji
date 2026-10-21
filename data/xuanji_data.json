@@ -23,33 +23,6 @@
   ],
   "players": [
     {
-      "id": "XJ100689",
-      "name": "拾光者",
-      "game": "山海长歌",
-      "level": 91,
-      "spend": 5680,
-      "lastActive": "昨天 22:13",
-      "status": "正常"
-    },
-    {
-      "id": "XJ100731",
-      "name": "长安旧梦",
-      "game": "九州志",
-      "level": 58,
-      "spend": 320,
-      "lastActive": "昨天 18:35",
-      "status": "已封禁"
-    },
-    {
-      "id": "XJ100845",
-      "name": "云深不知处",
-      "game": "云间录",
-      "level": 77,
-      "spend": 2580,
-      "lastActive": "昨天 16:09",
-      "status": "正常"
-    },
-    {
       "id": "XJ100926",
       "name": "一叶知秋",
       "game": "山海长歌",
@@ -83,6 +56,33 @@
       "level": 64,
       "spend": 980,
       "lastActive": "今天 08:56",
+      "status": "已封禁"
+    },
+    {
+      "id": "XJ100689",
+      "name": "拾光者",
+      "game": "山海长歌",
+      "level": 91,
+      "spend": 5680,
+      "lastActive": "昨天 22:13",
+      "status": "已封禁"
+    },
+    {
+      "id": "XJ100731",
+      "name": "长安旧梦",
+      "game": "九州志",
+      "level": 58,
+      "spend": 320,
+      "lastActive": "昨天 18:35",
+      "status": "正常"
+    },
+    {
+      "id": "XJ100845",
+      "name": "云深不知处",
+      "game": "云间录",
+      "level": 77,
+      "spend": 2580,
+      "lastActive": "昨天 16:09",
       "status": "已封禁"
     }
   ],
@@ -158,6 +158,42 @@
       "end": "2026-10-25",
       "participants": 0,
       "status": "未开始"
+    },
+    {
+      "id": "EV918265",
+      "title": "测试秘境活动",
+      "game": "山海长歌",
+      "start": "2026-10-25",
+      "end": "2026-11-01",
+      "participants": 0,
+      "status": "进行中"
+    },
+    {
+      "id": "EV898979",
+      "title": "中秋灯会活动",
+      "game": "山海长歌",
+      "start": "2026-10-18",
+      "end": "2026-10-25",
+      "participants": 0,
+      "status": "未开始"
+    },
+    {
+      "id": "EV28769",
+      "title": "测试秘境活动",
+      "game": "山海长歌",
+      "start": "2026-10-25",
+      "end": "2026-11-01",
+      "participants": 0,
+      "status": "进行中"
+    },
+    {
+      "id": "EV318197",
+      "title": "中秋灯会活动",
+      "game": "山海长歌",
+      "start": "2026-10-18",
+      "end": "2026-10-25",
+      "participants": 0,
+      "status": "未开始"
     }
   ],
   "announcements": [
@@ -196,24 +232,6 @@
   ],
   "orders": [
     {
-      "id": "XC2610150419",
-      "player": "青山客",
-      "game": "九州志",
-      "amount": 68,
-      "method": "支付宝",
-      "time": "2026-10-15 10:18",
-      "status": "成功"
-    },
-    {
-      "id": "XC2610150416",
-      "player": "月照归舟",
-      "game": "云间录",
-      "amount": 198,
-      "method": "微信支付",
-      "time": "2026-10-15 09:56",
-      "status": "处理中"
-    },
-    {
       "id": "XC2610150408",
       "player": "拾光者",
       "game": "山海长歌",
@@ -248,14 +266,32 @@
       "method": "微信支付",
       "time": "2026-10-15 10:42",
       "status": "已退款"
+    },
+    {
+      "id": "XC2610150419",
+      "player": "青山客",
+      "game": "九州志",
+      "amount": 68,
+      "method": "支付宝",
+      "time": "2026-10-15 10:18",
+      "status": "已退款"
+    },
+    {
+      "id": "XC2610150416",
+      "player": "月照归舟",
+      "game": "云间录",
+      "amount": 198,
+      "method": "微信支付",
+      "time": "2026-10-15 09:56",
+      "status": "已退款"
     }
   ],
   "notices": [
     {
       "id": 3,
-      "title": "本周运营数据已更新",
-      "time": "今天 08:30",
-      "page": "reports",
+      "title": "春山有信活动待开启",
+      "time": "2小时前",
+      "page": "events",
       "read": false
     },
     {
@@ -267,9 +303,9 @@
     },
     {
       "id": 1,
-      "title": "春山有信活动待开启",
-      "time": "2小时前",
-      "page": "events",
+      "title": "本周运营数据已更新",
+      "time": "今天 08:30",
+      "page": "reports",
       "read": false
     }
   ],
@@ -280,21 +316,21 @@
   },
   "gmLogs": [
     {
-      "id": "GM816879",
-      "operator": "林管理员",
-      "action": "发放定制礼盒",
-      "target": "山海长歌 · XJ100248",
-      "detail": "向玩家发放定制礼匣 [西王母瑶池盛宴礼匣] x3 (类型: 随机概率盲盒)，原因: 周年庆典首发福利",
-      "time": "2026-10-15 18:25:20",
-      "status": "成功"
-    },
-    {
-      "id": "GM567588",
+      "id": "GM577658",
       "operator": "林管理员",
       "action": "发放道具",
       "target": "山海长歌 · XJ100248",
       "detail": "发放 太虚灵石 x500 (原因: 单元测试发放)",
-      "time": "2026-10-15 18:11:42",
+      "time": "2026-10-16 02:25:50",
+      "status": "成功"
+    },
+    {
+      "id": "GM741073",
+      "operator": "林管理员",
+      "action": "发放道具",
+      "target": "山海长歌 · XJ100248",
+      "detail": "发放 太虚灵石 x500 (原因: 单元测试发放)",
+      "time": "2026-10-16 02:11:30",
       "status": "成功"
     }
   ],
@@ -338,14 +374,6 @@
       "description": "宗门活动产出，兑换宗门藏经阁秘籍",
       "rarity": "普通",
       "isCustom": false
-    },
-    {
-      "id": "ITEM_15895",
-      "name": "瑶池蟠桃",
-      "category": "修炼丹药",
-      "description": "增加三千年修为",
-      "rarity": "传说",
-      "isCustom": true
     },
     {
       "id": "ITEM_201",
@@ -501,71 +529,6 @@
     }
   ],
   "giftBoxes": [
-    {
-      "id": "BOX_438470",
-      "name": "玄天灵宝自选匣",
-      "game": "山海长歌",
-      "boxType": "single_choice",
-      "maxChoices": 1,
-      "rarity": "传说",
-      "icon": "box",
-      "description": "太虚灵机幻化而成，少侠可从中任选一件神物收入囊中。",
-      "status": "已启用",
-      "items": [
-        {
-          "itemName": "太虚飞剑",
-          "category": "极品装备",
-          "amount": 1,
-          "probability": 0,
-          "rarity": "传说"
-        },
-        {
-          "itemName": "限定坐骑·墨麒麟",
-          "category": "外观道具",
-          "amount": 1,
-          "probability": 0,
-          "rarity": "传说"
-        }
-      ],
-      "createdAt": "2026-10-15 19:32:10",
-      "updatedAt": "2026-10-15 19:32:10"
-    },
-    {
-      "id": "BOX_715469",
-      "name": "西王母瑶池盛宴礼匣",
-      "game": "山海长歌",
-      "boxType": "random_prob",
-      "maxChoices": 1,
-      "rarity": "传说",
-      "icon": "box",
-      "description": "天降祥瑞！开启后按概率随机获得极品神物瑶池蟠桃或海量元宝。",
-      "status": "已启用",
-      "items": [
-        {
-          "itemName": "瑶池蟠桃",
-          "category": "修炼丹药",
-          "amount": 1,
-          "probability": 10,
-          "rarity": "传说"
-        },
-        {
-          "itemName": "元宝",
-          "category": "通用货币",
-          "amount": 8888,
-          "probability": 30,
-          "rarity": "传说"
-        },
-        {
-          "itemName": "九转金丹",
-          "category": "修炼丹药",
-          "amount": 5,
-          "probability": 60,
-          "rarity": "稀有"
-        }
-      ],
-      "createdAt": "2026-10-15 18:24:47",
-      "updatedAt": "2026-10-15 18:24:47"
-    },
     {
       "id": "BOX_2404",
       "name": "宗门飞升突破多选自选箱",
@@ -751,6 +714,115 @@
       ],
       "createdAt": "2026-10-15 10:00:00",
       "updatedAt": "2026-10-15 10:00:00"
+    }
+  ],
+  "mails": [
+    {
+      "id": "MAIL_2401",
+      "title": "全服停服例行维护补偿与致歉函",
+      "content": "亲爱的各位道友：为提供更流畅的修仙大世界体验，本周例行停机维护已圆满结束。为答谢道友们的耐心理性守候，特附上天工灵玉与破境物资，祝各位仙途顺遂！",
+      "sender": "璇玑运营司",
+      "game": "全部游戏",
+      "targetType": "all",
+      "targetId": "ALL",
+      "minLevel": 10,
+      "status": "已发送",
+      "attachments": [
+        {
+          "itemId": "ITEM_101",
+          "itemName": "元宝",
+          "category": "通用货币",
+          "amount": 1000,
+          "rarity": "传说",
+          "isBox": false
+        },
+        {
+          "itemId": "ITEM_201",
+          "itemName": "九转金丹",
+          "category": "修炼丹药",
+          "amount": 5,
+          "rarity": "传说",
+          "isBox": false
+        },
+        {
+          "itemId": "ITEM_103",
+          "itemName": "仙玉",
+          "category": "通用货币",
+          "amount": 200,
+          "rarity": "史诗",
+          "isBox": false
+        }
+      ],
+      "sentAt": "2026-10-16 10:00:00",
+      "expiresAt": "2026-10-23 23:59:59",
+      "claimedCount": 18420,
+      "totalTarget": 24800
+    },
+    {
+      "id": "MAIL_2402",
+      "title": "迎新狂欢 · 宗门掌门飞升专属赠礼",
+      "content": "恭喜道友成功晋升一派掌门！宗门藏宝阁特此赐予开服至尊必得大礼包一份，助尔开拓宗门洞府，招纳四海贤才。",
+      "sender": "山海运营组",
+      "game": "山海长歌",
+      "targetType": "all",
+      "targetId": "ALL",
+      "minLevel": 20,
+      "status": "已发送",
+      "attachments": [
+        {
+          "itemId": "BOX_2401",
+          "itemName": "开服至尊必得大礼包",
+          "category": "定制礼匣",
+          "amount": 1,
+          "rarity": "传说",
+          "isBox": true
+        },
+        {
+          "itemId": "ITEM_102",
+          "itemName": "灵石",
+          "category": "通用货币",
+          "amount": 50000,
+          "rarity": "稀有",
+          "isBox": false
+        }
+      ],
+      "sentAt": "2026-10-15 14:30:00",
+      "expiresAt": "2026-10-29 23:59:59",
+      "claimedCount": 6512,
+      "totalTarget": 8900
+    },
+    {
+      "id": "MAIL_2403",
+      "title": "【定向特派】充值大额返利差额紧急补发",
+      "content": "尊敬的高阶玩家道友您好：经运营与技术核实，您于昨日参与的累充返利活动由于跨服结算延迟未按时到账。特此补发差额物资及绝世飞剑一把以表歉意。",
+      "sender": "VIP执事处",
+      "game": "山海长歌",
+      "targetType": "player",
+      "targetId": "XJ100689",
+      "minLevel": 1,
+      "status": "已发送",
+      "attachments": [
+        {
+          "itemId": "ITEM_101",
+          "itemName": "元宝",
+          "category": "通用货币",
+          "amount": 5000,
+          "rarity": "传说",
+          "isBox": false
+        },
+        {
+          "itemId": "ITEM_401",
+          "itemName": "太虚飞剑",
+          "category": "极品装备",
+          "amount": 1,
+          "rarity": "传说",
+          "isBox": false
+        }
+      ],
+      "sentAt": "2026-10-14 18:20:00",
+      "expiresAt": "2026-11-13 23:59:59",
+      "claimedCount": 1,
+      "totalTarget": 1
     }
   ]
 }

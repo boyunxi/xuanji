@@ -113,6 +113,134 @@ func (s *DataStore) UpdateEventStatus(id, newStatus string) (*model.Event, error
 	return nil, fmt.Errorf("event not found: %s", id)
 }
 
+// UpdateEvent updates event details including dates, title, and status
+func (s *DataStore) UpdateEvent(id, title, game, start, end, status string) (*model.Event, error) {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+
+	for i := range s.Events {
+		if s.Events[i].ID == id {
+			if title != "" {
+				s.Events[i].Title = title
+			}
+			if game != "" {
+				s.Events[i].Game = game
+			}
+			if start != "" {
+				s.Events[i].Start = start
+			}
+			if end != "" {
+				s.Events[i].End = end
+			}
+			if status != "" {
+				s.Events[i].Status = status
+			}
+			_ = s.saveUnlocked()
+			if s.db != nil {
+				_, _ = s.db.Exec(`UPDATE events SET title=$1, game=$2, start_date=$3, end_date=$4, status=$5 WHERE id=$6`,
+					s.Events[i].Title, s.Events[i].Game, s.Events[i].Start, s.Events[i].End, s.Events[i].Status, id)
+			}
+			s.invalidateRedis("xuanji:overview:*")
+			copy := s.Events[i]
+			return &copy, nil
+		}
+	}
+	return nil, fmt.Errorf("event not found: %s", id)
+}
+
+// ToggleEventStatus toggles event status between "进行中" and "已暂停" (or "未开始" -> "进行中")
+func (s *DataStore) ToggleEventStatus(id string) (*model.Event, error) {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+
+	for i := range s.Events {
+		if s.Events[i].ID == id {
+			if s.Events[i].Status == "进行中" {
+				s.Events[i].Status = "已暂停"
+			} else {
+				s.Events[i].Status = "进行中"
+			}
+			_ = s.saveUnlocked()
+			if s.db != nil {
+				_, _ = s.db.Exec("UPDATE events SET status=$1 WHERE id=$2", s.Events[i].Status, id)
+			}
+			s.invalidateRedis("xuanji:overview:*")
+			copy := s.Events[i]
+			return &copy, nil
+		}
+	}
+	return nil, fmt.Errorf("event not found: %s", id)
+}
+
+// ResetEventData resets event runtime statistics (participants = 0)
+func (s *DataStore) ResetEventData(id string) (*model.Event, error) {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+
+	for i := range s.Events {
+		if s.Events[i].ID == id {
+			s.Events[i].Participants = 0
+			_ = s.saveUnlocked()
+			if s.db != nil {
+				_, _ = s.db.Exec("UPDATE events SET participants=0 WHERE id=$1", id)
+			}
+			s.invalidateRedis("xuanji:overview:*")
+			copy := s.Events[i]
+			return &copy, nil
+		}
+	}
+	return nil, fmt.Errorf("event not found: %s", id)
+}
+
+// ResetEvent resets event cycle: resets participants, status to "未开始", and sets new 7-day period
+func (s *DataStore) ResetEvent(id string) (*model.Event, error) {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+
+	for i := range s.Events {
+		if s.Events[i].ID == id {
+			s.Events[i].Participants = 0
+			s.Events[i].Status = "未开始"
+			s.Events[i].Start = dateFromNow(1)
+			s.Events[i].End = dateFromNow(8)
+			_ = s.saveUnlocked()
+			if s.db != nil {
+				_, _ = s.db.Exec("UPDATE events SET participants=0, status='未开始', start_date=$1, end_date=$2 WHERE id=$3",
+					s.Events[i].Start, s.Events[i].End, id)
+			}
+			s.invalidateRedis("xuanji:overview:*")
+			copy := s.Events[i]
+			return &copy, nil
+		}
+	}
+	return nil, fmt.Errorf("event not found: %s", id)
+}
+
+// DeleteEvent removes an event by ID
+func (s *DataStore) DeleteEvent(id string) error {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+
+	idx := -1
+	for i := range s.Events {
+		if s.Events[i].ID == id {
+			idx = i
+			break
+		}
+	}
+	if idx == -1 {
+		return fmt.Errorf("event not found: %s", id)
+	}
+
+	s.Events = append(s.Events[:idx], s.Events[idx+1:]...)
+	_ = s.saveUnlocked()
+	if s.db != nil {
+		_, _ = s.db.Exec("DELETE FROM events WHERE id=$1", id)
+	}
+	s.invalidateRedis("xuanji:overview:*")
+	return nil
+}
+
 // --- Announcements ---
 
 func (s *DataStore) GetAnnouncements(game, status, query string) []model.Announcement {

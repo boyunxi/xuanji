@@ -1,0 +1,52 @@
+/**
+ * 璇玑 · 东方美学设计令牌 (Xuanji Classical Design Tokens)
+ * 包含色盘定义、层级变量与纸质氛围参数
+ */
+
+:root {
+  font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #1a3328;
+  background: #f6f4ee;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* 墨色系 (Ink Tones) */
+  --ink-900: #142923;
+  --ink-800: #1a362f;
+  --ink-700: #24493f;
+  --ink-muted: #728578;
+
+  /* 竹青翡翠系 (Jade Tones) */
+  --jade-primary: #2b5d4c;
+  --jade-hover: #224d3e;
+  --jade-active: #183e32;
+  --jade-light: #edf6f1;
+  --jade-border: #c7e5d5;
+
+  /* 朱砂印泥系 (Vermilion Tones) */
+  --vermilion: #c45a4a;
+  --vermilion-hover: #aa3d2f;
+  --vermilion-light: #fdf2f0;
+  --vermilion-border: #f5cfca;
+
+  /* 赤金琥珀系 (Imperial Gold Tones) */
+  --gold-imperial: #c59b27;
+  --gold-hover: #b0881d;
+  --gold-light: #fbf6ec;
+  --gold-border: #f7dfb5;
+
+  /* 宣纸底色与卡片表面 (Parchment & Paper Surface) */
+  --paper-bg: #f6f4ee;
+  --paper-card: #ffffff;
+  --paper-card-subtle: #faf9f6;
+  --paper-border: #e5dfd2;
+  --paper-border-light: #eee9dc;
+
+  /* 景深阴影系统 (Layered Shadows) */
+  --shadow-card: 0 4px 20px -3px rgba(24, 44, 35, 0.04);
+  --shadow-card-hover: 0 6px 24px -2px rgba(24, 44, 35, 0.08);
+  --shadow-popover: 0 16px 45px rgba(20, 42, 32, 0.16);
+  --shadow-dialog: 0 25px 70px rgba(14, 30, 22, 0.26);
+}

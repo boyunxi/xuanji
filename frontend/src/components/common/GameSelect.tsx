@@ -42,25 +42,29 @@ export function GameSelect({ value, onChange }: GameSelectProps) {
         aria-expanded={open}
         aria-label="选择游戏"
       >
-        <span className="game-select-caption">游戏</span>
-        <span>{value}</span>
+        <span className="game-select-caption">区服</span>
+        <span>{value === "全部游戏" ? "全部区服" : value}</span>
         <ChevronDown size={15} strokeWidth={1.8} />
       </button>
       {open && (
         <div className="game-menu">
-          {gameList.map((item) => (
-            <button
-              key={item}
-              className={value === item ? "chosen" : ""}
-              onClick={() => {
-                onChange(item as Game);
-                setOpen(false);
-              }}
-            >
-              {item}
-              {value === item && <Check size={15} strokeWidth={1.9} />}
-            </button>
-          ))}
+          {gameList.map((item) => {
+            const displayName = item === "全部游戏" ? "全部区服" : item;
+            const isChosen = value === item || (value === "全部区服" && item === "全部游戏");
+            return (
+              <button
+                key={item}
+                className={isChosen ? "chosen" : ""}
+                onClick={() => {
+                  onChange((item === "全部游戏" ? "全部区服" : item) as Game);
+                  setOpen(false);
+                }}
+              >
+                {displayName}
+                {isChosen && <Check size={15} strokeWidth={1.9} />}
+              </button>
+            );
+          })}
         </div>
       )}
     </div>

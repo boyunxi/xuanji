@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"strings"
 	"time"
 
 	_ "github.com/lib/pq"
@@ -93,8 +94,13 @@ func (s *DataStore) migrateAndSeedPG(db *sql.DB) error {
 		level INT DEFAULT 1,
 		spend NUMERIC DEFAULT 0,
 		last_active TEXT,
-		status TEXT DEFAULT '正常'
+		status TEXT DEFAULT '正常',
+		tags TEXT DEFAULT '',
+		remark TEXT DEFAULT ''
 	);
+
+	ALTER TABLE players ADD COLUMN IF NOT EXISTS tags TEXT DEFAULT '';
+	ALTER TABLE players ADD COLUMN IF NOT EXISTS remark TEXT DEFAULT '';
 
 	CREATE TABLE IF NOT EXISTS events (
 		id TEXT PRIMARY KEY,
@@ -150,6 +156,40 @@ func (s *DataStore) migrateAndSeedPG(db *sql.DB) error {
 		status TEXT NOT NULL
 	);
 
+	CREATE TABLE IF NOT EXISTS game_logs (
+		id TEXT PRIMARY KEY,
+		game TEXT NOT NULL,
+		server_id TEXT NOT NULL,
+		player_id TEXT NOT NULL,
+		player_name TEXT NOT NULL,
+		category TEXT NOT NULL,
+		action TEXT NOT NULL,
+		detail TEXT,
+		delta TEXT,
+		ip TEXT,
+		level TEXT DEFAULT 'INFO',
+		time TEXT NOT NULL
+	);
+
+	CREATE TABLE IF NOT EXISTS shop_items (
+		id TEXT PRIMARY KEY,
+		name TEXT NOT NULL,
+		game TEXT NOT NULL,
+		category TEXT NOT NULL,
+		currency TEXT NOT NULL,
+		price NUMERIC NOT NULL,
+		original_price NUMERIC NOT NULL,
+		stock INT DEFAULT -1,
+		buy_limit TEXT DEFAULT '不限购',
+		tag TEXT DEFAULT '',
+		description TEXT,
+		items TEXT,
+		status TEXT DEFAULT '上架中',
+		sort_order INT DEFAULT 0,
+		created_at TEXT NOT NULL,
+		updated_at TEXT NOT NULL
+	);
+
 	CREATE TABLE IF NOT EXISTS game_items (
 		id TEXT PRIMARY KEY,
 		name TEXT NOT NULL UNIQUE,
@@ -173,6 +213,62 @@ func (s *DataStore) migrateAndSeedPG(db *sql.DB) error {
 		created_at TEXT NOT NULL,
 		updated_at TEXT NOT NULL
 	);
+
+	CREATE TABLE IF NOT EXISTS mails (
+		id TEXT PRIMARY KEY,
+		title TEXT NOT NULL,
+		content TEXT NOT NULL,
+		sender TEXT NOT NULL,
+		game TEXT NOT NULL,
+		target_type TEXT NOT NULL,
+		target_id TEXT NOT NULL,
+		min_level INT DEFAULT 1,
+		status TEXT DEFAULT '已发送',
+		attachments JSONB NOT NULL,
+		sent_at TEXT NOT NULL,
+		expires_at TEXT NOT NULL,
+		claimed_count INT DEFAULT 0,
+		total_target INT DEFAULT 0
+	);
+
+	CREATE TABLE IF NOT EXISTS cdkey_batches (
+		id TEXT PRIMARY KEY,
+		name TEXT NOT NULL,
+		type TEXT NOT NULL,
+		code TEXT,
+		game TEXT NOT NULL,
+		min_level INT DEFAULT 1,
+		total_count INT DEFAULT 1,
+		used_count INT DEFAULT 0,
+		status TEXT DEFAULT '已启用',
+		rewards JSONB NOT NULL,
+		created_at TEXT NOT NULL,
+		expires_at TEXT NOT NULL,
+		description TEXT
+	);
+
+	CREATE TABLE IF NOT EXISTS cdkey_items (
+		code TEXT PRIMARY KEY,
+		batch_id TEXT NOT NULL,
+		status TEXT DEFAULT '待兑换',
+		player_id TEXT,
+		used_at TEXT,
+		expires_at TEXT NOT NULL
+	);
+	CREATE INDEX IF NOT EXISTS idx_cdkey_items_batch ON cdkey_items(batch_id);
+
+	CREATE TABLE IF NOT EXISTS cdkey_redemptions (
+		id BIGSERIAL PRIMARY KEY,
+		code TEXT NOT NULL,
+		batch_id TEXT NOT NULL,
+		batch_name TEXT NOT NULL,
+		player_id TEXT NOT NULL,
+		player_name TEXT NOT NULL,
+		game TEXT NOT NULL,
+		time TEXT NOT NULL,
+		rewards JSONB NOT NULL
+	);
+	CREATE INDEX IF NOT EXISTS idx_cdkey_redemptions_batch_player ON cdkey_redemptions(batch_id, player_id);
 	`
 
 	if _, err := db.Exec(schema); err != nil {
@@ -200,8 +296,17 @@ func (s *DataStore) migrateAndSeedPG(db *sql.DB) error {
 	_ = db.QueryRow("SELECT COUNT(*) FROM players").Scan(&playerCount)
 	if playerCount == 0 && len(s.Players) > 0 {
 		for _, p := range s.Players {
-			_, _ = db.Exec("INSERT INTO players (id, name, game, level, spend, last_active, status) VALUES ($1, $2, $3, $4, $5, $6, $7) ON CONFLICT (id) DO NOTHING",
-				p.ID, p.Name, p.Game, p.Level, p.Spend, p.LastActive, p.Status)
+			tagsStr := strings.Join(p.Tags, ",")
+			_, _ = db.Exec("INSERT INTO players (id, name, game, level, spend, last_active, status, tags, remark) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) ON CONFLICT (id) DO NOTHING",
+				p.ID, p.Name, p.Game, p.Level, p.Spend, p.LastActive, p.Status, tagsStr, p.Remark)
+		}
+	} else if len(s.Players) > 0 {
+		// Sync seed tags & remarks for existing players if empty
+		for _, p := range s.Players {
+			if len(p.Tags) > 0 || p.Remark != "" {
+				tagsStr := strings.Join(p.Tags, ",")
+				_, _ = db.Exec("UPDATE players SET tags=$1, remark=$2 WHERE id=$3 AND (tags='' OR tags IS NULL)", tagsStr, p.Remark, p.ID)
+			}
 		}
 	}
 
@@ -382,6 +487,75 @@ func (s *DataStore) migrateAndSeedPG(db *sql.DB) error {
 		}
 	}
 
+	// Seed Mails if empty
+	var mailCount int
+	_ = db.QueryRow("SELECT COUNT(*) FROM mails").Scan(&mailCount)
+	if mailCount == 0 && len(s.Mails) > 0 {
+		for _, m := range s.Mails {
+			attachBytes, _ := json.Marshal(m.Attachments)
+			_, _ = db.Exec(`INSERT INTO mails (id, title, content, sender, game, target_type, target_id, min_level, status, attachments, sent_at, expires_at, claimed_count, total_target)
+				VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) ON CONFLICT (id) DO NOTHING`,
+				m.ID, m.Title, m.Content, m.Sender, m.Game, m.TargetType, m.TargetID, m.MinLevel, m.Status, string(attachBytes), m.SentAt, m.ExpiresAt, m.ClaimedCount, m.TotalTarget)
+		}
+	}
+
+	// Seed CDKey Batches if empty
+	var batchCount int
+	_ = db.QueryRow("SELECT COUNT(*) FROM cdkey_batches").Scan(&batchCount)
+	if batchCount == 0 && len(s.CDKeyBatches) > 0 {
+		for _, b := range s.CDKeyBatches {
+			rewBytes, _ := json.Marshal(b.Rewards)
+			_, _ = db.Exec(`INSERT INTO cdkey_batches (id, name, type, code, game, min_level, total_count, used_count, status, rewards, created_at, expires_at, description)
+				VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) ON CONFLICT (id) DO NOTHING`,
+				b.ID, b.Name, b.Type, b.Code, b.Game, b.MinLevel, b.TotalCount, b.UsedCount, b.Status, string(rewBytes), b.CreatedAt, b.ExpiresAt, b.Description)
+		}
+	}
+
+	// Seed CDKey Items if empty
+	var itemCountCheck int
+	_ = db.QueryRow("SELECT COUNT(*) FROM cdkey_items").Scan(&itemCountCheck)
+	if itemCountCheck == 0 && len(s.CDKeyItems) > 0 {
+		for _, it := range s.CDKeyItems {
+			_, _ = db.Exec(`INSERT INTO cdkey_items (code, batch_id, status, player_id, used_at, expires_at)
+				VALUES ($1, $2, $3, $4, $5, $6) ON CONFLICT (code) DO NOTHING`,
+				it.Code, it.BatchID, it.Status, it.PlayerID, it.UsedAt, it.ExpiresAt)
+		}
+	}
+
+	// Seed CDKey Redemptions if empty
+	var redCount int
+	_ = db.QueryRow("SELECT COUNT(*) FROM cdkey_redemptions").Scan(&redCount)
+	if redCount == 0 && len(s.CDKeyRedemptions) > 0 {
+		for _, r := range s.CDKeyRedemptions {
+			rewBytes, _ := json.Marshal(r.Rewards)
+			_, _ = db.Exec(`INSERT INTO cdkey_redemptions (id, code, batch_id, batch_name, player_id, player_name, game, time, rewards)
+				VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) ON CONFLICT (id) DO NOTHING`,
+				r.ID, r.Code, r.BatchID, r.BatchName, r.PlayerID, r.PlayerName, r.Game, r.Time, string(rewBytes))
+		}
+	}
+
+	// Seed GM Logs with default seed entries if not present
+	for _, l := range GetDefaultGMLogs() {
+		_, _ = db.Exec(`INSERT INTO gm_logs (id, operator, action, target, detail, time, status)
+			VALUES ($1, $2, $3, $4, $5, $6, $7) ON CONFLICT (id) DO NOTHING`,
+			l.ID, l.Operator, l.Action, l.Target, l.Detail, l.Time, l.Status)
+	}
+
+	// Seed Game Logs with default seed entries if not present
+	for _, gl := range GetDefaultGameLogs() {
+		_, _ = db.Exec(`INSERT INTO game_logs (id, game, server_id, player_id, player_name, category, action, detail, delta, ip, level, time)
+			VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) ON CONFLICT (id) DO NOTHING`,
+			gl.ID, gl.Game, gl.ServerID, gl.PlayerID, gl.PlayerName, gl.Category, gl.Action, gl.Detail, gl.Delta, gl.IP, gl.Level, gl.Time)
+	}
+
+	// Seed Shop Items with default entries if not present
+	for _, si := range GetDefaultShopItems() {
+		_, _ = db.Exec(`INSERT INTO shop_items (id, name, game, category, currency, price, original_price, stock, buy_limit, tag, description, items, status, sort_order, created_at, updated_at)
+			VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16) ON CONFLICT (id) DO NOTHING`,
+			si.ID, si.Name, si.Game, si.Category, si.Currency, si.Price, si.OriginalPrice, si.Stock, si.BuyLimit, si.Tag, si.Description, si.Items, si.Status, si.SortOrder, si.CreatedAt, si.UpdatedAt)
+	}
+
 	log.Printf("[PostgreSQL] Tables verified & seed check complete.")
 	return nil
 }
+

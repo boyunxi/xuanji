@@ -1,0 +1,212 @@
+/**
+ * 璇玑 · 关键指标度量组件 (Metric Strip & Cards)
+ */
+
+/* ========================================================
+   运营总览顶部核心指标条 (Refined KPI Strip)
+   ======================================================== */
+.metrics-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  min-height: 108px;
+  background: #ffffff;
+  border: 1px solid #e5dfd2;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px -3px rgba(24, 44, 35, 0.04);
+  overflow: hidden;
+}
+
+.metric {
+  position: relative;
+  min-width: 0;
+  padding: 16px 20px 14px;
+  transition: background 0.2s ease;
+  animation: rise-in .55s ease both;
+}
+.metric:not(:last-child)::after {
+  position: absolute;
+  top: 16px;
+  right: 0;
+  bottom: 16px;
+  width: 1px;
+  background: #ede8dc;
+  content: "";
+}
+.metric:hover {
+  background: #fbfbf9;
+}
+
+.metric-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #63776a;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .02em;
+}
+
+.metric-mark {
+  display: block;
+  width: 12px;
+  height: 3px;
+  border-radius: 1.5px;
+  background: linear-gradient(90deg, #c59b27, #e2b653);
+  box-shadow: 0 1px 3px rgba(197, 155, 39, 0.35);
+}
+
+.metric-value {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-top: 6px;
+  color: #152d24;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(22px, 1.8vw, 26px);
+  font-weight: 700;
+  letter-spacing: -.02em;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+
+.metric-unit {
+  color: #7b8e83;
+  font-family: "Noto Sans SC", sans-serif;
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.metric-comparison {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 6px;
+  color: #8c9c91;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.change {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 1px 7px;
+  border-radius: 12px;
+}
+.change.positive {
+  background: #edf6f1;
+  border: 1px solid #c7e5d5;
+  color: #1f6444;
+}
+.change.negative {
+  background: #fdf2f0;
+  border: 1px solid #f5cfca;
+  color: #ab3827;
+}
+
+/* ========================================================
+   业务子视图专属指标卡片组 (Sub-view Metrics Grid - Mails, CDKeys)
+   ======================================================== */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.metrics-grid .metric-card {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #e5dfd2;
+  border-radius: 8px;
+  padding: 14px 18px 12px;
+  box-shadow: 0 4px 20px -3px rgba(24, 44, 35, 0.04);
+  transition: all 0.2s ease;
+  overflow: hidden;
+}
+.metrics-grid .metric-card:hover {
+  box-shadow: 0 6px 24px -2px rgba(24, 44, 35, 0.08);
+  transform: translateY(-1px);
+  border-color: #d6ccb8;
+}
+
+.metrics-grid .metric-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.metrics-grid .metric-label {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: #63776a;
+}
+
+.metrics-grid .metric-value {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #152d24;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.metrics-grid .metric-unit {
+  font-size: 11px;
+  font-weight: 500;
+  color: #7b8e83;
+}
+
+.metrics-grid .metric-change {
+  margin-top: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 1px 7px;
+  border-radius: 12px;
+}
+.metrics-grid .metric-change.positive {
+  background: #edf6f1;
+  color: #1f6444;
+  border: 1px solid #c7e5d5;
+}
+.metrics-grid .metric-change.neutral {
+  background: #fbf6ec;
+  color: #885b19;
+  border: 1px solid #f7dfb5;
+}
+.metrics-grid .metric-change.negative {
+  background: #fdf2f0;
+  color: #ab3827;
+  border: 1px solid #f5cfca;
+}
+
+/* 响应式断点 */
+@media (max-width: 1320px) {
+  .metric { padding-right: 16px; padding-left: 16px; }
+}
+@media (max-width: 1180px) {
+  .metrics-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 750px) {
+  .metric { padding: 16px 14px; }
+  .metric-value { font-size: 22px; }
+}
+@media (max-width: 530px) {
+  .metrics-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .metric { min-height: 105px; padding: 14px 12px; }
+  .metric:nth-child(2)::after { display: none; }
+  .metric:nth-child(-n+2) { border-bottom: 1px solid #e7e4da; }
+  .metric-value { font-size: clamp(19px, 5vw, 23px); }
+  .metrics-grid { grid-template-columns: 1fr; }
+}

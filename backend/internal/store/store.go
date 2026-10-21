@@ -13,6 +13,7 @@ import (
 	"time"
 
 	"github.com/redis/go-redis/v9"
+	"xuanji-backend/internal/gameserver"
 	"xuanji-backend/internal/model"
 )
 
@@ -21,6 +22,7 @@ type DataStore struct {
 	filePath      string
 	db            *sql.DB
 	rdb           *redis.Client
+	driver        gameserver.Driver
 	Games         []model.GameInfo     `json:"games"`
 	Players       []model.Player       `json:"players"`
 	Events        []model.Event        `json:"events"`
@@ -29,8 +31,14 @@ type DataStore struct {
 	Notices       []model.Notice       `json:"notices"`
 	Settings      model.Settings       `json:"settings"`
 	GMLogs        []model.GMLog        `json:"gmLogs"`
-	Items         []model.GameItem     `json:"items"`
-	GiftBoxes     []model.GiftBox      `json:"giftBoxes"`
+	GameLogs      []model.GameLog      `json:"gameLogs"`
+	ShopItems     []model.ShopItem     `json:"shopItems"`
+	Items            []model.GameItem        `json:"items"`
+	GiftBoxes        []model.GiftBox         `json:"giftBoxes"`
+	Mails            []model.Mail            `json:"mails"`
+	CDKeyBatches     []model.CDKeyBatch      `json:"cdkeyBatches"`
+	CDKeyItems       []model.CDKeyItem       `json:"cdkeyItems"`
+	CDKeyRedemptions []model.CDKeyRedemption `json:"cdkeyRedemptions"`
 }
 
 func NewDataStore(dataDir string) (*DataStore, error) {
@@ -75,7 +83,22 @@ func NewDataStore(dataDir string) (*DataStore, error) {
 		log.Printf("[Redis] Running without Redis cache (%v).", err)
 	}
 
+	// Initialize Game Server Driver
+	store.driver = gameserver.NewDriver(store.rdb)
+
 	return store, nil
+}
+
+func (s *DataStore) Driver() gameserver.Driver {
+	s.mu.RLock()
+	defer s.mu.RUnlock()
+	return s.driver
+}
+
+func (s *DataStore) SetDriver(d gameserver.Driver) {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+	s.driver = d
 }
 
 func (s *DataStore) reloadFromPG() {
@@ -101,11 +124,18 @@ func (s *DataStore) reloadFromPG() {
 	}
 
 	// 2. Players
-	if rows, err := s.db.Query("SELECT id, name, game, level, spend, last_active, status FROM players"); err == nil {
+	if rows, err := s.db.Query("SELECT id, name, game, level, spend, last_active, status, tags, remark FROM players"); err == nil {
 		var list []model.Player
 		for rows.Next() {
 			var p model.Player
-			if err := rows.Scan(&p.ID, &p.Name, &p.Game, &p.Level, &p.Spend, &p.LastActive, &p.Status); err == nil {
+			var tagsStr, remark sql.NullString
+			if err := rows.Scan(&p.ID, &p.Name, &p.Game, &p.Level, &p.Spend, &p.LastActive, &p.Status, &tagsStr, &remark); err == nil {
+				if strings.TrimSpace(tagsStr.String) != "" {
+					p.Tags = strings.Split(tagsStr.String, ",")
+				} else {
+					p.Tags = []string{}
+				}
+				p.Remark = remark.String
 				list = append(list, p)
 			}
 		}
@@ -198,6 +228,45 @@ func (s *DataStore) reloadFromPG() {
 		}
 	}
 
+	// 8.1 Game Logs
+	if rows, err := s.db.Query("SELECT id, game, server_id, player_id, player_name, category, action, detail, delta, ip, level, time FROM game_logs ORDER BY time DESC"); err == nil {
+		var list []model.GameLog
+		for rows.Next() {
+			var gl model.GameLog
+			var detail, delta, ip, level sql.NullString
+			if err := rows.Scan(&gl.ID, &gl.Game, &gl.ServerID, &gl.PlayerID, &gl.PlayerName, &gl.Category, &gl.Action, &detail, &delta, &ip, &level, &gl.Time); err == nil {
+				gl.Detail = detail.String
+				gl.Delta = delta.String
+				gl.IP = ip.String
+				gl.Level = level.String
+				list = append(list, gl)
+			}
+		}
+		_ = rows.Close()
+		if len(list) > 0 {
+			s.GameLogs = list
+		}
+	}
+
+	// 8.2 Shop Items
+	if rows, err := s.db.Query("SELECT id, name, game, category, currency, price, original_price, stock, buy_limit, tag, description, items, status, sort_order, created_at, updated_at FROM shop_items ORDER BY sort_order ASC, created_at DESC"); err == nil {
+		var list []model.ShopItem
+		for rows.Next() {
+			var si model.ShopItem
+			var tag, desc, itms sql.NullString
+			if err := rows.Scan(&si.ID, &si.Name, &si.Game, &si.Category, &si.Currency, &si.Price, &si.OriginalPrice, &si.Stock, &si.BuyLimit, &tag, &desc, &itms, &si.Status, &si.SortOrder, &si.CreatedAt, &si.UpdatedAt); err == nil {
+				si.Tag = tag.String
+				si.Description = desc.String
+				si.Items = itms.String
+				list = append(list, si)
+			}
+		}
+		_ = rows.Close()
+		if len(list) > 0 {
+			s.ShopItems = list
+		}
+	}
+
 	// 9. Game Items
 	if rows, err := s.db.Query("SELECT id, name, category, description, rarity, is_custom FROM game_items ORDER BY id ASC"); err == nil {
 		var list []model.GameItem
@@ -235,6 +304,78 @@ func (s *DataStore) reloadFromPG() {
 			s.GiftBoxes = list
 		}
 	}
+
+	// 11. Mails
+	if rows, err := s.db.Query("SELECT id, title, content, sender, game, target_type, target_id, min_level, status, attachments, sent_at, expires_at, claimed_count, total_target FROM mails ORDER BY sent_at DESC"); err == nil {
+		var list []model.Mail
+		for rows.Next() {
+			var m model.Mail
+			var attachmentsJSON string
+			if err := rows.Scan(&m.ID, &m.Title, &m.Content, &m.Sender, &m.Game, &m.TargetType, &m.TargetID, &m.MinLevel, &m.Status, &attachmentsJSON, &m.SentAt, &m.ExpiresAt, &m.ClaimedCount, &m.TotalTarget); err == nil {
+				_ = json.Unmarshal([]byte(attachmentsJSON), &m.Attachments)
+				list = append(list, m)
+			}
+		}
+		_ = rows.Close()
+		if len(list) > 0 {
+			s.Mails = list
+		}
+	}
+
+	// 12. CDKey Batches
+	if rows, err := s.db.Query("SELECT id, name, type, code, game, min_level, total_count, used_count, status, rewards, created_at, expires_at, description FROM cdkey_batches ORDER BY created_at DESC"); err == nil {
+		var list []model.CDKeyBatch
+		for rows.Next() {
+			var b model.CDKeyBatch
+			var desc, code sql.NullString
+			var rewardsJSON string
+			if err := rows.Scan(&b.ID, &b.Name, &b.Type, &code, &b.Game, &b.MinLevel, &b.TotalCount, &b.UsedCount, &b.Status, &rewardsJSON, &b.CreatedAt, &b.ExpiresAt, &desc); err == nil {
+				b.Code = code.String
+				b.Description = desc.String
+				_ = json.Unmarshal([]byte(rewardsJSON), &b.Rewards)
+				list = append(list, b)
+			}
+		}
+		_ = rows.Close()
+		if len(list) > 0 {
+			s.CDKeyBatches = list
+		}
+	}
+
+	// 13. CDKey Items
+	if rows, err := s.db.Query("SELECT code, batch_id, status, player_id, used_at, expires_at FROM cdkey_items ORDER BY code ASC"); err == nil {
+		var list []model.CDKeyItem
+		for rows.Next() {
+			var it model.CDKeyItem
+			var pid, usedAt sql.NullString
+			if err := rows.Scan(&it.Code, &it.BatchID, &it.Status, &pid, &usedAt, &it.ExpiresAt); err == nil {
+				it.PlayerID = pid.String
+				it.UsedAt = usedAt.String
+				list = append(list, it)
+			}
+		}
+		_ = rows.Close()
+		if len(list) > 0 {
+			s.CDKeyItems = list
+		}
+	}
+
+	// 14. CDKey Redemptions
+	if rows, err := s.db.Query("SELECT id, code, batch_id, batch_name, player_id, player_name, game, time, rewards FROM cdkey_redemptions ORDER BY id DESC"); err == nil {
+		var list []model.CDKeyRedemption
+		for rows.Next() {
+			var r model.CDKeyRedemption
+			var rewardsJSON string
+			if err := rows.Scan(&r.ID, &r.Code, &r.BatchID, &r.BatchName, &r.PlayerID, &r.PlayerName, &r.Game, &r.Time, &rewardsJSON); err == nil {
+				_ = json.Unmarshal([]byte(rewardsJSON), &r.Rewards)
+				list = append(list, r)
+			}
+		}
+		_ = rows.Close()
+		if len(list) > 0 {
+			s.CDKeyRedemptions = list
+		}
+	}
 }
 
 func (s *DataStore) invalidateRedis(patterns ...string) {
@@ -255,6 +396,10 @@ func (s *DataStore) invalidateRedis(patterns ...string) {
 	}
 }
 
+func (s *DataStore) Redis() *redis.Client {
+	return s.rdb
+}
+
 func (s *DataStore) saveUnlocked() error {
 	data, err := json.MarshalIndent(s, "", "  ")
 	if err != nil {
@@ -262,3 +407,4 @@ func (s *DataStore) saveUnlocked() error {
 	}
 	return os.WriteFile(s.filePath, data, 0644)
 }
+

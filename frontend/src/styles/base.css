@@ -1,0 +1,121 @@
+/**
+ * 璇玑 · 基础重置与原生控件定制 (Base Resets & Native Controls)
+ */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5c8 transparent;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background-color: var(--paper-bg, #f6f4ee);
+  background-image: 
+    radial-gradient(circle at 12% 15%, rgba(235, 230, 215, 0.45) 0%, transparent 45%),
+    radial-gradient(circle at 88% 85%, rgba(228, 222, 204, 0.4) 0%, transparent 50%);
+  background-attachment: fixed;
+}
+
+button, input, select, textarea { font: inherit; }
+button { cursor: pointer; }
+button:disabled { cursor: not-allowed; }
+
+/* 焦点环与文本选区 (Focus & Selection) */
+button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--jade-primary, #2b5d4c);
+  outline-offset: 1px;
+  box-shadow: 0 0 0 3px rgba(45, 93, 76, 0.16);
+}
+
+::selection {
+  background: #d7e8dc;
+  color: #143328;
+}
+
+/* 典雅细微滚动条 (Global Scrollbar) */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #cad5c7; border-radius: 4px; transition: background 0.2s ease; }
+::-webkit-scrollbar-thumb:hover { background: #9bb098; }
+::-webkit-scrollbar-corner { background: transparent; }
+
+/* 原生表单项新中式美化 (Native Form Controls) */
+input[type="checkbox"], input[type="radio"] {
+  accent-color: var(--jade-primary, #2b5d4c);
+  cursor: pointer;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+input[type="number"]::-webkit-inner-spin-button,
+/* ========================================================
+   严防组件内部文字折行与文字竖排 (Strict No-Wrap Enforcement)
+   ======================================================== */
+.ancient-table th,
+.ancient-table td,
+.data-table th,
+.data-table td,
+.btn,
+.btn-primary,
+.btn-secondary,
+.btn-danger,
+.btn-sm,
+.btn-icon,
+.action-pill,
+.level-pill,
+.delta-pill,
+.game-category-tag,
+.server-tag,
+.status-text,
+.status-badge,
+.tag,
+.name-cell,
+.name-cell strong,
+.name-cell small,
+.person-cell,
+.person-cell strong,
+.person-cell small,
+.row-actions,
+.row-actions button,
+.table-toolbar button,
+.table-toolbar select,
+.nav-item,
+.nav-link,
+.top-bar button,
+.ancient-select,
+.search-clear-btn {
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+}
+
+input[type="date"] {
+  accent-color: var(--jade-primary, #2b5d4c);
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  filter: invert(34%) sepia(20%) saturate(800%) hue-rotate(110deg) brightness(92%) contrast(90%);
+  opacity: 0.8;
+  transition: opacity 0.2s ease, transform 0.15s ease;
+}
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* 动效减弱模式兼容 (Reduced Motion) */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+  .chart-line { stroke-dashoffset: 0; }
+}

@@ -23,31 +23,18 @@
   ],
   "players": [
     {
-      "id": "XJ100689",
-      "name": "拾光者",
-      "game": "山海长歌",
-      "level": 91,
-      "spend": 5680,
-      "lastActive": "昨天 22:13",
-      "status": "正常"
-    },
-    {
-      "id": "XJ100731",
-      "name": "长安旧梦",
-      "game": "九州志",
-      "level": 58,
-      "spend": 320,
-      "lastActive": "昨天 18:35",
-      "status": "已封禁"
-    },
-    {
       "id": "XJ100845",
       "name": "云深不知处",
       "game": "云间录",
       "level": 77,
       "spend": 2580,
       "lastActive": "昨天 16:09",
-      "status": "正常"
+      "status": "正常",
+      "tags": [
+        "大R道友",
+        "修仙榜首"
+      ],
+      "remark": "新晋宗门执事"
     },
     {
       "id": "XJ100926",
@@ -56,25 +43,9 @@
       "level": 43,
       "spend": 128,
       "lastActive": "2天前",
-      "status": "正常"
-    },
-    {
-      "id": "XJ100248",
-      "name": "听风入梦",
-      "game": "山海长歌",
-      "level": 86,
-      "spend": 3280,
-      "lastActive": "今天 10:42",
-      "status": "已封禁"
-    },
-    {
-      "id": "XJ100367",
-      "name": "青山客",
-      "game": "九州志",
-      "level": 72,
-      "spend": 1680,
-      "lastActive": "今天 09:18",
-      "status": "已封禁"
+      "status": "已封禁",
+      "tags": [],
+      "remark": ""
     },
     {
       "id": "XJ100512",
@@ -83,7 +54,63 @@
       "level": 64,
       "spend": 980,
       "lastActive": "今天 08:56",
-      "status": "已封禁"
+      "status": "已封禁",
+      "tags": [],
+      "remark": ""
+    },
+    {
+      "id": "XJ100689",
+      "name": "拾光者",
+      "game": "山海长歌",
+      "level": 91,
+      "spend": 5680,
+      "lastActive": "昨天 22:13",
+      "status": "已封禁",
+      "tags": [
+        "活跃帮主"
+      ],
+      "remark": "第一大宗门[天工开物]执掌长老，多次组织跨服开荒"
+    },
+    {
+      "id": "XJ100731",
+      "name": "长安旧梦",
+      "game": "九州志",
+      "level": 58,
+      "spend": 320,
+      "lastActive": "昨天 18:35",
+      "status": "已封禁",
+      "tags": [
+        "重点监控"
+      ],
+      "remark": "检测到非法瞬移与封包变速异常，安全合规风控组持续关注"
+    },
+    {
+      "id": "XJ100367",
+      "name": "青山客",
+      "game": "九州志",
+      "level": 72,
+      "spend": 1680,
+      "lastActive": "今天 09:18",
+      "status": "已封禁",
+      "tags": [
+        "新晋大R",
+        "修仙狂人"
+      ],
+      "remark": "本周连续充值多笔，重点跟进"
+    },
+    {
+      "id": "XJ100248",
+      "name": "听风入梦",
+      "game": "山海长歌",
+      "level": 86,
+      "spend": 3280,
+      "lastActive": "今天 10:42",
+      "status": "已封禁",
+      "tags": [
+        "修仙榜首",
+        "大R道友"
+      ],
+      "remark": "跨服天梯S1赛季总冠军，专属VIP客服一对一维护"
     }
   ],
   "events": [
@@ -158,6 +185,321 @@
       "end": "2026-10-25",
       "participants": 0,
       "status": "未开始"
+    },
+    {
+      "id": "EV918265",
+      "title": "测试秘境活动",
+      "game": "山海长歌",
+      "start": "2026-10-25",
+      "end": "2026-11-01",
+      "participants": 0,
+      "status": "进行中"
+    },
+    {
+      "id": "EV898979",
+      "title": "中秋灯会活动",
+      "game": "山海长歌",
+      "start": "2026-10-18",
+      "end": "2026-10-25",
+      "participants": 0,
+      "status": "未开始"
+    },
+    {
+      "id": "EV28769",
+      "title": "测试秘境活动",
+      "game": "山海长歌",
+      "start": "2026-10-25",
+      "end": "2026-11-01",
+      "participants": 0,
+      "status": "进行中"
+    },
+    {
+      "id": "EV318197",
+      "title": "中秋灯会活动",
+      "game": "山海长歌",
+      "start": "2026-10-18",
+      "end": "2026-10-25",
+      "participants": 0,
+      "status": "未开始"
+    },
+    {
+      "id": "EV926927",
+      "title": "测试秘境活动",
+      "game": "山海长歌",
+      "start": "2026-10-25",
+      "end": "2026-11-01",
+      "participants": 0,
+      "status": "进行中"
+    },
+    {
+      "id": "EV711786",
+      "title": "测试秘境活动",
+      "game": "山海长歌",
+      "start": "2026-10-25",
+      "end": "2026-11-01",
+      "participants": 0,
+      "status": "进行中"
+    },
+    {
+      "id": "EV71303",
+      "title": "测试秘境活动",
+      "game": "山海长歌",
+      "start": "2026-10-25",
+      "end": "2026-11-01",
+      "participants": 0,
+      "status": "进行中"
+    },
+    {
+      "id": "EV914356",
+      "title": "中秋灯会活动",
+      "game": "山海长歌",
+      "start": "2026-10-18",
+      "end": "2026-10-25",
+      "participants": 0,
+      "status": "未开始"
+    },
+    {
+      "id": "EV189852",
+      "title": "测试秘境活动",
+      "game": "山海长歌",
+      "start": "2026-10-25",
+      "end": "2026-11-01",
+      "participants": 0,
+      "status": "进行中"
+    },
+    {
+      "id": "EV731167",
+      "title": "中秋灯会活动",
+      "game": "山海长歌",
+      "start": "2026-10-18",
+      "end": "2026-10-25",
+      "participants": 0,
+      "status": "未开始"
+    },
+    {
+      "id": "EV783966",
+      "title": "测试秘境活动",
+      "game": "山海长歌",
+      "start": "2026-10-25",
+      "end": "2026-11-01",
+      "participants": 0,
+      "status": "进行中"
+    },
+    {
+      "id": "EV274261",
+      "title": "测试秘境活动",
+      "game": "山海长歌",
+      "start": "2026-10-25",
+      "end": "2026-11-01",
+      "participants": 0,
+      "status": "进行中"
+    },
+    {
+      "id": "EV650171",
+      "title": "中秋灯会活动",
+      "game": "山海长歌",
+      "start": "2026-10-18",
+      "end": "2026-10-25",
+      "participants": 0,
+      "status": "未开始"
+    },
+    {
+      "id": "EV796351",
+      "title": "测试秘境活动",
+      "game": "山海长歌",
+      "start": "2026-10-25",
+      "end": "2026-11-01",
+      "participants": 0,
+      "status": "进行中"
+    },
+    {
+      "id": "EV942816",
+      "title": "中秋灯会活动",
+      "game": "山海长歌",
+      "start": "2026-10-18",
+      "end": "2026-10-25",
+      "participants": 0,
+      "status": "未开始"
+    },
+    {
+      "id": "EV129048",
+      "title": "测试秘境活动",
+      "game": "山海长歌",
+      "start": "2026-10-25",
+      "end": "2026-11-01",
+      "participants": 0,
+      "status": "进行中"
+    },
+    {
+      "id": "EV142959",
+      "title": "中秋灯会活动",
+      "game": "山海长歌",
+      "start": "2026-10-18",
+      "end": "2026-10-25",
+      "participants": 0,
+      "status": "未开始"
+    },
+    {
+      "id": "EV903837",
+      "title": "中秋灯会活动",
+      "game": "山海长歌",
+      "start": "2026-10-18",
+      "end": "2026-10-25",
+      "participants": 0,
+      "status": "未开始"
+    },
+    {
+      "id": "EV413475",
+      "title": "测试秘境活动",
+      "game": "山海长歌",
+      "start": "2026-10-25",
+      "end": "2026-11-01",
+      "participants": 0,
+      "status": "进行中"
+    },
+    {
+      "id": "EV463289",
+      "title": "中秋灯会活动",
+      "game": "山海长歌",
+      "start": "2026-10-18",
+      "end": "2026-10-25",
+      "participants": 0,
+      "status": "未开始"
+    },
+    {
+      "id": "EV91724",
+      "title": "测试秘境活动",
+      "game": "山海长歌",
+      "start": "2026-10-25",
+      "end": "2026-11-01",
+      "participants": 0,
+      "status": "进行中"
+    },
+    {
+      "id": "EV791301",
+      "title": "中秋灯会活动",
+      "game": "山海长歌",
+      "start": "2026-10-18",
+      "end": "2026-10-25",
+      "participants": 0,
+      "status": "未开始"
+    },
+    {
+      "id": "EV778391",
+      "title": "测试秘境活动",
+      "game": "山海长歌",
+      "start": "2026-10-25",
+      "end": "2026-11-01",
+      "participants": 0,
+      "status": "进行中"
+    },
+    {
+      "id": "EV139955",
+      "title": "中秋灯会活动",
+      "game": "山海长歌",
+      "start": "2026-10-18",
+      "end": "2026-10-25",
+      "participants": 0,
+      "status": "未开始"
+    },
+    {
+      "id": "EV440892",
+      "title": "测试秘境活动",
+      "game": "山海长歌",
+      "start": "2026-10-25",
+      "end": "2026-11-01",
+      "participants": 0,
+      "status": "进行中"
+    },
+    {
+      "id": "EV224134",
+      "title": "中秋灯会活动",
+      "game": "山海长歌",
+      "start": "2026-10-18",
+      "end": "2026-10-25",
+      "participants": 0,
+      "status": "未开始"
+    },
+    {
+      "id": "EV475840",
+      "title": "九洲问剑巅峰赛(更名)",
+      "game": "九州志",
+      "start": "2026-10-22",
+      "end": "2026-10-29",
+      "participants": 0,
+      "status": "未开始"
+    },
+    {
+      "id": "EV15773",
+      "title": "中秋灯会活动",
+      "game": "山海长歌",
+      "start": "2026-10-18",
+      "end": "2026-10-25",
+      "participants": 0,
+      "status": "未开始"
+    },
+    {
+      "id": "EV36551",
+      "title": "九洲问剑巅峰赛(更名)",
+      "game": "九州志",
+      "start": "2026-10-23",
+      "end": "2026-10-30",
+      "participants": 0,
+      "status": "未开始"
+    },
+    {
+      "id": "EV342936",
+      "title": "九洲问剑巅峰赛(更名)",
+      "game": "九州志",
+      "start": "2026-10-22",
+      "end": "2026-10-29",
+      "participants": 0,
+      "status": "未开始"
+    },
+    {
+      "id": "EV111503",
+      "title": "测试秘境活动",
+      "game": "山海长歌",
+      "start": "2026-10-25",
+      "end": "2026-11-01",
+      "participants": 0,
+      "status": "进行中"
+    },
+    {
+      "id": "EV666017",
+      "title": "中秋灯会活动",
+      "game": "山海长歌",
+      "start": "2026-10-18",
+      "end": "2026-10-25",
+      "participants": 0,
+      "status": "未开始"
+    },
+    {
+      "id": "EV513561",
+      "title": "测试秘境活动",
+      "game": "山海长歌",
+      "start": "2026-10-25",
+      "end": "2026-11-01",
+      "participants": 0,
+      "status": "进行中"
+    },
+    {
+      "id": "EV238028",
+      "title": "九洲问剑巅峰赛(更名)",
+      "game": "九州志",
+      "start": "2026-10-23",
+      "end": "2026-10-30",
+      "participants": 0,
+      "status": "未开始"
+    },
+    {
+      "id": "EV285804",
+      "title": "测试秘境活动",
+      "game": "山海长歌",
+      "start": "2026-10-25",
+      "end": "2026-11-01",
+      "participants": 0,
+      "status": "进行中"
     }
   ],
   "announcements": [
@@ -196,13 +538,22 @@
   ],
   "orders": [
     {
+      "id": "XC2610150421",
+      "player": "听风入梦",
+      "game": "山海长歌",
+      "amount": 328,
+      "method": "微信支付",
+      "time": "2026-10-15 10:42",
+      "status": "已退款"
+    },
+    {
       "id": "XC2610150419",
       "player": "青山客",
       "game": "九州志",
       "amount": 68,
       "method": "支付宝",
       "time": "2026-10-15 10:18",
-      "status": "成功"
+      "status": "已退款"
     },
     {
       "id": "XC2610150416",
@@ -211,7 +562,7 @@
       "amount": 198,
       "method": "微信支付",
       "time": "2026-10-15 09:56",
-      "status": "处理中"
+      "status": "已退款"
     },
     {
       "id": "XC2610150408",
@@ -220,7 +571,7 @@
       "amount": 648,
       "method": "支付宝",
       "time": "2026-10-15 09:24",
-      "status": "成功"
+      "status": "已退款"
     },
     {
       "id": "XC2610140398",
@@ -238,24 +589,15 @@
       "amount": 128,
       "method": "支付宝",
       "time": "2026-10-14 18:07",
-      "status": "处理中"
-    },
-    {
-      "id": "XC2610150421",
-      "player": "听风入梦",
-      "game": "山海长歌",
-      "amount": 328,
-      "method": "微信支付",
-      "time": "2026-10-15 10:42",
       "status": "已退款"
     }
   ],
   "notices": [
     {
       "id": 3,
-      "title": "本周运营数据已更新",
-      "time": "今天 08:30",
-      "page": "reports",
+      "title": "春山有信活动待开启",
+      "time": "2小时前",
+      "page": "events",
       "read": false
     },
     {
@@ -267,9 +609,9 @@
     },
     {
       "id": 1,
-      "title": "春山有信活动待开启",
-      "time": "2小时前",
-      "page": "events",
+      "title": "本周运营数据已更新",
+      "time": "今天 08:30",
+      "page": "reports",
       "read": false
     }
   ],
@@ -280,22 +622,577 @@
   },
   "gmLogs": [
     {
-      "id": "GM816879",
+      "id": "GM61020",
       "operator": "林管理员",
-      "action": "发放定制礼盒",
+      "action": "发放道具",
       "target": "山海长歌 · XJ100248",
-      "detail": "向玩家发放定制礼匣 [西王母瑶池盛宴礼匣] x3 (类型: 随机概率盲盒)，原因: 周年庆典首发福利",
-      "time": "2026-10-15 18:25:20",
+      "detail": "发放 太虚灵石 x500 (原因: 单元测试发放) [[Mock] 道具 太虚灵石 x500 已模拟下发给玩家 XJ100248]",
+      "time": "2026-10-22 00:20:29",
       "status": "成功"
     },
     {
-      "id": "GM567588",
+      "id": "GM141186",
+      "operator": "林管理员",
+      "action": "发放道具",
+      "target": "山海长歌 · XJ100248",
+      "detail": "发放 太虚灵石 x500 (原因: 单元测试发放) [[Mock] 道具 太虚灵石 x500 已模拟下发给玩家 XJ100248]",
+      "time": "2026-10-22 00:03:19",
+      "status": "成功"
+    },
+    {
+      "id": "GM432602",
+      "operator": "林管理员",
+      "action": "发放道具",
+      "target": "山海长歌 · XJ100248",
+      "detail": "发放 太虚灵石 x500 (原因: 单元测试发放) [[Mock] 道具 太虚灵石 x500 已模拟下发给玩家 XJ100248]",
+      "time": "2026-10-21 23:36:40",
+      "status": "成功"
+    },
+    {
+      "id": "GM996658",
+      "operator": "林管理员",
+      "action": "发放道具",
+      "target": "山海长歌 · XJ100248",
+      "detail": "发放 太虚灵石 x500 (原因: 单元测试发放) [[Mock] 道具 太虚灵石 x500 已模拟下发给玩家 XJ100248]",
+      "time": "2026-10-21 23:29:15",
+      "status": "成功"
+    },
+    {
+      "id": "GM321169",
+      "operator": "林管理员",
+      "action": "发放道具",
+      "target": "山海长歌 · XJ100248",
+      "detail": "发放 太虚灵石 x500 (原因: 单元测试发放) [[Mock] 道具 太虚灵石 x500 已模拟下发给玩家 XJ100248]",
+      "time": "2026-10-21 23:18:54",
+      "status": "成功"
+    },
+    {
+      "id": "GM901765",
+      "operator": "林管理员",
+      "action": "发放道具",
+      "target": "山海长歌 · XJ100248",
+      "detail": "发放 太虚灵石 x500 (原因: 单元测试发放) [[Mock] 道具 太虚灵石 x500 已模拟下发给玩家 XJ100248]",
+      "time": "2026-10-21 23:13:47",
+      "status": "成功"
+    },
+    {
+      "id": "GM945511",
+      "operator": "林管理员",
+      "action": "发放道具",
+      "target": "山海长歌 · XJ100248",
+      "detail": "发放 太虚灵石 x500 (原因: 单元测试发放) [[Mock] 道具 太虚灵石 x500 已模拟下发给玩家 XJ100248]",
+      "time": "2026-10-21 22:49:20",
+      "status": "成功"
+    },
+    {
+      "id": "GM115832",
+      "operator": "林管理员",
+      "action": "发放道具",
+      "target": "山海长歌 · XJ100248",
+      "detail": "发放 太虚灵石 x500 (原因: 单元测试发放) [[Mock] 道具 太虚灵石 x500 已模拟下发给玩家 XJ100248]",
+      "time": "2026-10-21 21:47:14",
+      "status": "成功"
+    },
+    {
+      "id": "GM891028",
+      "operator": "林管理员",
+      "action": "发放道具",
+      "target": "山海长歌 · XJ100248",
+      "detail": "发放 元宝 x2000 (原因: 跨服排位掉线补发) [游戏服驱动返回: 发放成功]",
+      "time": "2026-10-21 15:42:10",
+      "status": "成功"
+    },
+    {
+      "id": "GM891026",
+      "operator": "林管理员",
+      "action": "定制礼盒下发",
+      "target": "云间录 · XJ100301",
+      "detail": "下发定制礼包 [至尊飞升礼匣] x1 (包含太虚飞剑、九转金丹)",
+      "time": "2026-10-21 14:18:05",
+      "status": "成功"
+    },
+    {
+      "id": "GM891023",
+      "operator": "璇玑掌印官",
+      "action": "全服广播",
+      "target": "九州志",
+      "detail": "[高优先级广播] 本服将于今日 23:50 开启决战巅峰赛事，请诸位侠士提前进场",
+      "time": "2026-10-21 11:20:00",
+      "status": "成功"
+    },
+    {
+      "id": "GM891021",
+      "operator": "林管理员",
+      "action": "发放道具",
+      "target": "山海长歌 · XJ100248",
+      "detail": "发放 太虚灵石 x500 (原因: 补偿维护延时) [已入账]",
+      "time": "2026-10-21 10:15:20",
+      "status": "成功"
+    },
+    {
+      "id": "GM891019",
+      "operator": "赵执事",
+      "action": "补偿信函特派",
+      "target": "全部游戏 · 全服道友",
+      "detail": "起草并下发全服维护致歉补偿函 (MAIL_2401) 触达 24,800 人",
+      "time": "2026-10-21 09:45:12",
+      "status": "成功"
+    },
+    {
+      "id": "GM891018",
+      "operator": "林管理员",
+      "action": "全服广播",
+      "target": "九州志",
+      "detail": "[系统跑马灯] 九州论剑决赛即将开启，请各服少侠做好准备",
+      "time": "2026-10-21 09:30:00",
+      "status": "成功"
+    },
+    {
+      "id": "GM891015",
+      "operator": "安全巡查系统",
+      "action": "玩家封禁",
+      "target": "山海长歌 · XJ100999",
+      "detail": "检测到非法内存变速异常行为，自动封停账号 7 日",
+      "time": "2026-10-21 08:12:34",
+      "status": "成功"
+    },
+    {
+      "id": "GM891004",
+      "operator": "林管理员",
+      "action": "重载配表",
+      "target": "全服服务器",
+      "detail": "全区服游戏掉落与数值配置表已热重载，耗时 124ms",
+      "time": "2026-10-20 22:00:15",
+      "status": "成功"
+    },
+    {
+      "id": "GM891010",
+      "operator": "林管理员",
+      "action": "生成CDKey",
+      "target": "九州志 · 通用福利",
+      "detail": "生成春季全员福利礼包码 (SP_961318) 限额 10,000 次",
+      "time": "2026-10-20 18:20:00",
+      "status": "成功"
+    },
+    {
+      "id": "GM891008",
+      "operator": "璇玑掌印官",
+      "action": "执行指令",
+      "target": "云间录",
+      "detail": "执行动态调试指令: reload_dungeon_instances (清理野外副本格林死锁)",
+      "time": "2026-10-20 16:05:40",
+      "status": "成功"
+    },
+    {
+      "id": "GM891002",
+      "operator": "安全系统",
+      "action": "登录鉴权",
+      "target": "管理控制台",
+      "detail": "管理员 [admin] 通过双重密钥鉴权从 127.0.0.1 成功登录",
+      "time": "2026-10-20 09:00:22",
+      "status": "成功"
+    },
+    {
+      "id": "GM890998",
+      "operator": "陈执事",
+      "action": "紧急召回信函",
+      "target": "山海长歌",
+      "detail": "紧急召回异常错发道具信函 (MAIL_2404)，阻断未领礼包 142 份",
+      "time": "2026-10-19 17:30:10",
+      "status": "成功"
+    },
+    {
+      "id": "GM890995",
+      "operator": "未知外部访问",
+      "action": "登录鉴权",
+      "target": "管理控制台",
+      "detail": "检测到连续密码试探失败 (IP: 198.51.100.24)，触发安全风控拦截",
+      "time": "2026-10-19 03:15:08",
+      "status": "失败"
+    },
+    {
+      "id": "GM306104",
+      "operator": "林管理员",
+      "action": "发放道具",
+      "target": "山海长歌 · XJ100248",
+      "detail": "发放 太虚灵石 x500 (原因: 单元测试发放) [[Mock] 道具 太虚灵石 x500 已模拟下发给玩家 XJ100248]",
+      "time": "2026-10-16 04:40:38",
+      "status": "成功"
+    },
+    {
+      "id": "GM183311",
+      "operator": "林管理员",
+      "action": "发放道具",
+      "target": "山海长歌 · XJ100248",
+      "detail": "发放 太虚灵石 x500 (原因: 单元测试发放) [[Mock] 道具 太虚灵石 x500 已模拟下发给玩家 XJ100248]",
+      "time": "2026-10-16 04:39:40",
+      "status": "成功"
+    },
+    {
+      "id": "GM109087",
       "operator": "林管理员",
       "action": "发放道具",
       "target": "山海长歌 · XJ100248",
       "detail": "发放 太虚灵石 x500 (原因: 单元测试发放)",
-      "time": "2026-10-15 18:11:42",
+      "time": "2026-10-16 02:47:30",
       "status": "成功"
+    },
+    {
+      "id": "GM238455",
+      "operator": "林管理员",
+      "action": "发放道具",
+      "target": "山海长歌 · XJ100248",
+      "detail": "发放 太虚灵石 x500 (原因: 单元测试发放)",
+      "time": "2026-10-16 02:46:11",
+      "status": "成功"
+    },
+    {
+      "id": "GM577658",
+      "operator": "林管理员",
+      "action": "发放道具",
+      "target": "山海长歌 · XJ100248",
+      "detail": "发放 太虚灵石 x500 (原因: 单元测试发放)",
+      "time": "2026-10-16 02:25:50",
+      "status": "成功"
+    },
+    {
+      "id": "GM741073",
+      "operator": "林管理员",
+      "action": "发放道具",
+      "target": "山海长歌 · XJ100248",
+      "detail": "发放 太虚灵石 x500 (原因: 单元测试发放)",
+      "time": "2026-10-16 02:11:30",
+      "status": "成功"
+    }
+  ],
+  "gameLogs": [
+    {
+      "id": "GL_TEST_999",
+      "game": "云间录",
+      "serverId": "太虚幻境-1服",
+      "playerId": "XJ100999",
+      "playerName": "测试仙友",
+      "category": "玩法战斗",
+      "action": "通关秘境",
+      "detail": "首通测试副本",
+      "delta": "+500 灵石",
+      "ip": "127.0.0.1",
+      "level": "INFO",
+      "time": "2026-10-21 23:00:00"
+    },
+    {
+      "id": "GL202610210001",
+      "game": "山海长歌",
+      "serverId": "沧海流云-1服",
+      "playerId": "XJ100248",
+      "playerName": "听风入梦",
+      "category": "经济流水",
+      "action": "商城消费",
+      "detail": "玩家在珍宝阁购买 [九转还魂金丹] x5，单价 120 仙玉",
+      "delta": "-600 仙玉",
+      "ip": "114.249.32.18",
+      "level": "INFO",
+      "time": "2026-10-21 21:35:12"
+    },
+    {
+      "id": "GL202610210002",
+      "game": "九州志",
+      "serverId": "九州巅峰-2服",
+      "playerId": "XJ100367",
+      "playerName": "青山客",
+      "category": "玩法战斗",
+      "action": "世界Boss击杀",
+      "detail": "参与围攻世界首领 [赤炎金猊兽]，打出斩杀伤害 48,290,000 点，获得首杀宝箱",
+      "delta": "+1 斩龙宝匣",
+      "ip": "183.210.45.67",
+      "level": "CRITICAL",
+      "time": "2026-10-21 21:10:45"
+    },
+    {
+      "id": "GL202610210003",
+      "game": "云间录",
+      "serverId": "太虚幻境-1服",
+      "playerId": "XJ100512",
+      "playerName": "月照归舟",
+      "category": "道具获取",
+      "action": "限定祈愿十连",
+      "detail": "消耗天工天璇令抽取 [天外飞仙] 卡池，触发保底机制获得传说武器 [太虚神剑]",
+      "delta": "+1 太虚神剑 (传说)",
+      "ip": "221.192.10.88",
+      "level": "CRITICAL",
+      "time": "2026-10-21 20:45:00"
+    },
+    {
+      "id": "GL202610210004",
+      "game": "山海长歌",
+      "serverId": "沧海流云-1服",
+      "playerId": "XJ100689",
+      "playerName": "拾光者",
+      "category": "角色成长",
+      "action": "渡劫境界突破",
+      "detail": "集齐四象灵韵渡天道雷劫成功，由 [化神后期] 突破至 [合体初期]，战力提升 185,000",
+      "delta": "+185,000 战力",
+      "ip": "117.136.88.23",
+      "level": "INFO",
+      "time": "2026-10-21 19:22:30"
+    },
+    {
+      "id": "GL202610210005",
+      "game": "九州志",
+      "serverId": "九州巅峰-2服",
+      "playerId": "XJ100731",
+      "playerName": "长安旧梦",
+      "category": "安全风控",
+      "action": "战斗封包异常",
+      "detail": "检测到瞬时移动速度异常超标 (145.2 m/s \u003e 正常阈值 18.0 m/s)，已阻断坐标同步",
+      "delta": "触发反外挂警告",
+      "ip": "101.89.201.12",
+      "level": "WARN",
+      "time": "2026-10-21 18:35:10"
+    },
+    {
+      "id": "GL202610210006",
+      "game": "山海长歌",
+      "serverId": "沧海流云-1服",
+      "playerId": "XJ100248",
+      "playerName": "听风入梦",
+      "category": "经济流水",
+      "action": "充值入账",
+      "detail": "微信支付 328 元购买 [3280 灵玉特惠包]，触发双倍首充赠送 3280 灵玉",
+      "delta": "+6560 灵玉",
+      "ip": "114.249.32.18",
+      "level": "INFO",
+      "time": "2026-10-21 10:42:05"
+    },
+    {
+      "id": "GL202610210011",
+      "game": "山海长歌",
+      "serverId": "沧海流云-1服",
+      "playerId": "XJ100731",
+      "playerName": "长安旧梦",
+      "category": "安全风控",
+      "action": "账号安全封禁",
+      "detail": "依据反外挂判定规则，执行自动化临时封禁 7 天处理",
+      "delta": "账号冻结",
+      "ip": "101.89.201.12",
+      "level": "CRITICAL",
+      "time": "2026-10-20 18:35:15"
+    },
+    {
+      "id": "GL202610210007",
+      "game": "云间录",
+      "serverId": "太虚幻境-1服",
+      "playerId": "XJ100845",
+      "playerName": "云深不知处",
+      "category": "玩法战斗",
+      "action": "天梯论剑",
+      "detail": "跨服排位战第 14 场取胜，连胜场次达 8 场，天梯积分提升至 2840 (太乙真仙段位)",
+      "delta": "+35 天梯积分",
+      "ip": "120.229.40.16",
+      "level": "INFO",
+      "time": "2026-10-20 16:09:12"
+    },
+    {
+      "id": "GL202610210009",
+      "game": "九州志",
+      "serverId": "九州巅峰-2服",
+      "playerId": "XJ100367",
+      "playerName": "青山客",
+      "category": "经济流水",
+      "action": "寄售行交易",
+      "detail": "上架的 [百年温玉] x20 已被其他玩家竞拍拍下，扣除 5% 手续费后货款到账",
+      "delta": "+1900 元宝",
+      "ip": "183.210.45.67",
+      "level": "INFO",
+      "time": "2026-10-20 14:15:20"
+    },
+    {
+      "id": "GL202610210010",
+      "game": "云间录",
+      "serverId": "全区服",
+      "playerId": "XJ100512",
+      "playerName": "月照归舟",
+      "category": "角色成长",
+      "action": "自创神通大圆满",
+      "detail": "领悟太极阴阳之道，自创天阶绝技 [九霄引雷诀] 参悟至第 10 重圆满境界",
+      "delta": "+1 天阶神通",
+      "ip": "221.192.10.88",
+      "level": "CRITICAL",
+      "time": "2026-10-20 11:45:00"
+    },
+    {
+      "id": "GL202610210012",
+      "game": "九州志",
+      "serverId": "九州巅峰-2服",
+      "playerId": "XJ100248",
+      "playerName": "听风入梦",
+      "category": "道具获取",
+      "action": "秘境探宝掉落",
+      "detail": "单人首通秘境副本 [无极深渊 80 层]，首通掉落极品防具 [玄武盘龙甲]",
+      "delta": "+1 玄武盘龙甲",
+      "ip": "114.249.32.18",
+      "level": "INFO",
+      "time": "2026-10-19 15:20:18"
+    },
+    {
+      "id": "GL202610210008",
+      "game": "山海长歌",
+      "serverId": "沧海流云-1服",
+      "playerId": "XJ100926",
+      "playerName": "一叶知秋",
+      "category": "登录登出",
+      "action": "玩家上线",
+      "detail": "通过 iOS 客户端成功鉴权登录，客户端版本 v2.4.1，延迟 28ms",
+      "delta": "会话建立",
+      "ip": "27.154.89.31",
+      "level": "INFO",
+      "time": "2026-10-19 08:30:00"
+    }
+  ],
+  "shopItems": [
+    {
+      "id": "SHOP_1001",
+      "name": "至尊飞升迎新礼匣",
+      "game": "山海长歌",
+      "category": "超值礼包",
+      "currency": "仙玉",
+      "price": 68,
+      "originalPrice": 198,
+      "stock": -1,
+      "buyLimit": "永久限购1次",
+      "tag": "首充特惠",
+      "description": "仙途启程必备，内含极品成长法宝与海量飞升修炼灵物，助道友一日千里。",
+      "items": "太虚飞剑 x1, 九转还魂金丹 x5, 极品灵石 x10000",
+      "status": "上架中",
+      "sortOrder": 1,
+      "createdAt": "2026-10-11",
+      "updatedAt": "2026-10-21"
+    },
+    {
+      "id": "SHOP_1002",
+      "name": "九霄太虚诛仙古剑",
+      "game": "九州志",
+      "category": "极品法宝",
+      "currency": "仙玉",
+      "price": 648,
+      "originalPrice": 888,
+      "stock": 50,
+      "buyLimit": "永久限购1次",
+      "tag": "镇店之宝",
+      "description": "上古剑仙本命法宝，引九霄雷劫淬炼七七四十九日而成，出鞘自带破甲雷光。",
+      "items": "九霄太虚古剑 (传说) x1",
+      "status": "上架中",
+      "sortOrder": 2,
+      "createdAt": "2026-10-13",
+      "updatedAt": "2026-10-20"
+    },
+    {
+      "id": "SHOP_1003",
+      "name": "九转还魂聚气神丹组",
+      "game": "全部游戏",
+      "category": "灵丹妙药",
+      "currency": "元宝",
+      "price": 1280,
+      "originalPrice": 1600,
+      "stock": -1,
+      "buyLimit": "每日限购3次",
+      "tag": "突破必备",
+      "description": "炼丹大宗师亲手抟炼，服用后瞬间恢复全部气血灵力，并提升30%破境渡劫概率。",
+      "items": "九转还魂丹 x10, 渡劫聚气散 x5",
+      "status": "上架中",
+      "sortOrder": 3,
+      "createdAt": "2026-10-06",
+      "updatedAt": "2026-10-21"
+    },
+    {
+      "id": "SHOP_1004",
+      "name": "月度仙缘福禄卡",
+      "game": "全部游戏",
+      "category": "超值礼包",
+      "currency": "CNY",
+      "price": 30,
+      "originalPrice": 30,
+      "stock": -1,
+      "buyLimit": "每月限购1次",
+      "tag": "30倍返利",
+      "description": "激活立即获取 300 仙玉，连续 30 日每日登录可领 100 仙玉及天工宝匣钥匙。",
+      "items": "即得 300 仙玉, 每日领 100 仙玉 (累计 3300 仙玉)",
+      "status": "上架中",
+      "sortOrder": 4,
+      "createdAt": "2026-09-21",
+      "updatedAt": "2026-10-21"
+    },
+    {
+      "id": "SHOP_1005",
+      "name": "广袖流仙幻羽裙",
+      "game": "云间录",
+      "category": "外观时装",
+      "currency": "仙玉",
+      "price": 328,
+      "originalPrice": 428,
+      "stock": -1,
+      "buyLimit": "永久限购1次",
+      "tag": "限定外观",
+      "description": "织女采九天云霞纺织而成，着此霓裳步步生莲，踏雪无痕，附带专属登场光效。",
+      "items": "广袖流仙羽衣 x1, 步步生莲光效卡 x1",
+      "status": "上架中",
+      "sortOrder": 5,
+      "createdAt": "2026-10-16",
+      "updatedAt": "2026-10-20"
+    },
+    {
+      "id": "SHOP_1006",
+      "name": "天工洗髓神水",
+      "game": "山海长歌",
+      "category": "灵丹妙药",
+      "currency": "灵石",
+      "price": 5000,
+      "originalPrice": 6800,
+      "stock": 200,
+      "buyLimit": "每周限购5次",
+      "tag": "热销新品",
+      "description": "洗涤周身百骸凡尘经络，可完全重置角色修行潜能点数并返还全部天道功德。",
+      "items": "洗髓神水 x1",
+      "status": "上架中",
+      "sortOrder": 6,
+      "createdAt": "2026-10-18",
+      "updatedAt": "2026-10-21"
+    },
+    {
+      "id": "SHOP_1007",
+      "name": "太清两仪聚灵阵盘",
+      "game": "九州志",
+      "category": "极品法宝",
+      "currency": "仙玉",
+      "price": 298,
+      "originalPrice": 398,
+      "stock": -1,
+      "buyLimit": "不限购",
+      "tag": "限时特惠",
+      "description": "洞府修炼必备法阵，放置于宗门洞府内可令天地灵气浓郁翻倍，挂机修为速度+50%。",
+      "items": "太清两仪阵盘 x1",
+      "status": "已下架",
+      "sortOrder": 7,
+      "createdAt": "2026-10-01",
+      "updatedAt": "2026-10-21 23:43:40"
+    },
+    {
+      "id": "SHOP_1008",
+      "name": "6480 仙玉天禄宝匣",
+      "game": "全部游戏",
+      "category": "货币直购",
+      "currency": "CNY",
+      "price": 648,
+      "originalPrice": 648,
+      "stock": -1,
+      "buyLimit": "不限购",
+      "tag": "畅销爆款",
+      "description": "仙玉直购特惠包，首充触发双倍赠送 6480 仙玉，非首充额外赠送 1280 绑定元宝。",
+      "items": "6480 仙玉 + 1280 绑定元宝",
+      "status": "上架中",
+      "sortOrder": 8,
+      "createdAt": "2026-09-11",
+      "updatedAt": "2026-10-21"
     }
   ],
   "items": [
@@ -338,14 +1235,6 @@
       "description": "宗门活动产出，兑换宗门藏经阁秘籍",
       "rarity": "普通",
       "isCustom": false
-    },
-    {
-      "id": "ITEM_15895",
-      "name": "瑶池蟠桃",
-      "category": "修炼丹药",
-      "description": "增加三千年修为",
-      "rarity": "传说",
-      "isCustom": true
     },
     {
       "id": "ITEM_201",
@@ -501,71 +1390,6 @@
     }
   ],
   "giftBoxes": [
-    {
-      "id": "BOX_438470",
-      "name": "玄天灵宝自选匣",
-      "game": "山海长歌",
-      "boxType": "single_choice",
-      "maxChoices": 1,
-      "rarity": "传说",
-      "icon": "box",
-      "description": "太虚灵机幻化而成，少侠可从中任选一件神物收入囊中。",
-      "status": "已启用",
-      "items": [
-        {
-          "itemName": "太虚飞剑",
-          "category": "极品装备",
-          "amount": 1,
-          "probability": 0,
-          "rarity": "传说"
-        },
-        {
-          "itemName": "限定坐骑·墨麒麟",
-          "category": "外观道具",
-          "amount": 1,
-          "probability": 0,
-          "rarity": "传说"
-        }
-      ],
-      "createdAt": "2026-10-15 19:32:10",
-      "updatedAt": "2026-10-15 19:32:10"
-    },
-    {
-      "id": "BOX_715469",
-      "name": "西王母瑶池盛宴礼匣",
-      "game": "山海长歌",
-      "boxType": "random_prob",
-      "maxChoices": 1,
-      "rarity": "传说",
-      "icon": "box",
-      "description": "天降祥瑞！开启后按概率随机获得极品神物瑶池蟠桃或海量元宝。",
-      "status": "已启用",
-      "items": [
-        {
-          "itemName": "瑶池蟠桃",
-          "category": "修炼丹药",
-          "amount": 1,
-          "probability": 10,
-          "rarity": "传说"
-        },
-        {
-          "itemName": "元宝",
-          "category": "通用货币",
-          "amount": 8888,
-          "probability": 30,
-          "rarity": "传说"
-        },
-        {
-          "itemName": "九转金丹",
-          "category": "修炼丹药",
-          "amount": 5,
-          "probability": 60,
-          "rarity": "稀有"
-        }
-      ],
-      "createdAt": "2026-10-15 18:24:47",
-      "updatedAt": "2026-10-15 18:24:47"
-    },
     {
       "id": "BOX_2404",
       "name": "宗门飞升突破多选自选箱",
@@ -751,6 +1575,2665 @@
       ],
       "createdAt": "2026-10-15 10:00:00",
       "updatedAt": "2026-10-15 10:00:00"
+    }
+  ],
+  "mails": [
+    {
+      "id": "MAIL_2401",
+      "title": "全服停服例行维护补偿与致歉函",
+      "content": "亲爱的各位道友：为提供更流畅的修仙大世界体验，本周例行停机维护已圆满结束。为答谢道友们的耐心理性守候，特附上天工灵玉与破境物资，祝各位仙途顺遂！",
+      "sender": "璇玑运营司",
+      "game": "全部游戏",
+      "targetType": "all",
+      "targetId": "ALL",
+      "minLevel": 10,
+      "status": "已发送",
+      "attachments": [
+        {
+          "itemId": "ITEM_101",
+          "itemName": "元宝",
+          "category": "通用货币",
+          "amount": 1000,
+          "rarity": "传说",
+          "isBox": false
+        },
+        {
+          "itemId": "ITEM_201",
+          "itemName": "九转金丹",
+          "category": "修炼丹药",
+          "amount": 5,
+          "rarity": "传说",
+          "isBox": false
+        },
+        {
+          "itemId": "ITEM_103",
+          "itemName": "仙玉",
+          "category": "通用货币",
+          "amount": 200,
+          "rarity": "史诗",
+          "isBox": false
+        }
+      ],
+      "sentAt": "2026-10-16 10:00:00",
+      "expiresAt": "2026-10-23 23:59:59",
+      "claimedCount": 18420,
+      "totalTarget": 24800
+    },
+    {
+      "id": "MAIL_2402",
+      "title": "迎新狂欢 · 宗门掌门飞升专属赠礼",
+      "content": "恭喜道友成功晋升一派掌门！宗门藏宝阁特此赐予开服至尊必得大礼包一份，助尔开拓宗门洞府，招纳四海贤才。",
+      "sender": "山海运营组",
+      "game": "山海长歌",
+      "targetType": "all",
+      "targetId": "ALL",
+      "minLevel": 20,
+      "status": "已发送",
+      "attachments": [
+        {
+          "itemId": "BOX_2401",
+          "itemName": "开服至尊必得大礼包",
+          "category": "定制礼匣",
+          "amount": 1,
+          "rarity": "传说",
+          "isBox": true
+        },
+        {
+          "itemId": "ITEM_102",
+          "itemName": "灵石",
+          "category": "通用货币",
+          "amount": 50000,
+          "rarity": "稀有",
+          "isBox": false
+        }
+      ],
+      "sentAt": "2026-10-15 14:30:00",
+      "expiresAt": "2026-10-29 23:59:59",
+      "claimedCount": 6512,
+      "totalTarget": 8900
+    },
+    {
+      "id": "MAIL_2403",
+      "title": "【定向特派】充值大额返利差额紧急补发",
+      "content": "尊敬的高阶玩家道友您好：经运营与技术核实，您于昨日参与的累充返利活动由于跨服结算延迟未按时到账。特此补发差额物资及绝世飞剑一把以表歉意。",
+      "sender": "VIP执事处",
+      "game": "山海长歌",
+      "targetType": "player",
+      "targetId": "XJ100689",
+      "minLevel": 1,
+      "status": "已发送",
+      "attachments": [
+        {
+          "itemId": "ITEM_101",
+          "itemName": "元宝",
+          "category": "通用货币",
+          "amount": 5000,
+          "rarity": "传说",
+          "isBox": false
+        },
+        {
+          "itemId": "ITEM_401",
+          "itemName": "太虚飞剑",
+          "category": "极品装备",
+          "amount": 1,
+          "rarity": "传说",
+          "isBox": false
+        }
+      ],
+      "sentAt": "2026-10-14 18:20:00",
+      "expiresAt": "2026-11-13 23:59:59",
+      "claimedCount": 1,
+      "totalTarget": 1
+    }
+  ],
+  "cdkeyBatches": [
+    {
+      "id": "CDK_20261022002029_0033",
+      "name": "测试独占激活码",
+      "type": "unique",
+      "code": "",
+      "game": "九州志",
+      "minLevel": 1,
+      "totalCount": 10,
+      "usedCount": 1,
+      "status": "已启用",
+      "rewards": [
+        {
+          "itemId": "ITEM_401",
+          "itemName": "太虚飞剑",
+          "category": "",
+          "amount": 1,
+          "rarity": "",
+          "isBox": false
+        }
+      ],
+      "createdAt": "2026-10-22 00:20:29",
+      "expiresAt": "2026-11-06 00:20:29",
+      "description": ""
+    },
+    {
+      "id": "CDK_20261022002029_0032",
+      "name": "春季测试全员礼包",
+      "type": "universal",
+      "code": "SP_707595",
+      "game": "全部游戏",
+      "minLevel": 10,
+      "totalCount": 999999,
+      "usedCount": 1,
+      "status": "已启用",
+      "rewards": [
+        {
+          "itemId": "ITEM_101",
+          "itemName": "元宝",
+          "category": "",
+          "amount": 888,
+          "rarity": "",
+          "isBox": false
+        }
+      ],
+      "createdAt": "2026-10-22 00:20:29",
+      "expiresAt": "2026-10-29 00:20:29",
+      "description": "测试通用码"
+    },
+    {
+      "id": "CDK_20261022000319_0031",
+      "name": "测试独占激活码",
+      "type": "unique",
+      "code": "",
+      "game": "九州志",
+      "minLevel": 1,
+      "totalCount": 10,
+      "usedCount": 1,
+      "status": "已启用",
+      "rewards": [
+        {
+          "itemId": "ITEM_401",
+          "itemName": "太虚飞剑",
+          "category": "",
+          "amount": 1,
+          "rarity": "",
+          "isBox": false
+        }
+      ],
+      "createdAt": "2026-10-22 00:03:19",
+      "expiresAt": "2026-11-06 00:03:19",
+      "description": ""
+    },
+    {
+      "id": "CDK_20261022000319_0030",
+      "name": "春季测试全员礼包",
+      "type": "universal",
+      "code": "SP_562673",
+      "game": "全部游戏",
+      "minLevel": 10,
+      "totalCount": 999999,
+      "usedCount": 1,
+      "status": "已启用",
+      "rewards": [
+        {
+          "itemId": "ITEM_101",
+          "itemName": "元宝",
+          "category": "",
+          "amount": 888,
+          "rarity": "",
+          "isBox": false
+        }
+      ],
+      "createdAt": "2026-10-22 00:03:19",
+      "expiresAt": "2026-10-29 00:03:19",
+      "description": "测试通用码"
+    },
+    {
+      "id": "CDK_20261021233640_0028",
+      "name": "春季测试全员礼包",
+      "type": "universal",
+      "code": "SP_27329",
+      "game": "全部游戏",
+      "minLevel": 10,
+      "totalCount": 999999,
+      "usedCount": 1,
+      "status": "已启用",
+      "rewards": [
+        {
+          "itemId": "ITEM_101",
+          "itemName": "元宝",
+          "category": "",
+          "amount": 888,
+          "rarity": "",
+          "isBox": false
+        }
+      ],
+      "createdAt": "2026-10-21 23:36:40",
+      "expiresAt": "2026-10-28 23:36:40",
+      "description": "测试通用码"
+    },
+    {
+      "id": "CDK_20261021233640_0029",
+      "name": "测试独占激活码",
+      "type": "unique",
+      "code": "",
+      "game": "九州志",
+      "minLevel": 1,
+      "totalCount": 10,
+      "usedCount": 1,
+      "status": "已启用",
+      "rewards": [
+        {
+          "itemId": "ITEM_401",
+          "itemName": "太虚飞剑",
+          "category": "",
+          "amount": 1,
+          "rarity": "",
+          "isBox": false
+        }
+      ],
+      "createdAt": "2026-10-21 23:36:40",
+      "expiresAt": "2026-11-05 23:36:40",
+      "description": ""
+    },
+    {
+      "id": "CDK_20261021232915_0026",
+      "name": "春季测试全员礼包",
+      "type": "universal",
+      "code": "SP_563405",
+      "game": "全部游戏",
+      "minLevel": 10,
+      "totalCount": 999999,
+      "usedCount": 1,
+      "status": "已启用",
+      "rewards": [
+        {
+          "itemId": "ITEM_101",
+          "itemName": "元宝",
+          "category": "",
+          "amount": 888,
+          "rarity": "",
+          "isBox": false
+        }
+      ],
+      "createdAt": "2026-10-21 23:29:15",
+      "expiresAt": "2026-10-28 23:29:15",
+      "description": "测试通用码"
+    },
+    {
+      "id": "CDK_20261021232915_0027",
+      "name": "测试独占激活码",
+      "type": "unique",
+      "code": "",
+      "game": "九州志",
+      "minLevel": 1,
+      "totalCount": 10,
+      "usedCount": 1,
+      "status": "已启用",
+      "rewards": [
+        {
+          "itemId": "ITEM_401",
+          "itemName": "太虚飞剑",
+          "category": "",
+          "amount": 1,
+          "rarity": "",
+          "isBox": false
+        }
+      ],
+      "createdAt": "2026-10-21 23:29:15",
+      "expiresAt": "2026-11-05 23:29:15",
+      "description": ""
+    },
+    {
+      "id": "CDK_20261021231854_0025",
+      "name": "测试独占激活码",
+      "type": "unique",
+      "code": "",
+      "game": "九州志",
+      "minLevel": 1,
+      "totalCount": 10,
+      "usedCount": 1,
+      "status": "已启用",
+      "rewards": [
+        {
+          "itemId": "ITEM_401",
+          "itemName": "太虚飞剑",
+          "category": "",
+          "amount": 1,
+          "rarity": "",
+          "isBox": false
+        }
+      ],
+      "createdAt": "2026-10-21 23:18:54",
+      "expiresAt": "2026-11-05 23:18:54",
+      "description": ""
+    },
+    {
+      "id": "CDK_20261021231854_0024",
+      "name": "春季测试全员礼包",
+      "type": "universal",
+      "code": "SP_479249",
+      "game": "全部游戏",
+      "minLevel": 10,
+      "totalCount": 999999,
+      "usedCount": 1,
+      "status": "已启用",
+      "rewards": [
+        {
+          "itemId": "ITEM_101",
+          "itemName": "元宝",
+          "category": "",
+          "amount": 888,
+          "rarity": "",
+          "isBox": false
+        }
+      ],
+      "createdAt": "2026-10-21 23:18:54",
+      "expiresAt": "2026-10-28 23:18:54",
+      "description": "测试通用码"
+    },
+    {
+      "id": "CDK_20261021231347_0023",
+      "name": "测试独占激活码",
+      "type": "unique",
+      "code": "",
+      "game": "九州志",
+      "minLevel": 1,
+      "totalCount": 10,
+      "usedCount": 1,
+      "status": "已启用",
+      "rewards": [
+        {
+          "itemId": "ITEM_401",
+          "itemName": "太虚飞剑",
+          "category": "",
+          "amount": 1,
+          "rarity": "",
+          "isBox": false
+        }
+      ],
+      "createdAt": "2026-10-21 23:13:47",
+      "expiresAt": "2026-11-05 23:13:47",
+      "description": ""
+    },
+    {
+      "id": "CDK_20261021231347_0022",
+      "name": "春季测试全员礼包",
+      "type": "universal",
+      "code": "SP_87512",
+      "game": "全部游戏",
+      "minLevel": 10,
+      "totalCount": 999999,
+      "usedCount": 1,
+      "status": "已启用",
+      "rewards": [
+        {
+          "itemId": "ITEM_101",
+          "itemName": "元宝",
+          "category": "",
+          "amount": 888,
+          "rarity": "",
+          "isBox": false
+        }
+      ],
+      "createdAt": "2026-10-21 23:13:47",
+      "expiresAt": "2026-10-28 23:13:47",
+      "description": "测试通用码"
+    },
+    {
+      "id": "CDK_20261021224920_0020",
+      "name": "春季测试全员礼包",
+      "type": "universal",
+      "code": "SP_534076",
+      "game": "全部游戏",
+      "minLevel": 10,
+      "totalCount": 999999,
+      "usedCount": 1,
+      "status": "已启用",
+      "rewards": [
+        {
+          "itemId": "ITEM_101",
+          "itemName": "元宝",
+          "category": "",
+          "amount": 888,
+          "rarity": "",
+          "isBox": false
+        }
+      ],
+      "createdAt": "2026-10-21 22:49:20",
+      "expiresAt": "2026-10-28 22:49:20",
+      "description": "测试通用码"
+    },
+    {
+      "id": "CDK_20261021224920_0021",
+      "name": "测试独占激活码",
+      "type": "unique",
+      "code": "",
+      "game": "九州志",
+      "minLevel": 1,
+      "totalCount": 10,
+      "usedCount": 1,
+      "status": "已启用",
+      "rewards": [
+        {
+          "itemId": "ITEM_401",
+          "itemName": "太虚飞剑",
+          "category": "",
+          "amount": 1,
+          "rarity": "",
+          "isBox": false
+        }
+      ],
+      "createdAt": "2026-10-21 22:49:20",
+      "expiresAt": "2026-11-05 22:49:20",
+      "description": ""
+    },
+    {
+      "id": "CDK_20261016044135_0019",
+      "name": "测试独占激活码",
+      "type": "unique",
+      "code": "",
+      "game": "九州志",
+      "minLevel": 1,
+      "totalCount": 10,
+      "usedCount": 1,
+      "status": "已启用",
+      "rewards": [
+        {
+          "itemId": "ITEM_401",
+          "itemName": "太虚飞剑",
+          "category": "",
+          "amount": 1,
+          "rarity": "",
+          "isBox": false
+        }
+      ],
+      "createdAt": "2026-10-16 04:41:35",
+      "expiresAt": "2026-10-31 04:41:35",
+      "description": ""
+    },
+    {
+      "id": "CDK_20261016044134_0018",
+      "name": "春季测试全员礼包",
+      "type": "universal",
+      "code": "SP_961318",
+      "game": "全部游戏",
+      "minLevel": 10,
+      "totalCount": 999999,
+      "usedCount": 1,
+      "status": "已启用",
+      "rewards": [
+        {
+          "itemId": "ITEM_101",
+          "itemName": "元宝",
+          "category": "",
+          "amount": 888,
+          "rarity": "",
+          "isBox": false
+        }
+      ],
+      "createdAt": "2026-10-16 04:41:34",
+      "expiresAt": "2026-10-23 04:41:34",
+      "description": "测试通用码"
+    },
+    {
+      "id": "CDK_20261016043941_0017",
+      "name": "测试独占激活码",
+      "type": "unique",
+      "code": "",
+      "game": "九州志",
+      "minLevel": 1,
+      "totalCount": 10,
+      "usedCount": 1,
+      "status": "已启用",
+      "rewards": [
+        {
+          "itemId": "ITEM_401",
+          "itemName": "太虚飞剑",
+          "category": "",
+          "amount": 1,
+          "rarity": "",
+          "isBox": false
+        }
+      ],
+      "createdAt": "2026-10-16 04:39:41",
+      "expiresAt": "2026-10-31 04:39:41",
+      "description": ""
+    },
+    {
+      "id": "CDK_20261016043941_0016",
+      "name": "春季测试全员礼包",
+      "type": "universal",
+      "code": "SP_403373",
+      "game": "全部游戏",
+      "minLevel": 10,
+      "totalCount": 999999,
+      "usedCount": 1,
+      "status": "已启用",
+      "rewards": [
+        {
+          "itemId": "ITEM_101",
+          "itemName": "元宝",
+          "category": "",
+          "amount": 888,
+          "rarity": "",
+          "isBox": false
+        }
+      ],
+      "createdAt": "2026-10-16 04:39:41",
+      "expiresAt": "2026-10-23 04:39:41",
+      "description": "测试通用码"
+    },
+    {
+      "id": "CDK_20261016043759_0014",
+      "name": "春季测试全员礼包",
+      "type": "universal",
+      "code": "SP_77193",
+      "game": "全部游戏",
+      "minLevel": 10,
+      "totalCount": 999999,
+      "usedCount": 1,
+      "status": "已启用",
+      "rewards": [
+        {
+          "itemId": "ITEM_101",
+          "itemName": "元宝",
+          "category": "",
+          "amount": 888,
+          "rarity": "",
+          "isBox": false
+        }
+      ],
+      "createdAt": "2026-10-16 04:37:59",
+      "expiresAt": "2026-10-23 04:37:59",
+      "description": "测试通用码"
+    },
+    {
+      "id": "CDK_20261016043759_0015",
+      "name": "测试独占激活码",
+      "type": "unique",
+      "code": "",
+      "game": "九州志",
+      "minLevel": 1,
+      "totalCount": 10,
+      "usedCount": 1,
+      "status": "已启用",
+      "rewards": [
+        {
+          "itemId": "ITEM_401",
+          "itemName": "太虚飞剑",
+          "category": "",
+          "amount": 1,
+          "rarity": "",
+          "isBox": false
+        }
+      ],
+      "createdAt": "2026-10-16 04:37:59",
+      "expiresAt": "2026-10-31 04:37:59",
+      "description": ""
+    },
+    {
+      "id": "CDK_20261016043625_0013",
+      "name": "测试独占激活码",
+      "type": "unique",
+      "code": "",
+      "game": "九州志",
+      "minLevel": 1,
+      "totalCount": 10,
+      "usedCount": 1,
+      "status": "已启用",
+      "rewards": [
+        {
+          "itemId": "ITEM_401",
+          "itemName": "太虚飞剑",
+          "category": "",
+          "amount": 1,
+          "rarity": "",
+          "isBox": false
+        }
+      ],
+      "createdAt": "2026-10-16 04:36:25",
+      "expiresAt": "2026-10-31 04:36:25",
+      "description": ""
+    },
+    {
+      "id": "CDK_20261016043625_0012",
+      "name": "春季测试全员礼包",
+      "type": "universal",
+      "code": "SP_104314",
+      "game": "全部游戏",
+      "minLevel": 10,
+      "totalCount": 999999,
+      "usedCount": 1,
+      "status": "已启用",
+      "rewards": [
+        {
+          "itemId": "ITEM_101",
+          "itemName": "元宝",
+          "category": "",
+          "amount": 888,
+          "rarity": "",
+          "isBox": false
+        }
+      ],
+      "createdAt": "2026-10-16 04:36:25",
+      "expiresAt": "2026-10-23 04:36:25",
+      "description": "测试通用码"
+    },
+    {
+      "id": "CDK_20261016030100_0011",
+      "name": "B站限定神兵预约独占礼包",
+      "type": "unique",
+      "code": "",
+      "game": "山海长歌",
+      "minLevel": 1,
+      "totalCount": 5,
+      "usedCount": 1,
+      "status": "已启用",
+      "rewards": [
+        {
+          "itemId": "ITEM_401",
+          "itemName": "太虚飞剑",
+          "category": "极品装备",
+          "amount": 1,
+          "rarity": "传说",
+          "isBox": false
+        }
+      ],
+      "createdAt": "2026-10-16 03:01:00",
+      "expiresAt": "2026-11-15 03:01:00",
+      "description": ""
+    },
+    {
+      "id": "CDK_20261016024611_0009",
+      "name": "春季测试全员礼包",
+      "type": "universal",
+      "code": "SP_641581",
+      "game": "全部游戏",
+      "minLevel": 10,
+      "totalCount": 999999,
+      "usedCount": 1,
+      "status": "已启用",
+      "rewards": [
+        {
+          "itemId": "ITEM_101",
+          "itemName": "元宝",
+          "category": "",
+          "amount": 888,
+          "rarity": "",
+          "isBox": false
+        }
+      ],
+      "createdAt": "2026-10-16 02:46:11",
+      "expiresAt": "2026-10-23 02:46:11",
+      "description": "测试通用码"
+    },
+    {
+      "id": "CDK_20261016024611_0010",
+      "name": "测试独占激活码",
+      "type": "unique",
+      "code": "",
+      "game": "九州志",
+      "minLevel": 1,
+      "totalCount": 10,
+      "usedCount": 1,
+      "status": "已启用",
+      "rewards": [
+        {
+          "itemId": "ITEM_401",
+          "itemName": "太虚飞剑",
+          "category": "",
+          "amount": 1,
+          "rarity": "",
+          "isBox": false
+        }
+      ],
+      "createdAt": "2026-10-16 02:46:11",
+      "expiresAt": "2026-10-31 02:46:11",
+      "description": ""
+    },
+    {
+      "id": "CDK_20261016024602_0008",
+      "name": "测试独占激活码",
+      "type": "unique",
+      "code": "",
+      "game": "九州志",
+      "minLevel": 1,
+      "totalCount": 10,
+      "usedCount": 1,
+      "status": "已启用",
+      "rewards": [
+        {
+          "itemId": "ITEM_401",
+          "itemName": "太虚飞剑",
+          "category": "",
+          "amount": 1,
+          "rarity": "",
+          "isBox": false
+        }
+      ],
+      "createdAt": "2026-10-16 02:46:02",
+      "expiresAt": "2026-10-31 02:46:02",
+      "description": ""
+    },
+    {
+      "id": "CDK_20261016024602_0007",
+      "name": "春季测试全员礼包",
+      "type": "universal",
+      "code": "SP_264936",
+      "game": "全部游戏",
+      "minLevel": 10,
+      "totalCount": 999999,
+      "usedCount": 1,
+      "status": "已启用",
+      "rewards": [
+        {
+          "itemId": "ITEM_101",
+          "itemName": "元宝",
+          "category": "",
+          "amount": 888,
+          "rarity": "",
+          "isBox": false
+        }
+      ],
+      "createdAt": "2026-10-16 02:46:02",
+      "expiresAt": "2026-10-23 02:46:02",
+      "description": "测试通用码"
+    },
+    {
+      "id": "CDK_20261016024513_0006",
+      "name": "测试独占激活码",
+      "type": "unique",
+      "code": "",
+      "game": "九州志",
+      "minLevel": 1,
+      "totalCount": 10,
+      "usedCount": 1,
+      "status": "已启用",
+      "rewards": [
+        {
+          "itemId": "ITEM_401",
+          "itemName": "太虚飞剑",
+          "category": "",
+          "amount": 1,
+          "rarity": "",
+          "isBox": false
+        }
+      ],
+      "createdAt": "2026-10-16 02:45:13",
+      "expiresAt": "2026-10-31 02:45:13",
+      "description": ""
+    },
+    {
+      "id": "CDK_20261016024427_0004",
+      "name": "春季测试全员礼包",
+      "type": "universal",
+      "code": "SPRING2026",
+      "game": "全部游戏",
+      "minLevel": 10,
+      "totalCount": 999999,
+      "usedCount": 0,
+      "status": "已启用",
+      "rewards": [
+        {
+          "itemId": "ITEM_101",
+          "itemName": "元宝",
+          "category": "",
+          "amount": 888,
+          "rarity": "",
+          "isBox": false
+        }
+      ],
+      "createdAt": "2026-10-16 02:44:27",
+      "expiresAt": "2026-10-23 02:44:27",
+      "description": "测试通用码"
+    },
+    {
+      "id": "CDK_20261016024427_0005",
+      "name": "测试独占激活码",
+      "type": "unique",
+      "code": "",
+      "game": "九州志",
+      "minLevel": 1,
+      "totalCount": 10,
+      "usedCount": 0,
+      "status": "已启用",
+      "rewards": [
+        {
+          "itemId": "ITEM_401",
+          "itemName": "太虚飞剑",
+          "category": "",
+          "amount": 1,
+          "rarity": "",
+          "isBox": false
+        }
+      ],
+      "createdAt": "2026-10-16 02:44:27",
+      "expiresAt": "2026-10-31 02:44:27",
+      "description": ""
+    },
+    {
+      "id": "CDK_BATCH_03",
+      "name": "TAPTAP渠道专属首发独占卡密",
+      "type": "unique",
+      "code": "",
+      "game": "九州志",
+      "minLevel": 1,
+      "totalCount": 20,
+      "usedCount": 2,
+      "status": "已启用",
+      "rewards": [
+        {
+          "itemId": "ITEM_101",
+          "itemName": "元宝",
+          "category": "通用货币",
+          "amount": 1000,
+          "rarity": "传说",
+          "isBox": false
+        },
+        {
+          "itemId": "ITEM_401",
+          "itemName": "太虚飞剑",
+          "category": "极品装备",
+          "amount": 1,
+          "rarity": "传说",
+          "isBox": false
+        }
+      ],
+      "createdAt": "2026-10-15 09:00:00",
+      "expiresAt": "2026-11-30 23:59:59",
+      "description": "一码一兑渠道合作批量发卡，包含20张卡密"
+    },
+    {
+      "id": "CDK_BATCH_02",
+      "name": "开服大吉·至尊飞升礼",
+      "type": "universal",
+      "code": "XUANJI2026",
+      "game": "山海长歌",
+      "minLevel": 10,
+      "totalCount": 999999,
+      "usedCount": 8850,
+      "status": "已启用",
+      "rewards": [
+        {
+          "itemId": "ITEM_201",
+          "itemName": "九转金丹",
+          "category": "修炼丹药",
+          "amount": 2,
+          "rarity": "传说",
+          "isBox": false
+        },
+        {
+          "itemId": "ITEM_301",
+          "itemName": "强化神石",
+          "category": "锻造材料",
+          "amount": 20,
+          "rarity": "史诗",
+          "isBox": false
+        },
+        {
+          "itemId": "BOX_2404",
+          "itemName": "宗门飞升突破多选自选箱",
+          "category": "定制礼匣",
+          "amount": 1,
+          "rarity": "史诗",
+          "isBox": true
+        }
+      ],
+      "createdAt": "2026-10-13 12:00:00",
+      "expiresAt": "2026-11-15 23:59:59",
+      "description": "山海长歌专区10级以上道友特供飞升礼盒"
+    },
+    {
+      "id": "CDK_BATCH_01",
+      "name": "全服通用迎新豪华礼包",
+      "type": "universal",
+      "code": "VIP666",
+      "game": "全部游戏",
+      "minLevel": 1,
+      "totalCount": 999999,
+      "usedCount": 14281,
+      "status": "已启用",
+      "rewards": [
+        {
+          "itemId": "ITEM_101",
+          "itemName": "元宝",
+          "category": "通用货币",
+          "amount": 666,
+          "rarity": "传说",
+          "isBox": false
+        },
+        {
+          "itemId": "ITEM_202",
+          "itemName": "凝气丹",
+          "category": "修炼丹药",
+          "amount": 10,
+          "rarity": "普通",
+          "isBox": false
+        },
+        {
+          "itemId": "ITEM_104",
+          "itemName": "银两",
+          "category": "通用货币",
+          "amount": 50000,
+          "rarity": "普通",
+          "isBox": false
+        }
+      ],
+      "createdAt": "2026-10-11 10:00:00",
+      "expiresAt": "2026-12-15 23:59:59",
+      "description": "全平台通用开服福利礼包，每个账号仅可兑换一次"
+    }
+  ],
+  "cdkeyItems": [
+    {
+      "code": "BILI-0208-DD8D",
+      "batchId": "CDK_20261016030100_0011",
+      "status": "待兑换",
+      "expiresAt": "2026-11-15 03:01:00"
+    },
+    {
+      "code": "BILI-0668-9695",
+      "batchId": "CDK_20261016030100_0011",
+      "status": "已兑换",
+      "playerId": "XJ100248",
+      "usedAt": "2026-10-16 03:01:09",
+      "expiresAt": "2026-11-15 03:01:00"
+    },
+    {
+      "code": "BILI-081C-C213",
+      "batchId": "CDK_20261016030100_0011",
+      "status": "待兑换",
+      "expiresAt": "2026-11-15 03:01:00"
+    },
+    {
+      "code": "BILI-2559-0F7B",
+      "batchId": "CDK_20261016030100_0011",
+      "status": "待兑换",
+      "expiresAt": "2026-11-15 03:01:00"
+    },
+    {
+      "code": "BILI-A1C6-3F06",
+      "batchId": "CDK_20261016030100_0011",
+      "status": "待兑换",
+      "expiresAt": "2026-11-15 03:01:00"
+    },
+    {
+      "code": "TEST-00E6-5E68",
+      "batchId": "CDK_20261016043941_0017",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 04:39:41"
+    },
+    {
+      "code": "TEST-01C7-83AE",
+      "batchId": "CDK_20261022000319_0031",
+      "status": "待兑换",
+      "expiresAt": "2026-11-06 00:03:19"
+    },
+    {
+      "code": "TEST-03AD-4D5C",
+      "batchId": "CDK_20261022002029_0033",
+      "status": "待兑换",
+      "expiresAt": "2026-11-06 00:20:29"
+    },
+    {
+      "code": "TEST-0437-183C",
+      "batchId": "CDK_20261016043759_0015",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 04:37:59"
+    },
+    {
+      "code": "TEST-073E-FD09",
+      "batchId": "CDK_20261021224920_0021",
+      "status": "已兑换",
+      "playerId": "TEST_UNIQUE_PLAYER",
+      "usedAt": "2026-10-21 22:49:20",
+      "expiresAt": "2026-11-05 22:49:20"
+    },
+    {
+      "code": "TEST-074B-7CBC",
+      "batchId": "CDK_20261021232915_0027",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 23:29:15"
+    },
+    {
+      "code": "TEST-0822-BDCB",
+      "batchId": "CDK_20261021233640_0029",
+      "status": "已兑换",
+      "playerId": "TEST_UNIQUE_PLAYER",
+      "usedAt": "2026-10-21 23:36:40",
+      "expiresAt": "2026-11-05 23:36:40"
+    },
+    {
+      "code": "TEST-0831-D549",
+      "batchId": "CDK_20261021224920_0021",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 22:49:20"
+    },
+    {
+      "code": "TEST-095B-0ED9",
+      "batchId": "CDK_20261016024513_0006",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 02:45:13"
+    },
+    {
+      "code": "TEST-112F-F68A",
+      "batchId": "CDK_20261016024513_0006",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 02:45:13"
+    },
+    {
+      "code": "TEST-1326-F057",
+      "batchId": "CDK_20261016043941_0017",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 04:39:41"
+    },
+    {
+      "code": "TEST-1431-7FE8",
+      "batchId": "CDK_20261022000319_0031",
+      "status": "待兑换",
+      "expiresAt": "2026-11-06 00:03:19"
+    },
+    {
+      "code": "TEST-149A-230F",
+      "batchId": "CDK_20261021224920_0021",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 22:49:20"
+    },
+    {
+      "code": "TEST-1A92-8085",
+      "batchId": "CDK_20261022000319_0031",
+      "status": "待兑换",
+      "expiresAt": "2026-11-06 00:03:19"
+    },
+    {
+      "code": "TEST-1AE5-E58E",
+      "batchId": "CDK_20261021233640_0029",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 23:36:40"
+    },
+    {
+      "code": "TEST-1C5D-B4DD",
+      "batchId": "CDK_20261021233640_0029",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 23:36:40"
+    },
+    {
+      "code": "TEST-1CA8-E009",
+      "batchId": "CDK_20261021233640_0029",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 23:36:40"
+    },
+    {
+      "code": "TEST-1D42-2D51",
+      "batchId": "CDK_20261016024602_0008",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 02:46:02"
+    },
+    {
+      "code": "TEST-1E29-C66F",
+      "batchId": "CDK_20261022002029_0033",
+      "status": "待兑换",
+      "expiresAt": "2026-11-06 00:20:29"
+    },
+    {
+      "code": "TEST-1EED-F18E",
+      "batchId": "CDK_20261021233640_0029",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 23:36:40"
+    },
+    {
+      "code": "TEST-2083-5908",
+      "batchId": "CDK_20261016044135_0019",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 04:41:35"
+    },
+    {
+      "code": "TEST-216F-BD04",
+      "batchId": "CDK_20261021224920_0021",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 22:49:20"
+    },
+    {
+      "code": "TEST-22A6-98D7",
+      "batchId": "CDK_20261016043759_0015",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 04:37:59"
+    },
+    {
+      "code": "TEST-22AF-D9A3",
+      "batchId": "CDK_20261021231347_0023",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 23:13:47"
+    },
+    {
+      "code": "TEST-25EA-725D",
+      "batchId": "CDK_20261022002029_0033",
+      "status": "待兑换",
+      "expiresAt": "2026-11-06 00:20:29"
+    },
+    {
+      "code": "TEST-2694-4080",
+      "batchId": "CDK_20261022002029_0033",
+      "status": "待兑换",
+      "expiresAt": "2026-11-06 00:20:29"
+    },
+    {
+      "code": "TEST-2CF3-3E1E",
+      "batchId": "CDK_20261016043625_0013",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 04:36:25"
+    },
+    {
+      "code": "TEST-2EB5-0D7F",
+      "batchId": "CDK_20261016043759_0015",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 04:37:59"
+    },
+    {
+      "code": "TEST-2FCF-203D",
+      "batchId": "CDK_20261016024427_0005",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 02:44:27"
+    },
+    {
+      "code": "TEST-322F-D9E2",
+      "batchId": "CDK_20261021224920_0021",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 22:49:20"
+    },
+    {
+      "code": "TEST-33D4-BA85",
+      "batchId": "CDK_20261016043625_0013",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 04:36:25"
+    },
+    {
+      "code": "TEST-36F6-7985",
+      "batchId": "CDK_20261016043941_0017",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 04:39:41"
+    },
+    {
+      "code": "TEST-3844-A406",
+      "batchId": "CDK_20261016024513_0006",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 02:45:13"
+    },
+    {
+      "code": "TEST-38E7-96BD",
+      "batchId": "CDK_20261021231347_0023",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 23:13:47"
+    },
+    {
+      "code": "TEST-39F9-B785",
+      "batchId": "CDK_20261016043625_0013",
+      "status": "已兑换",
+      "playerId": "TEST_UNIQUE_PLAYER",
+      "usedAt": "2026-10-16 04:36:25",
+      "expiresAt": "2026-10-31 04:36:25"
+    },
+    {
+      "code": "TEST-3B0A-C647",
+      "batchId": "CDK_20261016024513_0006",
+      "status": "已兑换",
+      "playerId": "TEST_UNIQUE_PLAYER",
+      "usedAt": "2026-10-16 02:45:13",
+      "expiresAt": "2026-10-31 02:45:13"
+    },
+    {
+      "code": "TEST-3B3B-8C1F",
+      "batchId": "CDK_20261022000319_0031",
+      "status": "已兑换",
+      "playerId": "TEST_UNIQUE_PLAYER",
+      "usedAt": "2026-10-22 00:03:19",
+      "expiresAt": "2026-11-06 00:03:19"
+    },
+    {
+      "code": "TEST-3B4D-8591",
+      "batchId": "CDK_20261021224920_0021",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 22:49:20"
+    },
+    {
+      "code": "TEST-3E1F-1BD8",
+      "batchId": "CDK_20261016044135_0019",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 04:41:35"
+    },
+    {
+      "code": "TEST-3E9B-F236",
+      "batchId": "CDK_20261021232915_0027",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 23:29:15"
+    },
+    {
+      "code": "TEST-3F5F-2D9A",
+      "batchId": "CDK_20261016044135_0019",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 04:41:35"
+    },
+    {
+      "code": "TEST-4172-ED36",
+      "batchId": "CDK_20261016024427_0005",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 02:44:27"
+    },
+    {
+      "code": "TEST-41B3-C53D",
+      "batchId": "CDK_20261016024611_0010",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 02:46:11"
+    },
+    {
+      "code": "TEST-41F9-66E1",
+      "batchId": "CDK_20261021233640_0029",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 23:36:40"
+    },
+    {
+      "code": "TEST-44A2-88A4",
+      "batchId": "CDK_20261021231347_0023",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 23:13:47"
+    },
+    {
+      "code": "TEST-48A2-C7E3",
+      "batchId": "CDK_20261016024611_0010",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 02:46:11"
+    },
+    {
+      "code": "TEST-4B51-B25C",
+      "batchId": "CDK_20261021231347_0023",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 23:13:47"
+    },
+    {
+      "code": "TEST-4DB9-D8D0",
+      "batchId": "CDK_20261016024611_0010",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 02:46:11"
+    },
+    {
+      "code": "TEST-51C4-CB91",
+      "batchId": "CDK_20261016043941_0017",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 04:39:41"
+    },
+    {
+      "code": "TEST-520B-213E",
+      "batchId": "CDK_20261022000319_0031",
+      "status": "待兑换",
+      "expiresAt": "2026-11-06 00:03:19"
+    },
+    {
+      "code": "TEST-5323-0DE4",
+      "batchId": "CDK_20261016043941_0017",
+      "status": "已兑换",
+      "playerId": "TEST_UNIQUE_PLAYER",
+      "usedAt": "2026-10-16 04:39:41",
+      "expiresAt": "2026-10-31 04:39:41"
+    },
+    {
+      "code": "TEST-5348-1C9A",
+      "batchId": "CDK_20261016043941_0017",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 04:39:41"
+    },
+    {
+      "code": "TEST-551C-3F1F",
+      "batchId": "CDK_20261016043759_0015",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 04:37:59"
+    },
+    {
+      "code": "TEST-564C-0293",
+      "batchId": "CDK_20261016024513_0006",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 02:45:13"
+    },
+    {
+      "code": "TEST-56B5-EAB8",
+      "batchId": "CDK_20261021231854_0025",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 23:18:54"
+    },
+    {
+      "code": "TEST-571B-A1A6",
+      "batchId": "CDK_20261021232915_0027",
+      "status": "已兑换",
+      "playerId": "TEST_UNIQUE_PLAYER",
+      "usedAt": "2026-10-21 23:29:15",
+      "expiresAt": "2026-11-05 23:29:15"
+    },
+    {
+      "code": "TEST-5A29-F16F",
+      "batchId": "CDK_20261016024611_0010",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 02:46:11"
+    },
+    {
+      "code": "TEST-5BF4-AC12",
+      "batchId": "CDK_20261016024611_0010",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 02:46:11"
+    },
+    {
+      "code": "TEST-5C19-75D5",
+      "batchId": "CDK_20261016024602_0008",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 02:46:02"
+    },
+    {
+      "code": "TEST-5D9D-4906",
+      "batchId": "CDK_20261021231347_0023",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 23:13:47"
+    },
+    {
+      "code": "TEST-5E2A-DC8D",
+      "batchId": "CDK_20261021224920_0021",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 22:49:20"
+    },
+    {
+      "code": "TEST-6220-AC32",
+      "batchId": "CDK_20261021231854_0025",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 23:18:54"
+    },
+    {
+      "code": "TEST-62CA-1586",
+      "batchId": "CDK_20261016024611_0010",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 02:46:11"
+    },
+    {
+      "code": "TEST-65FB-A5D3",
+      "batchId": "CDK_20261022000319_0031",
+      "status": "待兑换",
+      "expiresAt": "2026-11-06 00:03:19"
+    },
+    {
+      "code": "TEST-665F-9F21",
+      "batchId": "CDK_20261021231854_0025",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 23:18:54"
+    },
+    {
+      "code": "TEST-687F-400C",
+      "batchId": "CDK_20261021231347_0023",
+      "status": "已兑换",
+      "playerId": "TEST_UNIQUE_PLAYER",
+      "usedAt": "2026-10-21 23:13:47",
+      "expiresAt": "2026-11-05 23:13:47"
+    },
+    {
+      "code": "TEST-6A77-D848",
+      "batchId": "CDK_20261016043941_0017",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 04:39:41"
+    },
+    {
+      "code": "TEST-6AA4-7B2D",
+      "batchId": "CDK_20261016043625_0013",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 04:36:25"
+    },
+    {
+      "code": "TEST-6AC0-8C31",
+      "batchId": "CDK_20261022002029_0033",
+      "status": "待兑换",
+      "expiresAt": "2026-11-06 00:20:29"
+    },
+    {
+      "code": "TEST-6BDE-94D7",
+      "batchId": "CDK_20261016024611_0010",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 02:46:11"
+    },
+    {
+      "code": "TEST-7110-DE81",
+      "batchId": "CDK_20261021232915_0027",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 23:29:15"
+    },
+    {
+      "code": "TEST-74B4-E537",
+      "batchId": "CDK_20261016044135_0019",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 04:41:35"
+    },
+    {
+      "code": "TEST-751F-E61E",
+      "batchId": "CDK_20261016024427_0005",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 02:44:27"
+    },
+    {
+      "code": "TEST-7554-F4BB",
+      "batchId": "CDK_20261021224920_0021",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 22:49:20"
+    },
+    {
+      "code": "TEST-7562-D007",
+      "batchId": "CDK_20261016024427_0005",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 02:44:27"
+    },
+    {
+      "code": "TEST-760C-3F4C",
+      "batchId": "CDK_20261016024602_0008",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 02:46:02"
+    },
+    {
+      "code": "TEST-771A-AE60",
+      "batchId": "CDK_20261016043625_0013",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 04:36:25"
+    },
+    {
+      "code": "TEST-78FE-6BB5",
+      "batchId": "CDK_20261016043941_0017",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 04:39:41"
+    },
+    {
+      "code": "TEST-79D1-0666",
+      "batchId": "CDK_20261016024513_0006",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 02:45:13"
+    },
+    {
+      "code": "TEST-7A4F-3435",
+      "batchId": "CDK_20261021231854_0025",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 23:18:54"
+    },
+    {
+      "code": "TEST-7B59-19B0",
+      "batchId": "CDK_20261022002029_0033",
+      "status": "已兑换",
+      "playerId": "TEST_UNIQUE_PLAYER",
+      "usedAt": "2026-10-22 00:20:29",
+      "expiresAt": "2026-11-06 00:20:29"
+    },
+    {
+      "code": "TEST-8001-17B2",
+      "batchId": "CDK_20261016044135_0019",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 04:41:35"
+    },
+    {
+      "code": "TEST-80AA-E701",
+      "batchId": "CDK_20261016024427_0005",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 02:44:27"
+    },
+    {
+      "code": "TEST-83AE-A3A9",
+      "batchId": "CDK_20261016024427_0005",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 02:44:27"
+    },
+    {
+      "code": "TEST-889D-F3E3",
+      "batchId": "CDK_20261021233640_0029",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 23:36:40"
+    },
+    {
+      "code": "TEST-8E4A-1FD6",
+      "batchId": "CDK_20261016024513_0006",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 02:45:13"
+    },
+    {
+      "code": "TEST-9002-8630",
+      "batchId": "CDK_20261016044135_0019",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 04:41:35"
+    },
+    {
+      "code": "TEST-92BD-9CAE",
+      "batchId": "CDK_20261016024602_0008",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 02:46:02"
+    },
+    {
+      "code": "TEST-9361-3D88",
+      "batchId": "CDK_20261016024611_0010",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 02:46:11"
+    },
+    {
+      "code": "TEST-94A1-6F83",
+      "batchId": "CDK_20261022000319_0031",
+      "status": "待兑换",
+      "expiresAt": "2026-11-06 00:03:19"
+    },
+    {
+      "code": "TEST-9642-2AE3",
+      "batchId": "CDK_20261016043625_0013",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 04:36:25"
+    },
+    {
+      "code": "TEST-997F-1873",
+      "batchId": "CDK_20261022000319_0031",
+      "status": "待兑换",
+      "expiresAt": "2026-11-06 00:03:19"
+    },
+    {
+      "code": "TEST-9DD1-4EDD",
+      "batchId": "CDK_20261021231854_0025",
+      "status": "已兑换",
+      "playerId": "TEST_UNIQUE_PLAYER",
+      "usedAt": "2026-10-21 23:18:54",
+      "expiresAt": "2026-11-05 23:18:54"
+    },
+    {
+      "code": "TEST-9E5B-4FC7",
+      "batchId": "CDK_20261021231854_0025",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 23:18:54"
+    },
+    {
+      "code": "TEST-9ECD-ABDD",
+      "batchId": "CDK_20261022002029_0033",
+      "status": "待兑换",
+      "expiresAt": "2026-11-06 00:20:29"
+    },
+    {
+      "code": "TEST-9FE5-A768",
+      "batchId": "CDK_20261021233640_0029",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 23:36:40"
+    },
+    {
+      "code": "TEST-A1AF-7C7E",
+      "batchId": "CDK_20261016043625_0013",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 04:36:25"
+    },
+    {
+      "code": "TEST-A295-FA90",
+      "batchId": "CDK_20261016043759_0015",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 04:37:59"
+    },
+    {
+      "code": "TEST-A2D5-A277",
+      "batchId": "CDK_20261016043759_0015",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 04:37:59"
+    },
+    {
+      "code": "TEST-A30B-6CAE",
+      "batchId": "CDK_20261016043759_0015",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 04:37:59"
+    },
+    {
+      "code": "TEST-A330-3BD7",
+      "batchId": "CDK_20261016024611_0010",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 02:46:11"
+    },
+    {
+      "code": "TEST-A423-10C3",
+      "batchId": "CDK_20261021231347_0023",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 23:13:47"
+    },
+    {
+      "code": "TEST-A8F8-070C",
+      "batchId": "CDK_20261016024513_0006",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 02:45:13"
+    },
+    {
+      "code": "TEST-A97B-E4F7",
+      "batchId": "CDK_20261021232915_0027",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 23:29:15"
+    },
+    {
+      "code": "TEST-ACFB-9BD9",
+      "batchId": "CDK_20261021231347_0023",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 23:13:47"
+    },
+    {
+      "code": "TEST-AE48-2D6E",
+      "batchId": "CDK_20261016043759_0015",
+      "status": "已兑换",
+      "playerId": "TEST_UNIQUE_PLAYER",
+      "usedAt": "2026-10-16 04:37:59",
+      "expiresAt": "2026-10-31 04:37:59"
+    },
+    {
+      "code": "TEST-AE9D-700D",
+      "batchId": "CDK_20261022000319_0031",
+      "status": "待兑换",
+      "expiresAt": "2026-11-06 00:03:19"
+    },
+    {
+      "code": "TEST-AF3E-6471",
+      "batchId": "CDK_20261021231854_0025",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 23:18:54"
+    },
+    {
+      "code": "TEST-B2BF-30B3",
+      "batchId": "CDK_20261016043759_0015",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 04:37:59"
+    },
+    {
+      "code": "TEST-B824-ED10",
+      "batchId": "CDK_20261021233640_0029",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 23:36:40"
+    },
+    {
+      "code": "TEST-B828-1C50",
+      "batchId": "CDK_20261021232915_0027",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 23:29:15"
+    },
+    {
+      "code": "TEST-B955-E1F5",
+      "batchId": "CDK_20261016044135_0019",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 04:41:35"
+    },
+    {
+      "code": "TEST-BC56-7333",
+      "batchId": "CDK_20261016024602_0008",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 02:46:02"
+    },
+    {
+      "code": "TEST-BE8B-E271",
+      "batchId": "CDK_20261022002029_0033",
+      "status": "待兑换",
+      "expiresAt": "2026-11-06 00:20:29"
+    },
+    {
+      "code": "TEST-BEB9-12A7",
+      "batchId": "CDK_20261021231347_0023",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 23:13:47"
+    },
+    {
+      "code": "TEST-BED8-6036",
+      "batchId": "CDK_20261016024427_0005",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 02:44:27"
+    },
+    {
+      "code": "TEST-BF76-397C",
+      "batchId": "CDK_20261016044135_0019",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 04:41:35"
+    },
+    {
+      "code": "TEST-C26C-D348",
+      "batchId": "CDK_20261016024602_0008",
+      "status": "已兑换",
+      "playerId": "TEST_UNIQUE_PLAYER",
+      "usedAt": "2026-10-16 02:46:02",
+      "expiresAt": "2026-10-31 02:46:02"
+    },
+    {
+      "code": "TEST-C2B7-1858",
+      "batchId": "CDK_20261021231854_0025",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 23:18:54"
+    },
+    {
+      "code": "TEST-CE66-3A44",
+      "batchId": "CDK_20261021232915_0027",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 23:29:15"
+    },
+    {
+      "code": "TEST-CF0D-C9FB",
+      "batchId": "CDK_20261022002029_0033",
+      "status": "待兑换",
+      "expiresAt": "2026-11-06 00:20:29"
+    },
+    {
+      "code": "TEST-CF1F-FFC4",
+      "batchId": "CDK_20261021231854_0025",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 23:18:54"
+    },
+    {
+      "code": "TEST-CF5B-5B04",
+      "batchId": "CDK_20261016043625_0013",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 04:36:25"
+    },
+    {
+      "code": "TEST-D013-E4CA",
+      "batchId": "CDK_20261016024427_0005",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 02:44:27"
+    },
+    {
+      "code": "TEST-D135-7F83",
+      "batchId": "CDK_20261021232915_0027",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 23:29:15"
+    },
+    {
+      "code": "TEST-D289-A6A6",
+      "batchId": "CDK_20261016024513_0006",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 02:45:13"
+    },
+    {
+      "code": "TEST-D483-496B",
+      "batchId": "CDK_20261021232915_0027",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 23:29:15"
+    },
+    {
+      "code": "TEST-D862-091C",
+      "batchId": "CDK_20261016044135_0019",
+      "status": "已兑换",
+      "playerId": "TEST_UNIQUE_PLAYER",
+      "usedAt": "2026-10-16 04:41:35",
+      "expiresAt": "2026-10-31 04:41:35"
+    },
+    {
+      "code": "TEST-D890-C407",
+      "batchId": "CDK_20261021224920_0021",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 22:49:20"
+    },
+    {
+      "code": "TEST-D98A-F8AE",
+      "batchId": "CDK_20261016024602_0008",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 02:46:02"
+    },
+    {
+      "code": "TEST-DD46-B67D",
+      "batchId": "CDK_20261016043941_0017",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 04:39:41"
+    },
+    {
+      "code": "TEST-DD64-697B",
+      "batchId": "CDK_20261021231347_0023",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 23:13:47"
+    },
+    {
+      "code": "TEST-E12E-CB7F",
+      "batchId": "CDK_20261016043625_0013",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 04:36:25"
+    },
+    {
+      "code": "TEST-E2CB-266A",
+      "batchId": "CDK_20261021232915_0027",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 23:29:15"
+    },
+    {
+      "code": "TEST-E6E9-BFE4",
+      "batchId": "CDK_20261022002029_0033",
+      "status": "待兑换",
+      "expiresAt": "2026-11-06 00:20:29"
+    },
+    {
+      "code": "TEST-E943-3C6B",
+      "batchId": "CDK_20261016024602_0008",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 02:46:02"
+    },
+    {
+      "code": "TEST-ECA4-9733",
+      "batchId": "CDK_20261016024602_0008",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 02:46:02"
+    },
+    {
+      "code": "TEST-EE17-B530",
+      "batchId": "CDK_20261021233640_0029",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 23:36:40"
+    },
+    {
+      "code": "TEST-EE2A-92A5",
+      "batchId": "CDK_20261016024427_0005",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 02:44:27"
+    },
+    {
+      "code": "TEST-F075-D7D9",
+      "batchId": "CDK_20261016024602_0008",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 02:46:02"
+    },
+    {
+      "code": "TEST-F29F-880E",
+      "batchId": "CDK_20261016043941_0017",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 04:39:41"
+    },
+    {
+      "code": "TEST-F395-2845",
+      "batchId": "CDK_20261016043625_0013",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 04:36:25"
+    },
+    {
+      "code": "TEST-F40B-0C1F",
+      "batchId": "CDK_20261016043759_0015",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 04:37:59"
+    },
+    {
+      "code": "TEST-F688-DB5D",
+      "batchId": "CDK_20261021224920_0021",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 22:49:20"
+    },
+    {
+      "code": "TEST-F712-D26F",
+      "batchId": "CDK_20261016024611_0010",
+      "status": "已兑换",
+      "playerId": "TEST_UNIQUE_PLAYER",
+      "usedAt": "2026-10-16 02:46:11",
+      "expiresAt": "2026-10-31 02:46:11"
+    },
+    {
+      "code": "TEST-F786-463B",
+      "batchId": "CDK_20261016024513_0006",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 02:45:13"
+    },
+    {
+      "code": "TEST-F9F7-FA18",
+      "batchId": "CDK_20261016024427_0005",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 02:44:27"
+    },
+    {
+      "code": "TEST-FB36-2D83",
+      "batchId": "CDK_20261021231854_0025",
+      "status": "待兑换",
+      "expiresAt": "2026-11-05 23:18:54"
+    },
+    {
+      "code": "TEST-FB41-D711",
+      "batchId": "CDK_20261022000319_0031",
+      "status": "待兑换",
+      "expiresAt": "2026-11-06 00:03:19"
+    },
+    {
+      "code": "TEST-FE7B-E795",
+      "batchId": "CDK_20261016044135_0019",
+      "status": "待兑换",
+      "expiresAt": "2026-10-31 04:41:35"
+    },
+    {
+      "code": "XJ-TAP-89F1-1001",
+      "batchId": "CDK_BATCH_03",
+      "status": "已兑换",
+      "playerId": "XJ100367",
+      "usedAt": "2026-10-16 10:15:20",
+      "expiresAt": "2026-11-30 23:59:59"
+    },
+    {
+      "code": "XJ-TAP-89F1-1002",
+      "batchId": "CDK_BATCH_03",
+      "status": "已兑换",
+      "playerId": "XJ100248",
+      "usedAt": "2026-10-16 11:32:00",
+      "expiresAt": "2026-11-30 23:59:59"
+    },
+    {
+      "code": "XJ-TAP-89F1-1003",
+      "batchId": "CDK_BATCH_03",
+      "status": "待兑换",
+      "expiresAt": "2026-11-30 23:59:59"
+    },
+    {
+      "code": "XJ-TAP-89F1-1004",
+      "batchId": "CDK_BATCH_03",
+      "status": "待兑换",
+      "expiresAt": "2026-11-30 23:59:59"
+    },
+    {
+      "code": "XJ-TAP-89F1-1005",
+      "batchId": "CDK_BATCH_03",
+      "status": "待兑换",
+      "expiresAt": "2026-11-30 23:59:59"
+    },
+    {
+      "code": "XJ-TAP-89F1-1006",
+      "batchId": "CDK_BATCH_03",
+      "status": "待兑换",
+      "expiresAt": "2026-11-30 23:59:59"
+    },
+    {
+      "code": "XJ-TAP-89F1-1007",
+      "batchId": "CDK_BATCH_03",
+      "status": "待兑换",
+      "expiresAt": "2026-11-30 23:59:59"
+    },
+    {
+      "code": "XJ-TAP-89F1-1008",
+      "batchId": "CDK_BATCH_03",
+      "status": "待兑换",
+      "expiresAt": "2026-11-30 23:59:59"
+    },
+    {
+      "code": "XJ-TAP-89F1-1009",
+      "batchId": "CDK_BATCH_03",
+      "status": "待兑换",
+      "expiresAt": "2026-11-30 23:59:59"
+    },
+    {
+      "code": "XJ-TAP-89F1-1010",
+      "batchId": "CDK_BATCH_03",
+      "status": "待兑换",
+      "expiresAt": "2026-11-30 23:59:59"
+    },
+    {
+      "code": "XJ-TAP-89F1-1011",
+      "batchId": "CDK_BATCH_03",
+      "status": "待兑换",
+      "expiresAt": "2026-11-30 23:59:59"
+    },
+    {
+      "code": "XJ-TAP-89F1-1012",
+      "batchId": "CDK_BATCH_03",
+      "status": "待兑换",
+      "expiresAt": "2026-11-30 23:59:59"
+    },
+    {
+      "code": "XJ-TAP-89F1-1013",
+      "batchId": "CDK_BATCH_03",
+      "status": "待兑换",
+      "expiresAt": "2026-11-30 23:59:59"
+    },
+    {
+      "code": "XJ-TAP-89F1-1014",
+      "batchId": "CDK_BATCH_03",
+      "status": "待兑换",
+      "expiresAt": "2026-11-30 23:59:59"
+    },
+    {
+      "code": "XJ-TAP-89F1-1015",
+      "batchId": "CDK_BATCH_03",
+      "status": "待兑换",
+      "expiresAt": "2026-11-30 23:59:59"
+    },
+    {
+      "code": "XJ-TAP-89F1-1016",
+      "batchId": "CDK_BATCH_03",
+      "status": "待兑换",
+      "expiresAt": "2026-11-30 23:59:59"
+    },
+    {
+      "code": "XJ-TAP-89F1-1017",
+      "batchId": "CDK_BATCH_03",
+      "status": "待兑换",
+      "expiresAt": "2026-11-30 23:59:59"
+    },
+    {
+      "code": "XJ-TAP-89F1-1018",
+      "batchId": "CDK_BATCH_03",
+      "status": "待兑换",
+      "expiresAt": "2026-11-30 23:59:59"
+    },
+    {
+      "code": "XJ-TAP-89F1-1019",
+      "batchId": "CDK_BATCH_03",
+      "status": "待兑换",
+      "expiresAt": "2026-11-30 23:59:59"
+    },
+    {
+      "code": "XJ-TAP-89F1-1020",
+      "batchId": "CDK_BATCH_03",
+      "status": "待兑换",
+      "expiresAt": "2026-11-30 23:59:59"
+    }
+  ],
+  "cdkeyRedemptions": [
+    {
+      "id": 29,
+      "code": "TEST-7B59-19B0",
+      "batchId": "CDK_20261022002029_0033",
+      "batchName": "测试独占激活码",
+      "playerId": "TEST_UNIQUE_PLAYER",
+      "playerName": "太极道人",
+      "game": "九州志",
+      "time": "2026-10-22 00:20:29",
+      "rewards": [
+        {
+          "itemId": "ITEM_401",
+          "itemName": "太虚飞剑",
+          "category": "",
+          "amount": 1,
+          "rarity": "",
+          "isBox": false
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "code": "SP_707595",
+      "batchId": "CDK_20261022002029_0032",
+      "batchName": "春季测试全员礼包",
+      "playerId": "TEST_HERO",
+      "playerName": "逍遥剑仙",
+      "game": "山海长歌",
+      "time": "2026-10-22 00:20:29",
+      "rewards": [
+        {
+          "itemId": "ITEM_101",
+          "itemName": "元宝",
+          "category": "",
+          "amount": 888,
+          "rarity": "",
+          "isBox": false
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "code": "TEST-3B3B-8C1F",
+      "batchId": "CDK_20261022000319_0031",
+      "batchName": "测试独占激活码",
+      "playerId": "TEST_UNIQUE_PLAYER",
+      "playerName": "太极道人",
+      "game": "九州志",
+      "time": "2026-10-22 00:03:19",
+      "rewards": [
+        {
+          "itemId": "ITEM_401",
+          "itemName": "太虚飞剑",
+          "category": "",
+          "amount": 1,
+          "rarity": "",
+          "isBox": false
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "code": "SP_562673",
+      "batchId": "CDK_20261022000319_0030",
+      "batchName": "春季测试全员礼包",
+      "playerId": "TEST_HERO",
+      "playerName": "逍遥剑仙",
+      "game": "山海长歌",
+      "time": "2026-10-22 00:03:19",
+      "rewards": [
+        {
+          "itemId": "ITEM_101",
+          "itemName": "元宝",
+          "category": "",
+          "amount": 888,
+          "rarity": "",
+          "isBox": false
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "code": "TEST-0822-BDCB",
+      "batchId": "CDK_20261021233640_0029",
+      "batchName": "测试独占激活码",
+      "playerId": "TEST_UNIQUE_PLAYER",
+      "playerName": "太极道人",
+      "game": "九州志",
+      "time": "2026-10-21 23:36:40",
+      "rewards": [
+        {
+          "itemId": "ITEM_401",
+          "itemName": "太虚飞剑",
+          "category": "",
+          "amount": 1,
+          "rarity": "",
+          "isBox": false
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "code": "SP_27329",
+      "batchId": "CDK_20261021233640_0028",
+      "batchName": "春季测试全员礼包",
+      "playerId": "TEST_HERO",
+      "playerName": "逍遥剑仙",
+      "game": "山海长歌",
+      "time": "2026-10-21 23:36:40",
+      "rewards": [
+        {
+          "itemId": "ITEM_101",
+          "itemName": "元宝",
+          "category": "",
+          "amount": 888,
+          "rarity": "",
+          "isBox": false
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "code": "TEST-571B-A1A6",
+      "batchId": "CDK_20261021232915_0027",
+      "batchName": "测试独占激活码",
+      "playerId": "TEST_UNIQUE_PLAYER",
+      "playerName": "太极道人",
+      "game": "九州志",
+      "time": "2026-10-21 23:29:15",
+      "rewards": [
+        {
+          "itemId": "ITEM_401",
+          "itemName": "太虚飞剑",
+          "category": "",
+          "amount": 1,
+          "rarity": "",
+          "isBox": false
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "code": "SP_563405",
+      "batchId": "CDK_20261021232915_0026",
+      "batchName": "春季测试全员礼包",
+      "playerId": "TEST_HERO",
+      "playerName": "逍遥剑仙",
+      "game": "山海长歌",
+      "time": "2026-10-21 23:29:15",
+      "rewards": [
+        {
+          "itemId": "ITEM_101",
+          "itemName": "元宝",
+          "category": "",
+          "amount": 888,
+          "rarity": "",
+          "isBox": false
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "code": "TEST-9DD1-4EDD",
+      "batchId": "CDK_20261021231854_0025",
+      "batchName": "测试独占激活码",
+      "playerId": "TEST_UNIQUE_PLAYER",
+      "playerName": "太极道人",
+      "game": "九州志",
+      "time": "2026-10-21 23:18:54",
+      "rewards": [
+        {
+          "itemId": "ITEM_401",
+          "itemName": "太虚飞剑",
+          "category": "",
+          "amount": 1,
+          "rarity": "",
+          "isBox": false
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "code": "SP_479249",
+      "batchId": "CDK_20261021231854_0024",
+      "batchName": "春季测试全员礼包",
+      "playerId": "TEST_HERO",
+      "playerName": "逍遥剑仙",
+      "game": "山海长歌",
+      "time": "2026-10-21 23:18:54",
+      "rewards": [
+        {
+          "itemId": "ITEM_101",
+          "itemName": "元宝",
+          "category": "",
+          "amount": 888,
+          "rarity": "",
+          "isBox": false
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "code": "TEST-687F-400C",
+      "batchId": "CDK_20261021231347_0023",
+      "batchName": "测试独占激活码",
+      "playerId": "TEST_UNIQUE_PLAYER",
+      "playerName": "太极道人",
+      "game": "九州志",
+      "time": "2026-10-21 23:13:47",
+      "rewards": [
+        {
+          "itemId": "ITEM_401",
+          "itemName": "太虚飞剑",
+          "category": "",
+          "amount": 1,
+          "rarity": "",
+          "isBox": false
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "code": "SP_87512",
+      "batchId": "CDK_20261021231347_0022",
+      "batchName": "春季测试全员礼包",
+      "playerId": "TEST_HERO",
+      "playerName": "逍遥剑仙",
+      "game": "山海长歌",
+      "time": "2026-10-21 23:13:47",
+      "rewards": [
+        {
+          "itemId": "ITEM_101",
+          "itemName": "元宝",
+          "category": "",
+          "amount": 888,
+          "rarity": "",
+          "isBox": false
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "code": "TEST-073E-FD09",
+      "batchId": "CDK_20261021224920_0021",
+      "batchName": "测试独占激活码",
+      "playerId": "TEST_UNIQUE_PLAYER",
+      "playerName": "太极道人",
+      "game": "九州志",
+      "time": "2026-10-21 22:49:20",
+      "rewards": [
+        {
+          "itemId": "ITEM_401",
+          "itemName": "太虚飞剑",
+          "category": "",
+          "amount": 1,
+          "rarity": "",
+          "isBox": false
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "code": "SP_534076",
+      "batchId": "CDK_20261021224920_0020",
+      "batchName": "春季测试全员礼包",
+      "playerId": "TEST_HERO",
+      "playerName": "逍遥剑仙",
+      "game": "山海长歌",
+      "time": "2026-10-21 22:49:20",
+      "rewards": [
+        {
+          "itemId": "ITEM_101",
+          "itemName": "元宝",
+          "category": "",
+          "amount": 888,
+          "rarity": "",
+          "isBox": false
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "code": "TEST-D862-091C",
+      "batchId": "CDK_20261016044135_0019",
+      "batchName": "测试独占激活码",
+      "playerId": "TEST_UNIQUE_PLAYER",
+      "playerName": "太极道人",
+      "game": "九州志",
+      "time": "2026-10-16 04:41:35",
+      "rewards": [
+        {
+          "itemId": "ITEM_401",
+          "itemName": "太虚飞剑",
+          "category": "",
+          "amount": 1,
+          "rarity": "",
+          "isBox": false
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "code": "SP_961318",
+      "batchId": "CDK_20261016044134_0018",
+      "batchName": "春季测试全员礼包",
+      "playerId": "TEST_HERO",
+      "playerName": "逍遥剑仙",
+      "game": "山海长歌",
+      "time": "2026-10-16 04:41:34",
+      "rewards": [
+        {
+          "itemId": "ITEM_101",
+          "itemName": "元宝",
+          "category": "",
+          "amount": 888,
+          "rarity": "",
+          "isBox": false
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "code": "TEST-5323-0DE4",
+      "batchId": "CDK_20261016043941_0017",
+      "batchName": "测试独占激活码",
+      "playerId": "TEST_UNIQUE_PLAYER",
+      "playerName": "太极道人",
+      "game": "九州志",
+      "time": "2026-10-16 04:39:41",
+      "rewards": [
+        {
+          "itemId": "ITEM_401",
+          "itemName": "太虚飞剑",
+          "category": "",
+          "amount": 1,
+          "rarity": "",
+          "isBox": false
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "code": "SP_403373",
+      "batchId": "CDK_20261016043941_0016",
+      "batchName": "春季测试全员礼包",
+      "playerId": "TEST_HERO",
+      "playerName": "逍遥剑仙",
+      "game": "山海长歌",
+      "time": "2026-10-16 04:39:41",
+      "rewards": [
+        {
+          "itemId": "ITEM_101",
+          "itemName": "元宝",
+          "category": "",
+          "amount": 888,
+          "rarity": "",
+          "isBox": false
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "code": "TEST-AE48-2D6E",
+      "batchId": "CDK_20261016043759_0015",
+      "batchName": "测试独占激活码",
+      "playerId": "TEST_UNIQUE_PLAYER",
+      "playerName": "太极道人",
+      "game": "九州志",
+      "time": "2026-10-16 04:37:59",
+      "rewards": [
+        {
+          "itemId": "ITEM_401",
+          "itemName": "太虚飞剑",
+          "category": "",
+          "amount": 1,
+          "rarity": "",
+          "isBox": false
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "code": "SP_77193",
+      "batchId": "CDK_20261016043759_0014",
+      "batchName": "春季测试全员礼包",
+      "playerId": "TEST_HERO",
+      "playerName": "逍遥剑仙",
+      "game": "山海长歌",
+      "time": "2026-10-16 04:37:59",
+      "rewards": [
+        {
+          "itemId": "ITEM_101",
+          "itemName": "元宝",
+          "category": "",
+          "amount": 888,
+          "rarity": "",
+          "isBox": false
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "code": "TEST-39F9-B785",
+      "batchId": "CDK_20261016043625_0013",
+      "batchName": "测试独占激活码",
+      "playerId": "TEST_UNIQUE_PLAYER",
+      "playerName": "太极道人",
+      "game": "九州志",
+      "time": "2026-10-16 04:36:25",
+      "rewards": [
+        {
+          "itemId": "ITEM_401",
+          "itemName": "太虚飞剑",
+          "category": "",
+          "amount": 1,
+          "rarity": "",
+          "isBox": false
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "code": "SP_104314",
+      "batchId": "CDK_20261016043625_0012",
+      "batchName": "春季测试全员礼包",
+      "playerId": "TEST_HERO",
+      "playerName": "逍遥剑仙",
+      "game": "山海长歌",
+      "time": "2026-10-16 04:36:25",
+      "rewards": [
+        {
+          "itemId": "ITEM_101",
+          "itemName": "元宝",
+          "category": "",
+          "amount": 888,
+          "rarity": "",
+          "isBox": false
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "code": "BILI-0668-9695",
+      "batchId": "CDK_20261016030100_0011",
+      "batchName": "B站限定神兵预约独占礼包",
+      "playerId": "XJ100248",
+      "playerName": "听风入梦",
+      "game": "山海长歌",
+      "time": "2026-10-16 03:01:09",
+      "rewards": [
+        {
+          "itemId": "ITEM_401",
+          "itemName": "太虚飞剑",
+          "category": "极品装备",
+          "amount": 1,
+          "rarity": "传说",
+          "isBox": false
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "code": "VIP666",
+      "batchId": "CDK_BATCH_01",
+      "batchName": "全服通用迎新豪华礼包",
+      "playerId": "XJ100367",
+      "playerName": "青山客",
+      "game": "九州志",
+      "time": "2026-10-16 03:00:46",
+      "rewards": [
+        {
+          "itemId": "ITEM_101",
+          "itemName": "元宝",
+          "category": "通用货币",
+          "amount": 666,
+          "rarity": "传说",
+          "isBox": false
+        },
+        {
+          "itemId": "ITEM_202",
+          "itemName": "凝气丹",
+          "category": "修炼丹药",
+          "amount": 10,
+          "rarity": "普通",
+          "isBox": false
+        },
+        {
+          "itemId": "ITEM_104",
+          "itemName": "银两",
+          "category": "通用货币",
+          "amount": 50000,
+          "rarity": "普通",
+          "isBox": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "code": "TEST-F712-D26F",
+      "batchId": "CDK_20261016024611_0010",
+      "batchName": "测试独占激活码",
+      "playerId": "TEST_UNIQUE_PLAYER",
+      "playerName": "太极道人",
+      "game": "九州志",
+      "time": "2026-10-16 02:46:11",
+      "rewards": [
+        {
+          "itemId": "ITEM_401",
+          "itemName": "太虚飞剑",
+          "category": "",
+          "amount": 1,
+          "rarity": "",
+          "isBox": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "code": "SP_641581",
+      "batchId": "CDK_20261016024611_0009",
+      "batchName": "春季测试全员礼包",
+      "playerId": "TEST_HERO",
+      "playerName": "逍遥剑仙",
+      "game": "山海长歌",
+      "time": "2026-10-16 02:46:11",
+      "rewards": [
+        {
+          "itemId": "ITEM_101",
+          "itemName": "元宝",
+          "category": "",
+          "amount": 888,
+          "rarity": "",
+          "isBox": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "code": "XJ-TAP-89F1-1002",
+      "batchId": "CDK_BATCH_03",
+      "batchName": "TAPTAP渠道专属首发独占卡密",
+      "playerId": "XJ100248",
+      "playerName": "听风入梦",
+      "game": "九州志",
+      "time": "2026-10-16 11:32:00",
+      "rewards": [
+        {
+          "itemId": "ITEM_101",
+          "itemName": "元宝",
+          "category": "通用货币",
+          "amount": 1000,
+          "rarity": "传说",
+          "isBox": false
+        },
+        {
+          "itemId": "ITEM_401",
+          "itemName": "太虚飞剑",
+          "category": "极品装备",
+          "amount": 1,
+          "rarity": "传说",
+          "isBox": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "code": "XJ-TAP-89F1-1001",
+      "batchId": "CDK_BATCH_03",
+      "batchName": "TAPTAP渠道专属首发独占卡密",
+      "playerId": "XJ100367",
+      "playerName": "青山客",
+      "game": "九州志",
+      "time": "2026-10-16 10:15:20",
+      "rewards": [
+        {
+          "itemId": "ITEM_101",
+          "itemName": "元宝",
+          "category": "通用货币",
+          "amount": 1000,
+          "rarity": "传说",
+          "isBox": false
+        },
+        {
+          "itemId": "ITEM_401",
+          "itemName": "太虚飞剑",
+          "category": "极品装备",
+          "amount": 1,
+          "rarity": "传说",
+          "isBox": false
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "code": "VIP666",
+      "batchId": "CDK_BATCH_01",
+      "batchName": "全服通用迎新豪华礼包",
+      "playerId": "XJ100248",
+      "playerName": "听风入梦",
+      "game": "山海长歌",
+      "time": "2026-10-16 09:12:00",
+      "rewards": [
+        {
+          "itemId": "ITEM_101",
+          "itemName": "元宝",
+          "category": "通用货币",
+          "amount": 666,
+          "rarity": "传说",
+          "isBox": false
+        },
+        {
+          "itemId": "ITEM_202",
+          "itemName": "凝气丹",
+          "category": "修炼丹药",
+          "amount": 10,
+          "rarity": "普通",
+          "isBox": false
+        },
+        {
+          "itemId": "ITEM_104",
+          "itemName": "银两",
+          "category": "通用货币",
+          "amount": 50000,
+          "rarity": "普通",
+          "isBox": false
+        }
+      ]
     }
   ]
 }
